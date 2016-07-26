@@ -1,0 +1,26 @@
+/*$bgColor : lightblue;*/
+
+section {
+  /*background-color: $bgColor;*/
+
+}
+
+li {
+  list-style: none;
+  display:inline-block;
+  padding:1em;
+  margin:1em;
+  /*border: 1px solid gray;*/
+  background-color:#e6eef1;
+  border-radius: 0.2em;
+  text-align: center;
+  font-size: 2em;
+  color:darkblue;
+}
+
+
+.imgMonster {
+  max-width: 100px;
+}
+
+

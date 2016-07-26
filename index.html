@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <base href="/">
+    <title>Angular 2 QuickStart</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link href="node_modules/ng2-toastr/bundles/ng2-toastr.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="public/css/styles.css">
+    <link rel="stylesheet" href="pannellum/pannellum.css">
+    <script src="pannellum/pannellum.js"></script>
+    <script src="pannellum/libpannellum.js"></script>
+
+    <!-- Polyfill(s) for older browsers -->
+    <script src="node_modules/core-js/client/shim.min.js"></script>
+
+    <script src="node_modules/zone.js/dist/zone.js"></script>
+    <script src="node_modules/reflect-metadata/Reflect.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+    <script src="node_modules/ng2-toastr/bundles/ng2-toastr.min.js"></script>
+    <script src="systemjs.config.js"></script>
+    <script>
+      System.import('app').catch(function(err){ console.error(err); });
+    </script>
+
+
+
+
+
+  </head>
+
+  <body>
+    <my-app>Loading...</my-app>
+    <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+    <script>
+      var socket = io.connect('http://localhost:3003');
+      console.log('socket', socket)
+    </script>
+
+  </body>
+
+</html>

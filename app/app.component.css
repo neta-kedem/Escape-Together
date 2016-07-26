@@ -1,0 +1,13 @@
+/* TODO: make it SCSS */ 
+
+.container {
+  margin-top:50px;
+}
+
+input.ng-invalid.ng-touched {
+  background-color: pink;
+}
+
+input.ng-valid.ng-touched {
+  border: 2px solid green;
+}
