@@ -4,7 +4,7 @@
 "use strict";
 const 	express = require('express'),
 		bodyParser 		= require('body-parser'),
-		cors = require('cors'),
+		cors = require('cors')
 //		mongodb = require('mongodb')
 
 //const multer  = require('multer')
@@ -55,7 +55,7 @@ io.on('connection', function(socket){
     
 });
 
-cl('WebSocket is Ready');
+console.log('WebSocket is Ready');
 /*
 // Just for basic testing the socket
 // app.get('/', function(req, res){
@@ -184,22 +184,23 @@ app.put('/data/:objType/:id', function (req, res) {
 
 });
 
-
+*/
 // Kickup our server 
 const baseUrl = 'http://localhost:3003/data';
 // Note: app.listen will not work with cors and the socket
 // app.listen(3003, function () {
 http.listen(3003, function () {
-	console.log(`misterREST server is ready at ${baseUrl}`);
+/*	console.log(`misterREST server is ready at ${baseUrl}`);
 	console.log(`GET (list): \t\t ${baseUrl}/{entity}`);
 	console.log(`GET (single): \t\t ${baseUrl}/{entity}/{id}`);
 	console.log(`DELETE: \t\t ${baseUrl}/{entity}/{id}`);
 	console.log(`PUT (update): \t\t ${baseUrl}/{entity}/{id}`);
 	console.log(`POST (add): \t\t ${baseUrl}/{entity}`);
-
-});
 */
+});
+/*
 // Some small time utility functions
 function cl(...params) {
 	console.log.apply(console, params);
 }
+*/
