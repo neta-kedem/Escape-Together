@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { BagComponent } from './bagComponent';
+import { EscapeTogetherService } from './escapeTogetherService';
+
 declare var pannellum: any;
 
 
@@ -7,19 +10,23 @@ declare var pannellum: any;
 	// selector: 'escape',
 	template: `
 		<div id="father" style="width:100%;height:300px;">
+			<bag></bag>
 			<div id="panorama" style="width:100%;"></div>
 			<button (click)="setPikachu()">pikapika!!</button>
 		</div>
-		`
+		`,
+	styleUrls: ['escapeTogetherComponent.css'],
+	directives: [BagComponent],
+	providers: [EscapeTogetherService]
+
 
 })
-export class escapeTogetherComponent implements OnInit {
-	constructor() { }
+export class EscapeTogetherComponent implements OnInit {
+	constructor(public escapeTogetherService : EscapeTogetherService) { }
 
 	view:any ={};
   
 	ngOnInit() {
-		console.log('hi!');
 		this.view = pannellum.viewer('panorama', {
 		  "default": {
 			"firstScene": "library",
@@ -81,11 +88,16 @@ export class escapeTogetherComponent implements OnInit {
 		  }
 		});
 	}
+
 	setPikachu(){
-	    console.log('catch it',this.view);
 	    var a = document.querySelector('div.pnlm-hotspot');
 	    // console.log(a);
-	    a.innerHTML += '<img src="img/artifacts/Pikachu_256px.png" height="64" width="64" onClick="clicked(this);"/>';
+	    a.innerHTML += '<img src="img/artifacts/Pikachu_256px.png" height="64" width="64"/>';
+	    a.lastChild.addEventListener('click' , ()=>{
+	        this.escapeTogetherService.artifactClicked()
+	        a.innerHTML=''});
+	    // a.lastChild.addEventListener('click' , function(){console.log(this)});
+
 	    this.view.setPitch(this.view.getPitch());
 	}
 }

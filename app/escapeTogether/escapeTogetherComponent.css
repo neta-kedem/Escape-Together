@@ -1,0 +1,15 @@
+bag{
+    height: inherit;
+}
+#father:-moz-full-screen {
+    height: 100% !important;
+    width: 100% !important;
+}
+#father:-webkit-full-screen {
+    height: 100% !important;
+    width: 100% !important;
+}
+#father:fullscreen {
+    height: 100% !important;
+    width: 100% !important;
+}
