@@ -5,8 +5,8 @@ import { GameState } from './gameState'
 export class EscapeTogetherService{
 	
 	// constructor() {}
-	private gameState = new GameState([[{id:'pikachu',shown:true}]], 'gramsci', 'queer', 0);
-	public artifacts = [];
+	private gameState = new GameState([[{id:'pikachu', shown:true, src:'img/artifacts/Pikachu_256px.png'}]], 'gramsci', 'queer', 0);
+	public bags = [];
 	constructor(){
 		window.addEventListener('message' , (msg)=>{
 			console.log('on message', msg.data.artifactId);
@@ -15,13 +15,17 @@ export class EscapeTogetherService{
 
 	artifactClicked(artifactId){
 		console.log('artifactId:', artifactId);
-		this.artifacts.push('img/artifacts/Pikachu_256px.png');
-		document.querySelector('#'+artifactId).style="display:none";
-		this.gameState.userClick(0, 0, 'pikachu');
+		let currState = this.gameState.userClick(0, 0, artifactId);
+		// this.artifacts.push('img/artifacts/Pikachu_256px.png');
+		this.bags = currState.bags;
+		currState.scene.forEach((artifact)=>{(<HTMLElement>document.querySelector('#'+artifact.id)).style.display = artifact.shown? 'block': 'none'});
+		// document.querySelector('#'+artifactId).style="display:none";
 
-		}
-
-	getArtifacts(){
-		return this.artifacts;
 	}
+
+	bagClicked(artifactId){
+		console.log('clicked in bag');
+        let currState = this.gameState.bagedArtifactClicked(0, 0, artifactId);
+	}
+
 }

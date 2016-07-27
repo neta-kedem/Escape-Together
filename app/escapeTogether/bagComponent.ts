@@ -7,7 +7,10 @@ import { EscapeTogetherService } from './escapeTogetherService';
 	template: `
  				<!--<button (click)="escapeTogetherService.artifacts[3]='img/artifacts/Pikachu_256px.png'"></button>-->
 				<div class="bag">
-					<img *ngFor="let artifact of escapeTogetherService.artifacts" src="{{artifact}}" height="64" width="64"/>
+					<div *ngFor="let bag of escapeTogetherService.bags">
+						<img (click)="escapeTogetherService.bagClicked(artifact.id)" *ngFor="let artifact of bag" src="{{artifact.src}}" height="64" width="64"/>
+						<hr>
+					</div>
 				</div>
 				`,
 	styles:[`.bag{
@@ -27,6 +30,9 @@ import { EscapeTogetherService } from './escapeTogetherService';
 				    /* Fix Safari fullscreen bug */
 				    /*-webkit-transform: translateZ(9999px);*/
 				    /*transform: translateZ(9999px);*/
+				}
+				.inUse{
+				opacity: 0.5;
 				}`],
 	// providers:[EscapeTogetherService]
 })
@@ -36,8 +42,7 @@ export class BagComponent implements OnInit {
 	constructor(private escapeTogetherService:EscapeTogetherService) { }
 
 	ngOnInit() {
-		this.artifacts = this.escapeTogetherService.getArtifacts();
-		console.log('get artifacts');
+
 	}
 
 	
