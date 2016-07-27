@@ -12,7 +12,6 @@ declare var pannellum: any;
 		<div id="father" style="width:100%;height:300px;">
 			<bag></bag>
 			<div id="panorama" style="width:100%;"></div>
-			<button (click)="setPikachu()">pikapika!!</button>
 		</div>
 		`,
 	styleUrls: ['escapeTogetherComponent.css'],
@@ -32,7 +31,7 @@ export class EscapeTogetherComponent implements OnInit {
 			"firstScene": "library",
 			// "author": "Escape",
 			"autoLoad": true,
-			"hotSpotDebug": true
+			"hotSpotDebug": false
 		  },
 
 		  "scenes": {
@@ -56,7 +55,7 @@ export class EscapeTogetherComponent implements OnInit {
 				  "pitch": 5,
 				  "yaw": 5,
 				  "type": "info",
-				  // "imageSrc": "Pikachu_256px.png"
+				  "innerHtml": '<img id="pikachu" src="img/artifacts/Pikachu_256px.png" height="64"  width="64" onClick="window.postMessage({artifactId : \'pikachu\' }, \'*\'); console.log(\'clicked\');"/>',
 				  // "text": "I am a happy pikachu"
 				},
 				{
@@ -87,17 +86,5 @@ export class EscapeTogetherComponent implements OnInit {
 			},
 		  }
 		});
-	}
-
-	setPikachu(){
-	    var a = document.querySelector('div.pnlm-hotspot');
-	    // console.log(a);
-	    a.innerHTML += '<img src="img/artifacts/Pikachu_256px.png" height="64" width="64"/>';
-	    a.lastChild.addEventListener('click' , ()=>{
-	        this.escapeTogetherService.artifactClicked()
-	        a.innerHTML=''});
-	    // a.lastChild.addEventListener('click' , function(){console.log(this)});
-
-	    this.view.setPitch(this.view.getPitch());
 	}
 }

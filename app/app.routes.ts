@@ -14,7 +14,7 @@ const routes: RouterConfig = [
   { path: 'monster/edit/:id', component: MonsterEditComponent },
   { path: 'monster/:id/:name', component: MonsterComponent },
   { path: 'chat', component: ChatRoomComponent },
-  { path: '', component: EscapeTogetherComponent }
+  { path: '', component: EscapeTogetherComponent },
   { path: 'escapeTogether', component: EscapeTogetherComponent }
 
 ];

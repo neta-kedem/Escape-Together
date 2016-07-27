@@ -14,7 +14,7 @@ export class ChatRoomService{
 
   constructor(@Inject('io') io){
     this.socket$ = this.url$
-      .switchMap(url => Observable.of(io(url)));  
+      .switchMap(url => Observable.of(io(url)));
       
     this.messages$ = this.socket$
         .switchMap(socket => Observable.fromEvent(socket, 'chat message'))

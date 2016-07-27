@@ -4,7 +4,7 @@
 "use strict";
 const 	express = require('express'),
 		bodyParser 		= require('body-parser'),
-		cors = require('cors')
+		cors = require('cors');
 //		mongodb = require('mongodb')
 
 //const multer  = require('multer')

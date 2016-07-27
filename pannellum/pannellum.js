@@ -1610,18 +1610,18 @@ function overlayCoordinates(){
 	// debugger;
 	let arr = config.hotSpots;
 	// console.log('arr:',arr);
-	arr=arr 
+	arr
 	// .filter((hs)=>hs.div.childElementCount);
 	// console.log('arr2:',arr);
 		.forEach((hs, index)=>{
-			// hs.div.classList.remove('pnlm-hotspot');
-
-			// hs.div.style.width='20px';
-			// hs.div.style.height='20px';
+			if(hs.innerHtml){
+			    hs.div.innerHTML = hs.innerHtml;
+                hs.innerHtml=false;
+			}
 			//if that hotspot is a picture- a colectable object
 			if(hs.div.childElementCount){
 				let object = hs.div.children[0];
-				// console.log('pikapika!');
+				// console.log('pikapika!', object);
 				let width = arr[index+1].x-arr[index].x;
 				// console.log('width:',width);
 				object.style.position='absolute';
