@@ -6,8 +6,8 @@ import { EscapeTogetherService } from './escapeTogetherService';
 	selector: 'bag',
 	template: `
 				<div class="bag">
-					<div *ngFor="let bag of escapeTogetherService.bags">
-						<img (click)="escapeTogetherService.bagClicked(artifact.id)" *ngFor="let artifact of bag" src="{{artifact.src}}" height="64" width="64" [class.inUse]="artifact.isBeingUsed"/>
+					<div *ngFor="let bag of escapeTogetherService.bags()">
+						<img (click)="escapeTogetherService.bagClicked(artifact.id)" *ngFor="let artifact of bag" src="{{artifact.src}}" height="64" width="64" [class.inUseByMe]="artifact.beingUsedBy===escapeTogetherService.userId" [class.inUseByOther]="escapeTogetherService.usedByOthers(artifact, escapeTogetherService.userId)"/>
 						<hr>
 					</div>
 				</div>
@@ -30,9 +30,13 @@ import { EscapeTogetherService } from './escapeTogetherService';
                 /*-webkit-transform: translateZ(9999px);*/
                 /*transform: translateZ(9999px);*/
             }
-            .inUse{
+            .inUseByMe{
                 /*opacity: 0.5;*/
                 background-color: gold;
+            }
+			.inUseByOther{
+                opacity: 0.5;
+                /*background-color: gold;*/
             }`]
 	// providers:[EscapeTogetherService]
 })

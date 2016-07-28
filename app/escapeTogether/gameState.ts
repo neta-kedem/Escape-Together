@@ -18,7 +18,7 @@
 
  */
 export interface IPlayer{name:string, gender:string, currScene:number, itemIdInHand:string}
-export interface IArtifact{id:string,shown:boolean, src:string, isBeingUsed:boolean}
+export interface IArtifact{id:string, shown:boolean, src:string, beingUsedBy:number}
 
 export class GameState {
     private bags:Object[][]=[];   //decide later the exact item structure
@@ -36,14 +36,14 @@ export class GameState {
     //the mother of all the game logic
     userClick(userId, userScene, artifactId){
         console.log('game state totally knows ' + artifactId + ' was clicked');
-        let clickedArtifact=this.scenes[userScene].filter((artifact)=>artifact.id===artifactId)[0];
+        let clickedArtifact = this.scenes[userScene].filter((artifact)=>artifact.id===artifactId)[0];
         //if the clicked artifact is shown (prevent bugs due to "clicking" an already hidden object due to communication lag)
         if(clickedArtifact.shown){
 
             clickedArtifact.shown = false;
             this.bags[userId].push(clickedArtifact);
         }
-        //here we shuld emmit to all the users about the new state
+        //here we shuld emit to all the users about the new state
         return {bags:this.bags, scene:this.scenes[userScene]}
     }
 
@@ -59,26 +59,26 @@ export class GameState {
     (acc, curr) => acc.concat(Array.isArray(curr) ? this.flatten(curr) : curr), []);
 
 
-    bagedArtifactClicked(userId, userScene, artifactId){
-        const clickedArtifact:IArtifact = this.flatten(this.bags.map((bag)=>{
-            return bag.filter((artifact:IArtifact)=>{
-                return artifact.id===artifactId
-            });
-        }))[0];
-
-        //if the clicked artifact is shown (prevent bugs due to "clicking" an already hidden object due to communication lag)
-        if(!clickedArtifact.isBeingUsed) {
-            clickedArtifact.isBeingUsed = true;
-            this.players[userId].itemIdInHand = clickedArtifact.id;
-        }
-        else if(this.players[userId].itemIdInHand === clickedArtifact.id){
-            clickedArtifact.isBeingUsed = false;
-            this.players[userId].itemIdInHand = '';
-        } else{
-            console.log('someone else is playing with that '+clickedArtifact.id);
-        }
-        //here we shuld emmit to all the users about the new state
-        return {bags:this.bags, scene:this.scenes[userScene]}
-    };
+    // bagedArtifactClicked(userId, userScene, artifactId){
+    //     const clickedArtifact:IArtifact = this.flatten(this.bags.map((bag)=>{
+    //         return bag.filter((artifact:IArtifact)=>{
+    //             return artifact.id===artifactId
+    //         });
+    //     }))[0];
+    //
+    //     //if the clicked artifact is shown (prevent bugs due to "clicking" an already hidden object due to communication lag)
+    //     if(!clickedArtifact.isBeingUsed) {
+    //         clickedArtifact.isBeingUsed = true;
+    //         this.players[userId].itemIdInHand = clickedArtifact.id;
+    //     }
+    //     else if(this.players[userId].itemIdInHand === clickedArtifact.id){
+    //         clickedArtifact.isBeingUsed = false;
+    //         this.players[userId].itemIdInHand = '';
+    //     } else{
+    //         console.log('someone else is playing with that '+clickedArtifact.id);
+    //     }
+    //     //here we shuld emmit to all the users about the new state
+    //     return {bags:this.bags, scene:this.scenes[userScene]}
+    // };
 
 }
