@@ -17,6 +17,9 @@ var GameState = (function () {
         }
     }
     //the mother of all the game logic
+    GameState.prototype.sendStateToUsers = function () {
+        this.cb({ bags: this.bags, players: this.players, scenes: this.scenes });
+    };
     GameState.prototype.userClick = function (userId, artifactId) {
         console.log('game state totally knows ' + artifactId + ' was clicked');
         var userScene = this.players[userId].currScene;
@@ -30,35 +33,36 @@ var GameState = (function () {
         }
         //here we shuld emmit to all the users about the new state
         //return {bags:this.bags, scene:this.scenes[userScene]}
-        this.cb({ bags: this.bags, players: this.players, scenes: this.scenes });
+        this.sendStateToUsers();
     };
     GameState.prototype.addPlayer = function (name, gender, currScene) {
         if (currScene === void 0) { currScene = 0; }
         //a happy new player joind the room
         this.players.push({ name: name, gender: gender, currScene: currScene, itemIdInHand: null });
         this.bags.push([]);
-        return this.players.length - 1;
+        return { bags: this.bags, players: this.players, scenes: this.scenes, userId: this.players.length - 1 };
     };
-    GameState.prototype.bagedArtifactClicked = function (userId, userScene, artifactId) {
+    GameState.prototype.bagedArtifactClicked = function (userId, artifactId) {
         var clickedArtifact = this.flatten(this.bags.map(function (bag) {
             return bag.filter(function (artifact) {
                 return artifact.id === artifactId;
             });
         }))[0];
         //if the clicked artifact is shown (prevent bugs due to "clicking" an already hidden object due to communication lag)
-        if (!clickedArtifact.isBeingUsed) {
-            clickedArtifact.isBeingUsed = true;
+        if (clickedArtifact.beingUsedBy === -1) {
+            clickedArtifact.beingUsedBy = userId;
             this.players[userId].itemIdInHand = clickedArtifact.id;
         }
         else if (this.players[userId].itemIdInHand === clickedArtifact.id) {
-            clickedArtifact.isBeingUsed = false;
+            clickedArtifact.beingUsedBy = -1;
             this.players[userId].itemIdInHand = '';
         }
         else {
             console.log('someone else is playing with that ' + clickedArtifact.id);
         }
         //here we shuld emmit to all the users about the new state
-        return { bags: this.bags, scene: this.scenes[userScene] };
+        this.sendStateToUsers();
+        //return {bags:this.bags, scene:this.scenes[userScene]}
     };
     ;
     return GameState;
