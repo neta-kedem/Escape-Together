@@ -5,7 +5,7 @@ import * as io from 'socket.io-client';
 @Injectable()
 export class ChatRoomService{
   // url$ = Observable.of('https://socket-chat-example-qsaokhakmv.now.sh/');
-  url$ = Observable.of('http://localhost:3003');
+  url$ = Observable.of('192.168.0.100:3003');
   private socket$ : any;
   public connected$ : any;
   public messages$ : any;

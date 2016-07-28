@@ -7,7 +7,7 @@ import {MonsterModel} from './monster.model';
 @Injectable()
 export class MonsterService {
 
-  private baseUrl = 'http://localhost:3003/data/monster/';
+  private baseUrl = 'http://192.168.0.100:3003/data/monster/';
   constructor(private http: Http) {}
 
   // query (GETs a list)
