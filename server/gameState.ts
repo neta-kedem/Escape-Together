@@ -18,13 +18,14 @@
 
  */
 export interface IPlayer{name:string, gender:string, currScene:number, itemIdInHand:string}
-export interface IArtifact{id:string,shown:boolean, src:string, isBeingUsed:boolean}
+export interface IArtifact{id:string,shown:boolean, src:string, beingUsedBy:number}
 
 class GameState {
     private bags:Object[][]=[];   //decide later the exact item structure
     private players:IPlayer[]=[];
     private scenes:IArtifact[][];
 	private cb;
+	
 
     constructor(scenes:IArtifact[][], cb, playerName?:string, playerGender?:string, playerCurrScene:number = 0 ){
         this.scenes=scenes;
@@ -36,7 +37,11 @@ class GameState {
     }
 
     //the mother of all the game logic
-    userClick(userId, artifactId){
+    sendStateToUsers(){
+		this.cb({bags:this.bags,players:this.players,scenes:this.scenes});
+	}
+	
+	userClick(userId, artifactId){
         console.log('game state totally knows ' + artifactId + ' was clicked');
 		const userScene = this.players[userId].currScene;
 		console.log('userId:',userId,' currscene:',this.players[userId].currScene);
@@ -51,14 +56,15 @@ class GameState {
         //here we shuld emmit to all the users about the new state
 		
         //return {bags:this.bags, scene:this.scenes[userScene]}
-		this.cb({bags:this.bags,players:this.players,scenes:this.scenes});
+		this.sendStateToUsers();
     }
 
     addPlayer(name:string, gender:string, currScene:number = 0){
         //a happy new player joind the room
         this.players.push({name:name, gender:gender, currScene:currScene, itemIdInHand:null});
         this.bags.push([]);
-        return this.players.length - 1;
+		
+        return {bags:this.bags,players:this.players,scenes:this.scenes,userId:this.players.length - 1};
     }
 
     //to put in some utility file
@@ -66,7 +72,7 @@ class GameState {
     (acc, curr) => acc.concat(Array.isArray(curr) ? this.flatten(curr) : curr), []);
 
 
-    bagedArtifactClicked(userId, userScene, artifactId){
+    bagedArtifactClicked(userId, artifactId){
         const clickedArtifact:IArtifact = this.flatten(this.bags.map((bag)=>{
             return bag.filter((artifact:IArtifact)=>{
                 return artifact.id===artifactId
@@ -74,18 +80,19 @@ class GameState {
         }))[0];
 
         //if the clicked artifact is shown (prevent bugs due to "clicking" an already hidden object due to communication lag)
-        if(!clickedArtifact.isBeingUsed) {
-            clickedArtifact.isBeingUsed = true;
+        if(clickedArtifact.beingUsedBy=== -1) {
+            clickedArtifact.beingUsedBy = userId;
             this.players[userId].itemIdInHand = clickedArtifact.id;
         }
         else if(this.players[userId].itemIdInHand === clickedArtifact.id){
-            clickedArtifact.isBeingUsed = false;
+            clickedArtifact.beingUsedBy = -1;
             this.players[userId].itemIdInHand = '';
         } else{
             console.log('someone else is playing with that '+clickedArtifact.id);
         }
         //here we shuld emmit to all the users about the new state
-        return {bags:this.bags, scene:this.scenes[userScene]}
+		this.sendStateToUsers();
+        //return {bags:this.bags, scene:this.scenes[userScene]}
     };
 
 }
