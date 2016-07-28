@@ -20,31 +20,38 @@
 export interface IPlayer{name:string, gender:string, currScene:number, itemIdInHand:string}
 export interface IArtifact{id:string,shown:boolean, src:string, isBeingUsed:boolean}
 
-export class GameState {
+class GameState {
     private bags:Object[][]=[];   //decide later the exact item structure
     private players:IPlayer[]=[];
     private scenes:IArtifact[][];
+	private cb;
 
-    constructor(scenes:IArtifact[][], playerName?:string, playerGender?:string, playerCurrScene:number = 0 ){
+    constructor(scenes:IArtifact[][], cb, playerName?:string, playerGender?:string, playerCurrScene:number = 0 ){
         this.scenes=scenes;
+		this.cb=cb;//
         if (playerGender){
-            //for now, since we only have one player, we don't check the id. it can only be 0.
             this.addPlayer(playerName,playerGender,playerCurrScene);
         }
+		
     }
 
     //the mother of all the game logic
-    userClick(userId, userScene, artifactId){
+    userClick(userId, artifactId){
         console.log('game state totally knows ' + artifactId + ' was clicked');
+		const userScene = this.players[userId].currScene;
+		console.log('userId:',userId,' currscene:',this.players[userId].currScene);
         let clickedArtifact=this.scenes[userScene].filter((artifact)=>artifact.id===artifactId)[0];
         //if the clicked artifact is shown (prevent bugs due to "clicking" an already hidden object due to communication lag)
-        if(clickedArtifact.shown){
+        console.log('artifact:',clickedArtifact)
+		if(clickedArtifact.shown){
 
             clickedArtifact.shown = false;
             this.bags[userId].push(clickedArtifact);
         }
         //here we shuld emmit to all the users about the new state
-        return {bags:this.bags, scene:this.scenes[userScene]}
+		
+        //return {bags:this.bags, scene:this.scenes[userScene]}
+		this.cb({bags:this.bags,players:this.players,scenes:this.scenes});
     }
 
     addPlayer(name:string, gender:string, currScene:number = 0){
@@ -82,3 +89,5 @@ export class GameState {
     };
 
 }
+
+module.exports = GameState;

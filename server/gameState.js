@@ -3,7 +3,7 @@
  */
 "use strict";
 var GameState = (function () {
-    function GameState(scenes, playerName, playerGender, playerCurrScene) {
+    function GameState(scenes, cb, playerName, playerGender, playerCurrScene) {
         var _this = this;
         if (playerCurrScene === void 0) { playerCurrScene = 0; }
         this.bags = []; //decide later the exact item structure
@@ -11,22 +11,26 @@ var GameState = (function () {
         //to put in some utility file
         this.flatten = function (list) { return list.reduce(function (acc, curr) { return acc.concat(Array.isArray(curr) ? _this.flatten(curr) : curr); }, []); };
         this.scenes = scenes;
+        this.cb = cb; //
         if (playerGender) {
-            //for now, since we only have one player, we don't check the id. it can only be 0.
             this.addPlayer(playerName, playerGender, playerCurrScene);
         }
     }
     //the mother of all the game logic
-    GameState.prototype.userClick = function (userId, userScene, artifactId) {
+    GameState.prototype.userClick = function (userId, artifactId) {
         console.log('game state totally knows ' + artifactId + ' was clicked');
+        var userScene = this.players[userId].currScene;
+        console.log('userId:', userId, ' currscene:', this.players[userId].currScene);
         var clickedArtifact = this.scenes[userScene].filter(function (artifact) { return artifact.id === artifactId; })[0];
         //if the clicked artifact is shown (prevent bugs due to "clicking" an already hidden object due to communication lag)
+        console.log('artifact:', clickedArtifact);
         if (clickedArtifact.shown) {
             clickedArtifact.shown = false;
             this.bags[userId].push(clickedArtifact);
         }
         //here we shuld emmit to all the users about the new state
-        return { bags: this.bags, scene: this.scenes[userScene] };
+        //return {bags:this.bags, scene:this.scenes[userScene]}
+        this.cb({ bags: this.bags, players: this.players, scenes: this.scenes });
     };
     GameState.prototype.addPlayer = function (name, gender, currScene) {
         if (currScene === void 0) { currScene = 0; }
@@ -59,5 +63,5 @@ var GameState = (function () {
     ;
     return GameState;
 }());
-exports.GameState = GameState;
+module.exports = GameState;
 //# sourceMappingURL=gameState.js.map
