@@ -1606,36 +1606,31 @@ function renderHotSpots() {
 	overlayCoordinates();
 }
 
-function overlayCoordinates(){
-	// debugger;
-	let arr = config.hotSpots;
-	// console.log('arr:',arr);
-	arr
-	// .filter((hs)=>hs.div.childElementCount);
-	// console.log('arr2:',arr);
-		.forEach((hs, index)=>{
-			if(hs.innerHtml){
-			    hs.div.innerHTML = hs.innerHtml;
-                hs.innerHtml=false;
+	function overlayCoordinates(){
+		// debugger;
+		let arr = config.hotSpots;
+		arr
+
+
+	.forEach((hs, index)=>{
+		if(hs.imgSrc){
+				hs.div.innerHTML = '<img id='+hs.id+' width="64" height="64" src='+hs.imgSrc+' onClick="'+hs.onClick+'"/>';
+				hs.imgSrc='';
 			}
 			//if that hotspot is a picture- a colectable object
 			if(hs.div.childElementCount){
 				let object = hs.div.children[0];
-				// console.log('pikapika!', object);
 				let width = arr[index+1].x-arr[index].x;
-				// console.log('width:',width);
 				object.style.position='absolute';
 				object.style.top='13px';
 				object.style.left='13px';
 				object.attributes.width.value=width;
-				// console.log('width:',width);
 				let height = arr[index+2].y-arr[index].y;
 				object.attributes.height.value=height;
-				// object.style.perspective='600';
 
-		}
-	});
-}
+			}
+		});
+	}
 
 /**
  * Merges a scene configuration into the current configuration.

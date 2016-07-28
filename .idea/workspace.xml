@@ -2,10 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d6cc9998-9486-4d23-a617-76928a688454" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/escapeTogether/scenes.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/escapeTogether/bagComponent.ts" afterPath="$PROJECT_DIR$/app/escapeTogether/bagComponent.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/escapeTogether/escapeTogetherComponent.ts" afterPath="$PROJECT_DIR$/app/escapeTogether/escapeTogetherComponent.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/escapeTogether/escapeTogetherService.ts" afterPath="$PROJECT_DIR$/app/escapeTogether/escapeTogetherService.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/escapeTogether/gameState.ts" afterPath="$PROJECT_DIR$/app/escapeTogether/gameState.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pannellum/pannellum.js" afterPath="$PROJECT_DIR$/pannellum/pannellum.js" />
     </list>
     <ignored path="ng2-basic-sead.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,26 +34,10 @@
       <file leaf-file-name="escapeTogetherService.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/escapeTogether/escapeTogetherService.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="486">
-              <caret line="27" column="64" selection-start-line="27" selection-start-column="64" selection-end-line="27" selection-end-column="64" />
+            <state relative-caret-position="252">
+              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
               <folding>
                 <element signature="e#0#43#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bagComponent.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/escapeTogether/bagComponent.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="91">
-              <caret line="10" column="70" selection-start-line="10" selection-start-column="60" selection-end-line="10" selection-end-column="70" />
-              <folding>
-                <element signature="e#0#50#0" expanded="true" />
-                <marker date="1469633452499" expanded="true" signature="312:548" ph="..." />
-                <marker date="1469633452499" expanded="true" signature="370:537" ph="..." />
-                <marker date="1469633452499" expanded="true" signature="571:1062" ph="{...}" />
-                <marker date="1469633452499" expanded="true" signature="1073:1098" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -59,35 +46,26 @@
       <file leaf-file-name="gameState.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/escapeTogether/gameState.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="44" column="29" selection-start-line="44" selection-start-column="29" selection-end-line="44" selection-end-column="29" />
+            <state relative-caret-position="162">
+              <caret line="25" column="12" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="12" />
               <folding>
-                <element signature="n#!!doc;n#IPlayer#0" expanded="false" />
+                <element signature="e#40#414#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="chat-room.component.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/chat/chat-room.component.ts">
+      <file leaf-file-name="bagComponent.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/escapeTogether/bagComponent.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="89">
+              <caret line="9" column="190" selection-start-line="9" selection-start-column="190" selection-end-line="9" selection-end-column="190" />
               <folding>
-                <element signature="e#0#40#0" expanded="true" />
-                <marker date="1469530718569" expanded="true" signature="430:463" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="chat-room.service.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/chat/chat-room.service.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="73">
-              <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
-              <folding>
-                <element signature="e#0#51#0" expanded="true" />
+                <element signature="e#0#50#0" expanded="true" />
+                <marker date="1469703958809" expanded="true" signature="203:476" ph="..." />
+                <marker date="1469703958809" expanded="true" signature="261:465" ph="..." />
+                <marker date="1469703958809" expanded="true" signature="499:1126" ph="{...}" />
+                <marker date="1469703958809" expanded="true" signature="1145:1234" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -96,13 +74,13 @@
       <file leaf-file-name="escapeTogetherComponent.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/escapeTogether/escapeTogetherComponent.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="972">
+            <state relative-caret-position="162">
               <caret line="54" column="29" selection-start-line="54" selection-start-column="29" selection-end-line="54" selection-end-column="29" />
               <folding>
                 <element signature="e#0#50#0" expanded="true" />
-                <marker date="1469611168639" expanded="true" signature="292:316" ph="..." />
-                <marker date="1469611168639" expanded="true" signature="317:390" ph="..." />
-                <marker date="1469611168639" expanded="true" signature="363:374" ph="..." />
+                <marker date="1469702360909" expanded="true" signature="292:316" ph="..." />
+                <marker date="1469702360909" expanded="true" signature="317:390" ph="..." />
+                <marker date="1469702360909" expanded="true" signature="363:374" ph="..." />
               </folding>
             </state>
           </provider>
@@ -111,8 +89,8 @@
       <file leaf-file-name="pannellum.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pannellum/pannellum.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="158">
-              <caret line="1618" column="35" selection-start-line="1618" selection-start-column="35" selection-end-line="1618" selection-end-column="35" />
+            <state relative-caret-position="102">
+              <caret line="1468" column="7" selection-start-line="1468" selection-start-column="7" selection-end-line="1468" selection-end-column="7" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -138,9 +116,10 @@
         <option value="$PROJECT_DIR$/app/escapeTogether/app.css" />
         <option value="$PROJECT_DIR$/app/app.routes.ts" />
         <option value="$PROJECT_DIR$/server/server.js" />
-        <option value="$PROJECT_DIR$/pannellum/pannellum.js" />
-        <option value="$PROJECT_DIR$/app/escapeTogether/escapeTogetherComponent.ts" />
         <option value="$PROJECT_DIR$/app/chat/chat-room.service.ts" />
+        <option value="$PROJECT_DIR$/app/escapeTogether/scenes.json" />
+        <option value="$PROJECT_DIR$/app/escapeTogether/escapeTogetherComponent.ts" />
+        <option value="$PROJECT_DIR$/pannellum/pannellum.js" />
         <option value="$PROJECT_DIR$/app/escapeTogether/bagComponent.ts" />
         <option value="$PROJECT_DIR$/app/escapeTogether/escapeTogetherService.ts" />
         <option value="$PROJECT_DIR$/app/escapeTogether/gameState.ts" />
@@ -156,10 +135,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="685" />
-    <option name="y" value="22" />
-    <option name="width" value="685" />
-    <option name="height" value="750" />
+    <option name="x" value="-2" />
+    <option name="y" value="21" />
+    <option name="width" value="1370" />
+    <option name="height" value="752" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -187,14 +166,63 @@
     </navigator>
     <panes>
       <pane id="ProjectPane">
-        <subPane />
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="theProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="theProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="theProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="theProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="theProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="theProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="theProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="escapeTogether" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
       </pane>
       <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../EXAM" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="typescript-compiler-editor-notification" value="false" />
@@ -272,19 +300,28 @@
       <option name="presentableId" value="Default" />
       <updated>1469546184526</updated>
       <workItem from="1469546186313" duration="10812000" />
-      <workItem from="1469559207932" duration="27486000" />
+      <workItem from="1469559207932" duration="44490000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38298000" />
+    <option name="totallyTimeSpent" value="55302000" />
+  </component>
+  <component name="TodoView" selected-index="2">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="685" y="22" width="685" height="750" extended-state="0" />
+    <frame x="-2" y="21" width="1370" height="752" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296131" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32911393" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3280757" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -336,10 +373,10 @@
           <caret line="21" column="44" selection-start-line="21" selection-start-column="44" selection-end-line="21" selection-end-column="44" />
           <folding>
             <element signature="e#0#50#0" expanded="true" />
-            <marker date="1469633452499" expanded="true" signature="312:548" ph="..." />
-            <marker date="1469633452499" expanded="true" signature="370:537" ph="..." />
-            <marker date="1469633452499" expanded="true" signature="571:1062" ph="{...}" />
-            <marker date="1469633452499" expanded="true" signature="1073:1098" ph="{...}" />
+            <marker date="1469703958809" expanded="true" signature="203:476" ph="..." />
+            <marker date="1469703958809" expanded="true" signature="261:465" ph="..." />
+            <marker date="1469703958809" expanded="true" signature="499:1126" ph="{...}" />
+            <marker date="1469703958809" expanded="true" signature="1145:1234" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -350,9 +387,9 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#50#0" expanded="true" />
-            <marker date="1469611168639" expanded="true" signature="292:316" ph="..." />
-            <marker date="1469611168639" expanded="true" signature="317:390" ph="..." />
-            <marker date="1469611168639" expanded="true" signature="363:374" ph="..." />
+            <marker date="1469702360909" expanded="true" signature="292:316" ph="..." />
+            <marker date="1469702360909" expanded="true" signature="317:390" ph="..." />
+            <marker date="1469702360909" expanded="true" signature="363:374" ph="..." />
           </folding>
         </state>
       </provider>
@@ -489,68 +526,84 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/chat/chat-room.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#40#0" expanded="false" />
+            <marker date="1469530718569" expanded="true" signature="430:463" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/chat/chat-room.service.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="73">
           <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
           <folding>
-            <element signature="e#0#51#0" expanded="true" />
+            <element signature="e#0#51#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/escapeTogether/escapeTogetherComponent.ts">
+    <entry file="file://$PROJECT_DIR$/app/escapeTogether/scenes.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="972">
-          <caret line="54" column="29" selection-start-line="54" selection-start-column="29" selection-end-line="54" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-            <marker date="1469611168639" expanded="true" signature="292:316" ph="..." />
-            <marker date="1469611168639" expanded="true" signature="317:390" ph="..." />
-            <marker date="1469611168639" expanded="true" signature="363:374" ph="..." />
-          </folding>
+        <state relative-caret-position="0">
+          <caret line="0" column="1" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="80" selection-start-line="7" selection-start-column="80" selection-end-line="7" selection-end-column="80" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pannellum/pannellum.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="1618" column="35" selection-start-line="1618" selection-start-column="35" selection-end-line="1618" selection-end-column="35" />
+        <state relative-caret-position="102">
+          <caret line="1468" column="7" selection-start-line="1468" selection-start-column="7" selection-end-line="1468" selection-end-column="7" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/chat/chat-room.component.ts">
+    <entry file="file://$PROJECT_DIR$/app/escapeTogether/bagComponent.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="89">
+          <caret line="9" column="190" selection-start-line="9" selection-start-column="190" selection-end-line="9" selection-end-column="190" />
           <folding>
-            <element signature="e#0#40#0" expanded="true" />
-            <marker date="1469530718569" expanded="true" signature="430:463" ph="..." />
+            <element signature="e#0#50#0" expanded="true" />
+            <marker date="1469703958809" expanded="true" signature="203:476" ph="..." />
+            <marker date="1469703958809" expanded="true" signature="261:465" ph="..." />
+            <marker date="1469703958809" expanded="true" signature="499:1126" ph="{...}" />
+            <marker date="1469703958809" expanded="true" signature="1145:1234" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/escapeTogether/bagComponent.ts">
+    <entry file="file://$PROJECT_DIR$/app/escapeTogether/escapeTogetherComponent.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="91">
-          <caret line="10" column="70" selection-start-line="10" selection-start-column="60" selection-end-line="10" selection-end-column="70" />
+        <state relative-caret-position="162">
+          <caret line="54" column="29" selection-start-line="54" selection-start-column="29" selection-end-line="54" selection-end-column="29" />
           <folding>
             <element signature="e#0#50#0" expanded="true" />
-            <marker date="1469633452499" expanded="true" signature="312:548" ph="..." />
-            <marker date="1469633452499" expanded="true" signature="370:537" ph="..." />
-            <marker date="1469633452499" expanded="true" signature="571:1062" ph="{...}" />
-            <marker date="1469633452499" expanded="true" signature="1073:1098" ph="{...}" />
+            <marker date="1469702360909" expanded="true" signature="292:316" ph="..." />
+            <marker date="1469702360909" expanded="true" signature="317:390" ph="..." />
+            <marker date="1469702360909" expanded="true" signature="363:374" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/escapeTogether/escapeTogetherService.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="27" column="64" selection-start-line="27" selection-start-column="64" selection-end-line="27" selection-end-column="64" />
+        <state relative-caret-position="252">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding>
             <element signature="e#0#43#0" expanded="true" />
           </folding>
@@ -559,10 +612,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/escapeTogether/gameState.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="44" column="29" selection-start-line="44" selection-start-column="29" selection-end-line="44" selection-end-column="29" />
+        <state relative-caret-position="162">
+          <caret line="25" column="12" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="12" />
           <folding>
-            <element signature="n#!!doc;n#IPlayer#0" expanded="false" />
+            <element signature="e#40#414#0" expanded="false" />
           </folding>
         </state>
       </provider>

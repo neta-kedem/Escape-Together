@@ -24,18 +24,18 @@ export class EscapeTogetherComponent implements OnInit {
 	constructor(public escapeTogetherService : EscapeTogetherService) { }
 
 	view:any ={};
-  
+
 	ngOnInit() {
 		this.view = pannellum.viewer('panorama', {
 		  "default": {
-			"firstScene": "library",
+			"firstScene": "classroom",
 			// "author": "Escape",
 			"autoLoad": true,
 			"hotSpotDebug": false
 		  },
 
 		  "scenes": {
-			"library": {
+			"classroom": {
 			  "title": "Escape Together",
 			  "hfov": 100,
 			  "pitch": 10,
@@ -55,7 +55,9 @@ export class EscapeTogetherComponent implements OnInit {
 				  "pitch": 5,
 				  "yaw": 5,
 				  "type": "info",
-				  "innerHtml": '<img id="pikachu" src="img/artifacts/Pikachu_256px.png" height="64"  width="64" onClick="window.postMessage({artifactId : \'pikachu\' }, \'*\'); console.log(\'clicked\');"/>',
+				  "id":'pikachu',
+				  "imgSrc": "img/artifacts/Pikachu_256px.png",
+				  "onClick": "window.postMessage({artifactId : 'pikachu' }, '*'); console.log('clicked');"
 				  // "text": "I am a happy pikachu"
 				},
 				{

@@ -1,0 +1,55 @@
+[
+  "panorama", {
+  "default": {
+    "firstScene": "classroom",
+    "autoLoad": true,
+    "hotSpotDebug": false
+  },
+  "scenes": {
+    "classroom": {
+      "title": "Escape Together",
+      "hfov": 100,
+      "pitch": 10,
+      "yaw": 50,
+      "northOffset": 289,
+      "type": "multires",
+      "multiRes": {
+        "path": "/img/panoramas/classroom/%l/%s%y_%x",
+        "fallbackPath": "/img/panoramas/classroom/fallback/%s",
+        "extension": "jpg",
+        "tileResolution": 512,
+        "maxLevel": 4,
+        "cubeResolution": 2280
+      },
+      "hotSpots": [
+        {
+          "pitch": 5,
+          "yaw": 5,
+          "type": "info",
+          "innerHtml": "<img id=\"pikachu\" src=\"img/artifacts/Pikachu_256px.png\" height=\"64\"  width=\"64\" onClick=\"window.postMessage({artifactId : 'pikachu' }, '*'); console.log('clicked');\"/>"
+        },
+        {
+          "pitch": -6,
+          "yaw": 10,
+          "type": "info"
+        },
+        {
+          "pitch": -6,
+          "yaw": 0,
+          "type": "info"
+        },
+        {
+          "pitch": 5,
+          "yaw": 15,
+          "type": "info"
+        },
+        {
+          "pitch": -5,
+          "yaw": 30,
+          "sceneId": "house"
+        }
+      ]
+    }
+  }
+}
+]
