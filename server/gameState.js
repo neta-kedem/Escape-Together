@@ -11,7 +11,7 @@ var GameState = (function () {
         //to put in some utility file
         this.flatten = function (list) { return list.reduce(function (acc, curr) { return acc.concat(Array.isArray(curr) ? _this.flatten(curr) : curr); }, []); };
         this.scenes = scenes;
-        this.cb = cb; //
+        this.cb = cb;
         if (playerGender) {
             this.addPlayer(playerName, playerGender, playerCurrScene);
         }
@@ -67,5 +67,6 @@ var GameState = (function () {
     ;
     return GameState;
 }());
+exports.GameState = GameState;
 module.exports = GameState;
 //# sourceMappingURL=gameState.js.map

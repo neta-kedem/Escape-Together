@@ -1467,10 +1467,11 @@ function createHotSpots() {
 	if (!config.hotSpots) {
 		config.hotSpots = [];
 	} else {
+		//deleted by neta since we don't use the tooltip and it's simply annoying
 		// Sort by pitch so tooltip is never obscured by another hot spot
-		config.hotSpots = config.hotSpots.sort(function(a, b) {
-			return a.pitch < b.pitch;
-		});
+		// config.hotSpots = config.hotSpots.sort(function(a, b) {
+		// 	return a.pitch < b.pitch;
+		// });
 		config.hotSpots.forEach(function(hs) {
 			var div = document.createElement('div');
 			div.className = 'pnlm-hotspot pnlm-sprite pnlm-' + escapeHTML(hs.type);
@@ -1596,8 +1597,7 @@ function renderHotSpots() {
 				configPitchCos - hsPitchCos * yawCos * configPitchSin) / z / 2 +
 				canvasHeight / 2 - 13);
 			transform += hs.y + 'px) translateZ(9999px)';
-			// hs.x -= 13;
-			// hs.y -= 13;
+
 			hs.div.style.webkitTransform = transform;
 			hs.div.style.MozTransform = transform;
 			hs.div.style.transform = transform;
@@ -1607,15 +1607,13 @@ function renderHotSpots() {
 }
 
 	function overlayCoordinates(){
-		// debugger;
+		let data = renderer.render(config.pitch * Math.PI / 180, config.yaw * Math.PI / 180, config.hfov * Math.PI / 180, {neta:true});
+
 		let arr = config.hotSpots;
-		arr
-
-
-	.forEach((hs, index)=>{
-		if(hs.imgSrc){
-				hs.div.innerHTML = '<img id='+hs.id+' width="64" height="64" src='+hs.imgSrc+' onClick="'+hs.onClick+'"/>';
-				hs.imgSrc='';
+		arr.forEach((hs, index)=>{
+				if(hs.imgSrc){
+					hs.div.innerHTML = '<img id='+hs.id+' width="64" height="64" src='+hs.imgSrc+' onClick="'+hs.onClick+'"/>';
+					hs.imgSrc='';
 			}
 			//if that hotspot is a picture- a colectable object
 			if(hs.div.childElementCount){
@@ -1625,9 +1623,8 @@ function renderHotSpots() {
 				object.style.top='13px';
 				object.style.left='13px';
 				object.attributes.width.value=width;
-				let height = arr[index+2].y-arr[index].y;
+				let height = arr[index+1].y-arr[index].y;
 				object.attributes.height.value=height;
-
 			}
 		});
 	}

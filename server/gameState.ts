@@ -20,7 +20,7 @@
 export interface IPlayer{name:string, gender:string, currScene:number, itemIdInHand:string}
 export interface IArtifact{id:string,shown:boolean, src:string, beingUsedBy:number}
 
-class GameState {
+export class GameState {
     private bags:Object[][]=[];   //decide later the exact item structure
     private players:IPlayer[]=[];
     private scenes:IArtifact[][];
@@ -29,11 +29,10 @@ class GameState {
 
     constructor(scenes:IArtifact[][], cb, playerName?:string, playerGender?:string, playerCurrScene:number = 0 ){
         this.scenes=scenes;
-		this.cb=cb;//
+		this.cb=cb;
         if (playerGender){
             this.addPlayer(playerName,playerGender,playerCurrScene);
         }
-		
     }
 
     //the mother of all the game logic

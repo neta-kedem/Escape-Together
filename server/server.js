@@ -44,7 +44,7 @@ resolve(db);
 //   credentials: false
 // };
 function emitState(state) {
-	console.log('emmiting: ', JSON.stringify(state));
+	console.log('emmitting: ', JSON.stringify(state));
 	gameIo.emit('state update', state);
 }
 
@@ -52,13 +52,13 @@ let gameState = new GameState([[{
 					id : 'pikachu',
 					shown : true,
 					src : 'img/artifacts/Pikachu_256px.png',
-					isBeingUsed : false
+					beingUsedBy : -1
 				}
 			]], emitState);
 gameIo.on('connection', function (socket) {
 	console.log('a user connected');
 
-	const stateWithUserId = gameState.addPlayer('gramsci', 'queer', 0)
+	const stateWithUserId = gameState.addPlayer('gramsci', 'queer', 0);
 		const userId = stateWithUserId.userId;
 	console.log(stateWithUserId);
 	socket.emit('login', stateWithUserId);
@@ -66,7 +66,7 @@ gameIo.on('connection', function (socket) {
 		bags : stateWithUserId.bags,
 		players : stateWithUserId.players,
 		scenes : stateWithUserId.scenes
-	})
+	});
 	socket.on('disconnect', function () {
 		console.log('user disconnected');
 	});

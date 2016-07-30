@@ -2,10 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d6cc9998-9486-4d23-a617-76928a688454" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/escapeTogether/gameState.ts" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/escapeTogether/bagComponent.ts" afterPath="$PROJECT_DIR$/app/escapeTogether/bagComponent.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/escapeTogether/escapeTogetherComponent.ts" afterPath="$PROJECT_DIR$/app/escapeTogether/escapeTogetherComponent.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/escapeTogether/escapeTogetherService.ts" afterPath="$PROJECT_DIR$/app/escapeTogether/escapeTogetherService.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/escapeTogether/gameState.ts" afterPath="$PROJECT_DIR$/app/escapeTogether/gameState.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pannellum/libpannellum.js" afterPath="$PROJECT_DIR$/pannellum/libpannellum.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pannellum/pannellum.js" afterPath="$PROJECT_DIR$/pannellum/pannellum.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/gameState.js" afterPath="$PROJECT_DIR$/server/gameState.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/gameState.js.map" afterPath="$PROJECT_DIR$/server/gameState.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/gameState.ts" afterPath="$PROJECT_DIR$/server/gameState.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/server.js" afterPath="$PROJECT_DIR$/server/server.js" />
     </list>
     <ignored path="ng2-basic-sead.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,57 +35,48 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="escapeTogetherService.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/escapeTogether/escapeTogetherService.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="219">
-              <caret line="26" column="18" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
-              <folding>
-                <element signature="e#0#43#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="gameState.ts" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/escapeTogether/gameState.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="20" column="71" selection-start-line="20" selection-start-column="71" selection-end-line="20" selection-end-column="71" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bagComponent.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/escapeTogether/bagComponent.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="39" column="15" selection-start-line="39" selection-start-column="15" selection-end-line="39" selection-end-column="15" />
-              <folding>
-                <element signature="e#0#50#0" expanded="true" />
-                <marker date="1469736876520" expanded="true" signature="203:611" ph="..." />
-                <marker date="1469736876520" expanded="true" signature="263:600" ph="..." />
-                <marker date="1469736876520" expanded="true" signature="634:1261" ph="{...}" />
-                <marker date="1469736876520" expanded="true" signature="1284:1373" ph="{...}" />
-                <marker date="1469736876520" expanded="true" signature="1390:1479" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="escapeTogetherComponent.ts" pinned="false" current-in-tab="false">
+      <file leaf-file-name="escapeTogetherComponent.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/escapeTogether/escapeTogetherComponent.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="54" column="29" selection-start-line="54" selection-start-column="29" selection-end-line="54" selection-end-column="29" />
+            <state relative-caret-position="1314">
+              <caret line="73" column="26" selection-start-line="73" selection-start-column="26" selection-end-line="73" selection-end-column="26" />
               <folding>
                 <element signature="e#0#50#0" expanded="true" />
-                <marker date="1469702360909" expanded="true" signature="292:316" ph="..." />
-                <marker date="1469702360909" expanded="true" signature="317:390" ph="..." />
-                <marker date="1469702360909" expanded="true" signature="363:374" ph="..." />
+                <marker date="1469816259949" expanded="true" signature="292:316" ph="..." />
+                <marker date="1469816259949" expanded="true" signature="317:390" ph="..." />
+                <marker date="1469816259949" expanded="true" signature="363:374" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="server.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/server.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-186">
+              <caret line="69" column="41" selection-start-line="69" selection-start-column="41" selection-end-line="69" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="gameState.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/gameState.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-665">
+              <caret line="23" column="7" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="libpannellum.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pannellum/libpannellum.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-60">
+              <caret line="505" column="72" selection-start-line="505" selection-start-column="72" selection-end-line="505" selection-end-column="72" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -87,10 +85,22 @@
       <file leaf-file-name="pannellum.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pannellum/pannellum.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4836">
-              <caret line="1596" column="26" selection-start-line="1594" selection-start-column="25" selection-end-line="1596" selection-end-column="26" />
+            <state relative-caret-position="696">
+              <caret line="1608" column="34" selection-start-line="1608" selection-start-column="34" selection-end-line="1608" selection-end-column="34" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="escapeTogetherService.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/escapeTogether/escapeTogetherService.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="54">
+              <caret line="3" column="49" selection-start-line="3" selection-start-column="49" selection-end-line="3" selection-end-column="49" />
+              <folding>
+                <element signature="e#0#43#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -113,16 +123,18 @@
       <list>
         <option value="$PROJECT_DIR$/app/escapeTogether/app.css" />
         <option value="$PROJECT_DIR$/app/app.routes.ts" />
-        <option value="$PROJECT_DIR$/server/server.js" />
         <option value="$PROJECT_DIR$/app/escapeTogether/scenes.json" />
-        <option value="$PROJECT_DIR$/app/escapeTogether/escapeTogetherComponent.ts" />
-        <option value="$PROJECT_DIR$/pannellum/pannellum.js" />
         <option value="$PROJECT_DIR$/app/chat/chat-room.service.ts" />
         <option value="$PROJECT_DIR$/app/monster/monster.service.ts" />
         <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/app/escapeTogether/escapeTogetherService.ts" />
-        <option value="$PROJECT_DIR$/app/escapeTogether/bagComponent.ts" />
         <option value="$PROJECT_DIR$/app/escapeTogether/gameState.ts" />
+        <option value="$PROJECT_DIR$/app/escapeTogether/bagComponent.ts" />
+        <option value="$PROJECT_DIR$/app/escapeTogether/escapeTogetherComponent.ts" />
+        <option value="$PROJECT_DIR$/pannellum/pannellum.js" />
+        <option value="$PROJECT_DIR$/server/server.js" />
+        <option value="$PROJECT_DIR$/pannellum/libpannellum.js" />
+        <option value="$PROJECT_DIR$/app/escapeTogether/escapeTogetherService.ts" />
+        <option value="$PROJECT_DIR$/server/gameState.ts" />
       </list>
     </option>
   </component>
@@ -135,10 +147,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="685" />
-    <option name="y" value="22" />
-    <option name="width" value="685" />
-    <option name="height" value="750" />
+    <option name="x" value="-2" />
+    <option name="y" value="21" />
+    <option name="width" value="1370" />
+    <option name="height" value="752" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -165,6 +177,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -267,7 +280,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -353,12 +365,13 @@
       <option name="presentableId" value="Default" />
       <updated>1469546184526</updated>
       <workItem from="1469546186313" duration="10812000" />
-      <workItem from="1469559207932" duration="67284000" />
+      <workItem from="1469559207932" duration="69198000" />
+      <workItem from="1469814418435" duration="14631000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="78096000" />
+    <option name="totallyTimeSpent" value="94641000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -370,13 +383,12 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="685" y="22" width="685" height="750" extended-state="0" />
-    <editor active="false" />
+    <frame x="-2" y="21" width="1370" height="752" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32911393" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3280757" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -389,6 +401,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3280757" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -412,6 +425,70 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app/escapeTogether/escapeTogetherService.ts">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/escapeTogether/bagComponent.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="9" column="331" selection-start-line="9" selection-start-column="331" selection-end-line="9" selection-end-column="331" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+            <marker date="1469777839229" expanded="true" signature="203:615" ph="..." />
+            <marker date="1469777839229" expanded="true" signature="263:604" ph="..." />
+            <marker date="1469777839229" expanded="true" signature="638:1265" ph="{...}" />
+            <marker date="1469777839229" expanded="true" signature="1288:1377" ph="{...}" />
+            <marker date="1469777839229" expanded="true" signature="1394:1483" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/gameState.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="30" column="12" selection-start-line="30" selection-start-column="10" selection-end-line="30" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/escapeTogether/escapeTogetherComponent.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="936">
+          <caret line="54" column="29" selection-start-line="54" selection-start-column="29" selection-end-line="54" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+            <marker date="1469816259949" expanded="true" signature="292:316" ph="..." />
+            <marker date="1469816259949" expanded="true" signature="317:390" ph="..." />
+            <marker date="1469816259949" expanded="true" signature="363:374" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pannellum/pannellum.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="28728">
+          <caret line="1596" column="26" selection-start-line="1594" selection-start-column="25" selection-end-line="1596" selection-end-column="26" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/escapeTogether/escapeTogetherService.ts">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="10" column="8" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
           <folding>
@@ -426,11 +503,11 @@
           <caret line="21" column="44" selection-start-line="21" selection-start-column="44" selection-end-line="21" selection-end-column="44" />
           <folding>
             <element signature="e#0#50#0" expanded="true" />
-            <marker date="1469736876520" expanded="true" signature="203:611" ph="..." />
-            <marker date="1469736876520" expanded="true" signature="263:600" ph="..." />
-            <marker date="1469736876520" expanded="true" signature="634:1261" ph="{...}" />
-            <marker date="1469736876520" expanded="true" signature="1284:1373" ph="{...}" />
-            <marker date="1469736876520" expanded="true" signature="1390:1479" ph="{...}" />
+            <marker date="1469777839229" expanded="true" signature="203:615" ph="..." />
+            <marker date="1469777839229" expanded="true" signature="263:604" ph="..." />
+            <marker date="1469777839229" expanded="true" signature="638:1265" ph="{...}" />
+            <marker date="1469777839229" expanded="true" signature="1288:1377" ph="{...}" />
+            <marker date="1469777839229" expanded="true" signature="1394:1483" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -441,9 +518,9 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#50#0" expanded="true" />
-            <marker date="1469702360909" expanded="true" signature="292:316" ph="..." />
-            <marker date="1469702360909" expanded="true" signature="317:390" ph="..." />
-            <marker date="1469702360909" expanded="true" signature="363:374" ph="..." />
+            <marker date="1469816259949" expanded="true" signature="292:316" ph="..." />
+            <marker date="1469816259949" expanded="true" signature="317:390" ph="..." />
+            <marker date="1469816259949" expanded="true" signature="363:374" ph="..." />
           </folding>
         </state>
       </provider>
@@ -452,7 +529,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
           <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -460,9 +536,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
           <caret line="15" column="11" selection-start-line="15" selection-start-column="2" selection-end-line="15" selection-end-column="11" />
-          <folding>
-            <element signature="e#0#69#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -470,10 +543,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#50#0" expanded="false" />
-            <marker date="1469530718569" expanded="true" signature="336:433" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -481,13 +550,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-276">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#64#0" expanded="false" />
-            <marker date="1469530718569" expanded="true" signature="625:1228" ph="..." />
-            <marker date="1469530718569" expanded="true" signature="813:1213" ph="..." />
-            <marker date="1469530718569" expanded="true" signature="877:1201" ph="..." />
-            <marker date="1469530718569" expanded="true" signature="979:1187" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -502,9 +564,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-598">
           <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#50#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -524,23 +583,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="31" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/monster/monster.service.mrjson.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#43#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -548,7 +594,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
           <caret line="2" column="43" selection-start-line="2" selection-start-column="43" selection-end-line="2" selection-end-column="43" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -564,7 +609,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
           <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -572,7 +616,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
           <caret line="15" column="11" selection-start-line="15" selection-start-column="2" selection-end-line="15" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -580,9 +623,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1469530718569" expanded="true" signature="430:463" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -590,7 +630,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
           <caret line="9" column="41" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -598,29 +637,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
           <caret line="7" column="37" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="37" />
-          <folding>
-            <element signature="e#0#51#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/gameState.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1010">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pannellum/pannellum.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4836">
-          <caret line="1596" column="26" selection-start-line="1594" selection-start-column="25" selection-end-line="1596" selection-end-column="26" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -628,20 +644,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="291">
           <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/escapeTogether/escapeTogetherComponent.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="54" column="29" selection-start-line="54" selection-start-column="29" selection-end-line="54" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-            <marker date="1469702360909" expanded="true" signature="292:316" ph="..." />
-            <marker date="1469702360909" expanded="true" signature="317:390" ph="..." />
-            <marker date="1469702360909" expanded="true" signature="363:374" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -649,41 +651,105 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/escapeTogether/gameState.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-234">
+          <caret line="8" column="9" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/escapeTogether/bagComponent.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="39" column="15" selection-start-line="39" selection-start-column="15" selection-end-line="39" selection-end-column="15" />
+        <state relative-caret-position="18">
+          <caret line="9" column="331" selection-start-line="9" selection-start-column="331" selection-end-line="9" selection-end-column="331" />
           <folding>
             <element signature="e#0#50#0" expanded="true" />
-            <marker date="1469736876520" expanded="true" signature="203:611" ph="..." />
-            <marker date="1469736876520" expanded="true" signature="263:600" ph="..." />
-            <marker date="1469736876520" expanded="true" signature="634:1261" ph="{...}" />
-            <marker date="1469736876520" expanded="true" signature="1284:1373" ph="{...}" />
-            <marker date="1469736876520" expanded="true" signature="1390:1479" ph="{...}" />
+            <marker date="1469777839229" expanded="true" signature="203:615" ph="..." />
+            <marker date="1469777839229" expanded="true" signature="263:604" ph="..." />
+            <marker date="1469777839229" expanded="true" signature="638:1265" ph="{...}" />
+            <marker date="1469777839229" expanded="true" signature="1288:1377" ph="{...}" />
+            <marker date="1469777839229" expanded="true" signature="1394:1483" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pannellum/pannellum.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5346">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pannellum/RequestAnimationFrame.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/escapeTogether/escapeTogetherService.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="26" column="18" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
+        <state relative-caret-position="54">
+          <caret line="3" column="49" selection-start-line="3" selection-start-column="49" selection-end-line="3" selection-end-column="49" />
           <folding>
             <element signature="e#0#43#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/escapeTogether/gameState.ts">
+    <entry file="file://$PROJECT_DIR$/pannellum/pannellum.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="20" column="71" selection-start-line="20" selection-start-column="71" selection-end-line="20" selection-end-column="71" />
+        <state relative-caret-position="696">
+          <caret line="1608" column="34" selection-start-line="1608" selection-start-column="34" selection-end-line="1608" selection-end-column="34" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pannellum/libpannellum.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-60">
+          <caret line="505" column="72" selection-start-line="505" selection-start-column="72" selection-end-line="505" selection-end-column="72" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/gameState.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-665">
+          <caret line="23" column="7" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-186">
+          <caret line="69" column="41" selection-start-line="69" selection-start-column="41" selection-end-line="69" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/escapeTogether/escapeTogetherComponent.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1314">
+          <caret line="73" column="26" selection-start-line="73" selection-start-column="26" selection-end-line="73" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+            <marker date="1469816259949" expanded="true" signature="292:316" ph="..." />
+            <marker date="1469816259949" expanded="true" signature="317:390" ph="..." />
+            <marker date="1469816259949" expanded="true" signature="363:374" ph="..." />
           </folding>
         </state>
       </provider>

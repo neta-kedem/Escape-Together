@@ -7,7 +7,7 @@ import { EscapeTogetherService } from './escapeTogetherService';
 	template: `
 				<div class="bag">
 					<div *ngFor="let bag of escapeTogetherService.bags()">
-						<img (click)="escapeTogetherService.bagClicked(artifact.id)" *ngFor="let artifact of bag" src="{{artifact.src}}" height="64" width="64" [class.inUseByMe]="artifact.beingUsedBy===escapeTogetherService.userId" [class.inUseByOther]="escapeTogetherService.usedByOthers(artifact, escapeTogetherService.userId)"/>
+						<img (click)="escapeTogetherService.bagClicked(artifact.id)" *ngFor="let artifact of bag" src="{{artifact.src}}" height="64" width="64" [class.inUseByMe]="artifact.beingUsedBy===escapeTogetherService.userId()" [class.inUseByOther]="escapeTogetherService.usedByOthers(artifact, escapeTogetherService.userId())"/>
 						<hr>
 					</div>
 				</div>

@@ -58,32 +58,23 @@ export class EscapeTogetherComponent implements OnInit {
 				  "id":'pikachu',
 				  "imgSrc": "img/artifacts/Pikachu_256px.png",
 				  "onClick": "window.postMessage({artifactId : 'pikachu' }, '*'); console.log('clicked');"
-				  // "text": "I am a happy pikachu"
-				},
-				{
-				  "pitch": -6,
-				  "yaw": 10,
-				  "type": "info"
-				  // "text": "I am a happy pikachu"
 				},
 				{
 				  "pitch": -6,
 				  "yaw": 0,
 				  "type": "info"
-				  // "text": "my lag"
+				},
+				{
+				  "pitch": -6,
+				  "yaw": 5,
+				  "type": "info"
 				},
 				{
 				  "pitch": 5,
-				  "yaw": 15,
+				  "yaw": 0,
 				  "type": "info"
-				  // "text": "I am a happy pikachu"
 				},
-				{
-				  "pitch": -5,
-				  "yaw": 30,
-				  "sceneId": "house"
-				  // "text": "I am a happy pikachu"
-				}
+
 			  ]
 			},
 		  }

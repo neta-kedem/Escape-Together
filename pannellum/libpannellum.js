@@ -453,7 +453,6 @@ function Renderer(container) {
         if (pose !== undefined) {
             var horizonPitch = pose[0],
                 horizonRoll = pose[1];
-
             // Calculate new pitch and yaw
             var orig_pitch = pitch,
                 orig_yaw = yaw,
@@ -487,7 +486,7 @@ function Renderer(container) {
         if (!gl && (imageType == 'multires' || imageType == 'cubemap')) {
             // Determine face transforms
             s = fallbackImgSize / 2;
-            
+
             var transforms = {
                 f: 'translate3d(-' + (s + 2) + 'px, -' + (s + 2) + 'px, -' + s + 'px)',
                 b: 'translate3d(' + (s + 2) + 'px, -' + (s + 2) + 'px, ' + s + 'px) rotateX(180deg) rotateZ(180deg)',
@@ -499,7 +498,7 @@ function Renderer(container) {
             focal = 1 / Math.tan(hfov / 2);
             var zoom = focal * canvas.width / (window.devicePixelRatio || 1) / 2 + 'px';
             var transform = 'perspective(' + zoom + ') translateZ(' + zoom + ') rotateX(' + pitch + 'rad) rotateY(' + yaw + 'rad) ';
-            
+
             // Apply face transforms
             var faces = Object.keys(transforms);
             for (i = 0; i < 6; i++) {
@@ -511,6 +510,7 @@ function Renderer(container) {
         }
         
         if (imageType != 'multires') {
+
             // Calculate focal length from vertical field of view
             var vfov = 2 * Math.atan(Math.tan(hfov * 0.5) / (canvas.width / canvas.height));
             focal = 1 / Math.tan(vfov * 0.5);
@@ -533,6 +533,7 @@ function Renderer(container) {
             gl.drawArrays(gl.TRIANGLES, 0, 6);
         
         } else {
+
             // Create perspective matrix
             var perspMatrix = makePersp(hfov, canvas.width / canvas.height, 0.1, 100.0);
             
