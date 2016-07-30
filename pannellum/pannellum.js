@@ -1611,7 +1611,7 @@ function renderHotSpots() {
 		let arr = config.hotSpots;
 		arr.forEach((hs, index)=>{
 				if(hs.imgSrc){
-					let onClick=`window.postMessage({id:'${hs.id}',required:'${required}',actions:'${actions}'}, '*'); console.log('clicked')`;
+					let onClick=`window.postMessage({id:'${hs.id}',required:'${hs.required}',actions:'${hs.actions}'}, '*'); console.log('clicked')`;
 
 					hs.div.innerHTML = '<img id='+hs.id+' width="64" height="64" src='+hs.imgSrc+' onClick="'+onClick+'"/>';
 					hs.imgSrc='';

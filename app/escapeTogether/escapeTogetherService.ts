@@ -8,13 +8,12 @@ export class EscapeTogetherService{
 	
 	// private gameState = new GameState([[{id:'pikachu', shown:true, src:'img/artifacts/Pikachu_256px.png', beingUsedBy:-1}]], 'gramsci', 'queer', 0);
 	private _bags = [];
-	// private socket = io('192.168.0.100:3003/game');
-	private socket = io('192.168.1.26:3003/game');
+	private socket = io('192.168.1.25:3003/game');
 	private _userId:number;
 	constructor(){
 		window.addEventListener('message' , (msg)=>{
-			console.log('on message', msg.data.artifactId);
-			this.artifactClicked(msg.data.artifactId);
+			console.log('on message', msg.data);
+			this.artifactClicked(msg.data);
 		});
 		this.socket.on('state update', (msg)=>{
 			console.log('state updated:', msg);

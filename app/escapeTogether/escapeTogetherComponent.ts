@@ -57,7 +57,7 @@ export class EscapeTogetherComponent implements OnInit {
 				  "type": "info",
 				  "id":'pikachu',
 				  "imgSrc": "img/artifacts/Pikachu_256px.png",
-				  "required":[]:string[] //requires any one of the artifact from this list to activate (can be empty and then a click is enough)
+				  "required":[], //requires any one of the artifact from this list to activate (can be empty and then a click is enough)
 				  "actions":[{"collect":"pikachu"},{"hideHotSpot":"pikachu"}],
 				  //other possible action: 
 				  //{"collect":"pikachu"} //collect an artifact. can be the same artifact back or anything else
