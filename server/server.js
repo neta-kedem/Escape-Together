@@ -51,7 +51,7 @@ function emitState(state) {
 let gameState = new GameState([[{
 					id : 'pikachu',
 					shown : true,
-					src : 'img/artifacts/Pikachu_256px.png',
+					src : 'img/artifacts/Pikachu_64px.png',
 					beingUsedBy : -1
 				}
 			]], emitState);
