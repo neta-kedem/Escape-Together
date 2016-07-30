@@ -2,17 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d6cc9998-9486-4d23-a617-76928a688454" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/escapeTogether/gameState.ts" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/escapeTogether/bagComponent.ts" afterPath="$PROJECT_DIR$/app/escapeTogether/bagComponent.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/escapeTogether/escapeTogetherComponent.ts" afterPath="$PROJECT_DIR$/app/escapeTogether/escapeTogetherComponent.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/escapeTogether/escapeTogetherService.ts" afterPath="$PROJECT_DIR$/app/escapeTogether/escapeTogetherService.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pannellum/libpannellum.js" afterPath="$PROJECT_DIR$/pannellum/libpannellum.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pannellum/pannellum.js" afterPath="$PROJECT_DIR$/pannellum/pannellum.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/gameState.js" afterPath="$PROJECT_DIR$/server/gameState.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/gameState.js.map" afterPath="$PROJECT_DIR$/server/gameState.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/gameState.ts" afterPath="$PROJECT_DIR$/server/gameState.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/server.js" afterPath="$PROJECT_DIR$/server/server.js" />
     </list>
     <ignored path="ng2-basic-sead.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,11 +27,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="escapeTogetherComponent.ts" pinned="false" current-in-tab="true">
+      <file leaf-file-name="escapeTogetherComponent.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/escapeTogether/escapeTogetherComponent.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1314">
-              <caret line="73" column="26" selection-start-line="73" selection-start-column="26" selection-end-line="73" selection-end-column="26" />
+            <state relative-caret-position="288">
+              <caret line="16" column="47" selection-start-line="16" selection-start-column="47" selection-end-line="16" selection-end-column="47" />
               <folding>
                 <element signature="e#0#50#0" expanded="true" />
                 <marker date="1469816259949" expanded="true" signature="292:316" ph="..." />
@@ -53,7 +45,7 @@
       <file leaf-file-name="server.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-186">
+            <state relative-caret-position="516">
               <caret line="69" column="41" selection-start-line="69" selection-start-column="41" selection-end-line="69" selection-end-column="41" />
               <folding />
             </state>
@@ -70,11 +62,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="libpannellum.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="libpannellum.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pannellum/libpannellum.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-60">
-              <caret line="505" column="72" selection-start-line="505" selection-start-column="72" selection-end-line="505" selection-end-column="72" />
+            <state relative-caret-position="12107">
+              <caret line="555" column="28" selection-start-line="555" selection-start-column="24" selection-end-line="555" selection-end-column="28" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -85,8 +77,8 @@
       <file leaf-file-name="pannellum.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pannellum/pannellum.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="696">
-              <caret line="1608" column="34" selection-start-line="1608" selection-start-column="34" selection-end-line="1608" selection-end-column="34" />
+            <state relative-caret-position="174">
+              <caret line="1468" column="12" selection-start-line="1468" selection-start-column="12" selection-end-line="1468" selection-end-column="12" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -97,8 +89,8 @@
       <file leaf-file-name="escapeTogetherService.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/escapeTogether/escapeTogetherService.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="3" column="49" selection-start-line="3" selection-start-column="49" selection-end-line="3" selection-end-column="49" />
+            <state relative-caret-position="324">
+              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
               <folding>
                 <element signature="e#0#43#0" expanded="true" />
               </folding>
@@ -130,11 +122,11 @@
         <option value="$PROJECT_DIR$/app/escapeTogether/gameState.ts" />
         <option value="$PROJECT_DIR$/app/escapeTogether/bagComponent.ts" />
         <option value="$PROJECT_DIR$/app/escapeTogether/escapeTogetherComponent.ts" />
-        <option value="$PROJECT_DIR$/pannellum/pannellum.js" />
         <option value="$PROJECT_DIR$/server/server.js" />
         <option value="$PROJECT_DIR$/pannellum/libpannellum.js" />
-        <option value="$PROJECT_DIR$/app/escapeTogether/escapeTogetherService.ts" />
         <option value="$PROJECT_DIR$/server/gameState.ts" />
+        <option value="$PROJECT_DIR$/app/escapeTogether/escapeTogetherService.ts" />
+        <option value="$PROJECT_DIR$/pannellum/pannellum.js" />
       </list>
     </option>
   </component>
@@ -147,10 +139,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-2" />
-    <option name="y" value="21" />
-    <option name="width" value="1370" />
-    <option name="height" value="752" />
+    <option name="x" value="685" />
+    <option name="y" value="22" />
+    <option name="width" value="685" />
+    <option name="height" value="750" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -366,12 +358,12 @@
       <updated>1469546184526</updated>
       <workItem from="1469546186313" duration="10812000" />
       <workItem from="1469559207932" duration="69198000" />
-      <workItem from="1469814418435" duration="14631000" />
+      <workItem from="1469814418435" duration="15787000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="94641000" />
+    <option name="totallyTimeSpent" value="95797000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -383,7 +375,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-2" y="21" width="1370" height="752" extended-state="6" />
+    <frame x="685" y="22" width="685" height="750" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -695,36 +687,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/escapeTogether/escapeTogetherService.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="49" selection-start-line="3" selection-start-column="49" selection-end-line="3" selection-end-column="49" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pannellum/pannellum.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="696">
-          <caret line="1608" column="34" selection-start-line="1608" selection-start-column="34" selection-end-line="1608" selection-end-column="34" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pannellum/libpannellum.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-60">
-          <caret line="505" column="72" selection-start-line="505" selection-start-column="72" selection-end-line="505" selection-end-column="72" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/gameState.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-665">
@@ -733,23 +695,53 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-186">
-          <caret line="69" column="41" selection-start-line="69" selection-start-column="41" selection-end-line="69" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/escapeTogether/escapeTogetherComponent.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1314">
-          <caret line="73" column="26" selection-start-line="73" selection-start-column="26" selection-end-line="73" selection-end-column="26" />
+        <state relative-caret-position="288">
+          <caret line="16" column="47" selection-start-line="16" selection-start-column="47" selection-end-line="16" selection-end-column="47" />
           <folding>
             <element signature="e#0#50#0" expanded="true" />
             <marker date="1469816259949" expanded="true" signature="292:316" ph="..." />
             <marker date="1469816259949" expanded="true" signature="317:390" ph="..." />
             <marker date="1469816259949" expanded="true" signature="363:374" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="516">
+          <caret line="69" column="41" selection-start-line="69" selection-start-column="41" selection-end-line="69" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/escapeTogether/escapeTogetherService.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pannellum/pannellum.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="1468" column="12" selection-start-line="1468" selection-start-column="12" selection-end-line="1468" selection-end-column="12" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pannellum/libpannellum.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="12107">
+          <caret line="555" column="28" selection-start-line="555" selection-start-column="24" selection-end-line="555" selection-end-column="28" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>

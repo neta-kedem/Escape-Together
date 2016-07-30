@@ -1607,7 +1607,7 @@ function renderHotSpots() {
 }
 
 	function overlayCoordinates(){
-		let data = renderer.render(config.pitch * Math.PI / 180, config.yaw * Math.PI / 180, config.hfov * Math.PI / 180, {neta:true});
+		let data = renderer.render(config.pitch * Math.PI / 180, config.yaw * Math.PI / 180, config.hfov * Math.PI / 180);
 
 		let arr = config.hotSpots;
 		arr.forEach((hs, index)=>{
