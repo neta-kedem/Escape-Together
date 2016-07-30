@@ -28,11 +28,11 @@ var GameState = (function () {
         //if the clicked artifact is shown (prevent bugs due to "clicking" an already hidden object due to communication lag)
         console.log('artifact:', clickedArtifact);
         if (clickedArtifact.shown) {
+            console.log('clickedArtifact:', clickedArtifact);
             clickedArtifact.shown = false;
             this.bags[userId].push(clickedArtifact);
         }
         //here we shuld emmit to all the users about the new state
-        //return {bags:this.bags, scene:this.scenes[userScene]}
         this.sendStateToUsers();
     };
     GameState.prototype.addPlayer = function (name, gender, currScene) {

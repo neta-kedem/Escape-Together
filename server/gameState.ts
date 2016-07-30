@@ -48,13 +48,12 @@ export class GameState {
         //if the clicked artifact is shown (prevent bugs due to "clicking" an already hidden object due to communication lag)
         console.log('artifact:',clickedArtifact)
 		if(clickedArtifact.shown){
-
+			console.log('clickedArtifact:',clickedArtifact)
             clickedArtifact.shown = false;
             this.bags[userId].push(clickedArtifact);
+			//this is the place to handle clickedArtifact.actions
         }
         //here we shuld emmit to all the users about the new state
-		
-        //return {bags:this.bags, scene:this.scenes[userScene]}
 		this.sendStateToUsers();
     }
 

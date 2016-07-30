@@ -52,7 +52,14 @@ let gameState = new GameState([[{
 					id : 'pikachu',
 					shown : true,
 					src : 'img/artifacts/Pikachu_64px.png',
-					beingUsedBy : -1
+					beingUsedBy : -1,
+					required : [], //requires any one of the artifact from this list to activate (can be empty and then a click is enough)
+					actions : [{"collect":"pikachu"},{"hideHotSpot":"pikachu"}],
+					//other possible action: 
+					//{"collect":"pikachu"} //collect an artifact. can be the same artifact back or anything else
+					//{"loadScene":"library"}
+					//{"showHotSpot":"raichu"}
+					//{"hideHotSpot":"pikachu"} //when you collect an artifact usualy that's what you want
 				}
 			]], emitState);
 gameIo.on('connection', function (socket) {
@@ -75,7 +82,13 @@ gameIo.on('connection', function (socket) {
 		gameIo.emit('chat message', msg);
 	});
 	socket.on('userClick', function (msg) {
-		console.log('userClick:', msg);
+		console.log('');
+		console.log('userClick:', (msg));
+//		console.log('');
+//		for (var key in msg) {
+//			console.log(key,':', msg[key]);
+		console.log('');
+
 		gameState.userClick(userId, msg);
 	});
 	socket.on('bagedArtifactClicked', function (msg) {
