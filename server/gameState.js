@@ -21,6 +21,7 @@ var GameState = (function () {
         this.cb({ bags: this.bags, players: this.players, scenes: this.scenes });
     };
     GameState.prototype.userClick = function (userId, artifactId) {
+        var _this = this;
         console.log('game state totally knows ' + artifactId + ' was clicked');
         var userScene = this.players[userId].currScene;
         console.log('userId:', userId, ' currscene:', this.players[userId].currScene);
@@ -28,9 +29,25 @@ var GameState = (function () {
         //if the clicked artifact is shown (prevent bugs due to "clicking" an already hidden object due to communication lag)
         console.log('artifact:', clickedArtifact);
         if (clickedArtifact.shown) {
+            //todo: check if iteminhand meets clickedArtifact.required
             console.log('clickedArtifact:', clickedArtifact);
-            clickedArtifact.shown = false;
-            this.bags[userId].push(clickedArtifact);
+            //this is the place to handle clickedArtifact.actions
+            clickedArtifact.actions.forEach(function (action) {
+                switch (Object.keys(action)[0]) {
+                    case 'collect':
+                        _this.bags[userId].push(clickedArtifact);
+                        break;
+                    case 'loadScene':
+                        break;
+                    case 'showHotSpot':
+                        break;
+                    case 'hideHotSpot':
+                        //temporary fix - not ready yet
+                        clickedArtifact.shown = false;
+                        //console.log('hideHotSpot:',flatten(this.scenes).filter(artifact=>artifact.id===action))
+                        break;
+                }
+            });
         }
         //here we shuld emmit to all the users about the new state
         this.sendStateToUsers();
