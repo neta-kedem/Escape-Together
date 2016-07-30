@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d6cc9998-9486-4d23-a617-76928a688454" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/escapeTogether/escapeTogetherService.ts" afterPath="$PROJECT_DIR$/app/escapeTogether/escapeTogetherService.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pannellum/pannellum.js" afterPath="$PROJECT_DIR$/pannellum/pannellum.js" />
     </list>
     <ignored path="ng2-basic-sead.iws" />
@@ -30,13 +29,23 @@
       <file leaf-file-name="escapeTogetherComponent.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/escapeTogether/escapeTogetherComponent.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="16" column="47" selection-start-line="16" selection-start-column="47" selection-end-line="16" selection-end-column="47" />
+            <state relative-caret-position="378">
+              <caret line="69" column="18" selection-start-line="69" selection-start-column="18" selection-end-line="69" selection-end-column="18" />
               <folding>
                 <element signature="e#0#50#0" expanded="true" />
-                <marker date="1469816259949" expanded="true" signature="292:316" ph="..." />
-                <marker date="1469816259949" expanded="true" signature="317:390" ph="..." />
-                <marker date="1469816259949" expanded="true" signature="363:374" ph="..." />
+                <marker date="1469913393429" expanded="true" signature="292:316" ph="..." />
+                <marker date="1469913393429" expanded="true" signature="317:390" ph="..." />
+                <marker date="1469913393429" expanded="true" signature="363:374" ph="..." />
+                <marker date="1469913393429" expanded="true" signature="714:2259" ph="{...}" />
+                <marker date="1469913393429" expanded="true" signature="731:840" ph="{...}" />
+                <marker date="1469913393429" expanded="true" signature="857:2255" ph="{...}" />
+                <marker date="1469913393429" expanded="true" signature="875:2248" ph="{...}" />
+                <marker date="1469913393429" expanded="true" signature="1029:1245" ph="{...}" />
+                <marker date="1469913393429" expanded="true" signature="1264:2243" ph="[...]" />
+                <marker date="1469913393429" expanded="true" signature="1270:2028" ph="{&quot;id&quot;: 'pikachu'...}" />
+                <marker date="1469913393429" expanded="true" signature="2034:2097" ph="{...}" />
+                <marker date="1469913393429" expanded="true" signature="2103:2166" ph="{...}" />
+                <marker date="1469913393429" expanded="true" signature="2172:2234" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -62,23 +71,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="libpannellum.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pannellum/libpannellum.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="12107">
-              <caret line="555" column="28" selection-start-line="555" selection-start-column="24" selection-end-line="555" selection-end-column="28" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pannellum.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="pannellum.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pannellum/pannellum.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="174">
-              <caret line="1468" column="12" selection-start-line="1468" selection-start-column="12" selection-end-line="1468" selection-end-column="12" />
+            <state relative-caret-position="156">
+              <caret line="1609" column="0" selection-start-line="1609" selection-start-column="0" selection-end-line="1609" selection-end-column="0" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -89,8 +86,8 @@
       <file leaf-file-name="escapeTogetherService.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/escapeTogether/escapeTogetherService.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+            <state relative-caret-position="252">
+              <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
               <folding>
                 <element signature="e#0#43#0" expanded="true" />
               </folding>
@@ -139,10 +136,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="685" />
-    <option name="y" value="22" />
-    <option name="width" value="685" />
-    <option name="height" value="750" />
+    <option name="x" value="-2" />
+    <option name="y" value="21" />
+    <option name="width" value="1370" />
+    <option name="height" value="752" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -358,12 +355,12 @@
       <updated>1469546184526</updated>
       <workItem from="1469546186313" duration="10812000" />
       <workItem from="1469559207932" duration="69198000" />
-      <workItem from="1469814418435" duration="15787000" />
+      <workItem from="1469814418435" duration="20885000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="95797000" />
+    <option name="totallyTimeSpent" value="100895000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -375,7 +372,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="685" y="22" width="685" height="750" extended-state="0" />
+    <frame x="-2" y="21" width="1370" height="752" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -462,9 +459,19 @@
           <caret line="54" column="29" selection-start-line="54" selection-start-column="29" selection-end-line="54" selection-end-column="29" />
           <folding>
             <element signature="e#0#50#0" expanded="true" />
-            <marker date="1469816259949" expanded="true" signature="292:316" ph="..." />
-            <marker date="1469816259949" expanded="true" signature="317:390" ph="..." />
-            <marker date="1469816259949" expanded="true" signature="363:374" ph="..." />
+            <marker date="1469913393429" expanded="true" signature="292:316" ph="..." />
+            <marker date="1469913393429" expanded="true" signature="317:390" ph="..." />
+            <marker date="1469913393429" expanded="true" signature="363:374" ph="..." />
+            <marker date="1469913393429" expanded="true" signature="714:2259" ph="{...}" />
+            <marker date="1469913393429" expanded="true" signature="731:840" ph="{...}" />
+            <marker date="1469913393429" expanded="true" signature="857:2255" ph="{...}" />
+            <marker date="1469913393429" expanded="true" signature="875:2248" ph="{...}" />
+            <marker date="1469913393429" expanded="true" signature="1029:1245" ph="{...}" />
+            <marker date="1469913393429" expanded="true" signature="1264:2243" ph="[...]" />
+            <marker date="1469913393429" expanded="true" signature="1270:2028" ph="{&quot;id&quot;: 'pikachu'...}" />
+            <marker date="1469913393429" expanded="true" signature="2034:2097" ph="{...}" />
+            <marker date="1469913393429" expanded="true" signature="2103:2166" ph="{...}" />
+            <marker date="1469913393429" expanded="true" signature="2172:2234" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -510,9 +517,19 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#50#0" expanded="true" />
-            <marker date="1469816259949" expanded="true" signature="292:316" ph="..." />
-            <marker date="1469816259949" expanded="true" signature="317:390" ph="..." />
-            <marker date="1469816259949" expanded="true" signature="363:374" ph="..." />
+            <marker date="1469913393429" expanded="true" signature="292:316" ph="..." />
+            <marker date="1469913393429" expanded="true" signature="317:390" ph="..." />
+            <marker date="1469913393429" expanded="true" signature="363:374" ph="..." />
+            <marker date="1469913393429" expanded="true" signature="714:2259" ph="{...}" />
+            <marker date="1469913393429" expanded="true" signature="731:840" ph="{...}" />
+            <marker date="1469913393429" expanded="true" signature="857:2255" ph="{...}" />
+            <marker date="1469913393429" expanded="true" signature="875:2248" ph="{...}" />
+            <marker date="1469913393429" expanded="true" signature="1029:1245" ph="{...}" />
+            <marker date="1469913393429" expanded="true" signature="1264:2243" ph="[...]" />
+            <marker date="1469913393429" expanded="true" signature="1270:2028" ph="{&quot;id&quot;: 'pikachu'...}" />
+            <marker date="1469913393429" expanded="true" signature="2034:2097" ph="{...}" />
+            <marker date="1469913393429" expanded="true" signature="2103:2166" ph="{...}" />
+            <marker date="1469913393429" expanded="true" signature="2172:2234" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -687,24 +704,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/pannellum/libpannellum.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9983">
+          <caret line="555" column="28" selection-start-line="555" selection-start-column="24" selection-end-line="555" selection-end-column="28" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/server/gameState.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-665">
           <caret line="23" column="7" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="7" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/escapeTogether/escapeTogetherComponent.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="16" column="47" selection-start-line="16" selection-start-column="47" selection-end-line="16" selection-end-column="47" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-            <marker date="1469816259949" expanded="true" signature="292:316" ph="..." />
-            <marker date="1469816259949" expanded="true" signature="317:390" ph="..." />
-            <marker date="1469816259949" expanded="true" signature="363:374" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -718,28 +732,41 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/escapeTogether/escapeTogetherService.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+        <state relative-caret-position="252">
+          <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
           <folding>
             <element signature="e#0#43#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pannellum/pannellum.js">
+    <entry file="file://$PROJECT_DIR$/app/escapeTogether/escapeTogetherComponent.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="1468" column="12" selection-start-line="1468" selection-start-column="12" selection-end-line="1468" selection-end-column="12" />
+        <state relative-caret-position="378">
+          <caret line="69" column="18" selection-start-line="69" selection-start-column="18" selection-end-line="69" selection-end-column="18" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#0#50#0" expanded="true" />
+            <marker date="1469913393429" expanded="true" signature="292:316" ph="..." />
+            <marker date="1469913393429" expanded="true" signature="317:390" ph="..." />
+            <marker date="1469913393429" expanded="true" signature="363:374" ph="..." />
+            <marker date="1469913393429" expanded="true" signature="714:2259" ph="{...}" />
+            <marker date="1469913393429" expanded="true" signature="731:840" ph="{...}" />
+            <marker date="1469913393429" expanded="true" signature="857:2255" ph="{...}" />
+            <marker date="1469913393429" expanded="true" signature="875:2248" ph="{...}" />
+            <marker date="1469913393429" expanded="true" signature="1029:1245" ph="{...}" />
+            <marker date="1469913393429" expanded="true" signature="1264:2243" ph="[...]" />
+            <marker date="1469913393429" expanded="true" signature="1270:2028" ph="{&quot;id&quot;: 'pikachu'...}" />
+            <marker date="1469913393429" expanded="true" signature="2034:2097" ph="{...}" />
+            <marker date="1469913393429" expanded="true" signature="2103:2166" ph="{...}" />
+            <marker date="1469913393429" expanded="true" signature="2172:2234" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pannellum/libpannellum.js">
+    <entry file="file://$PROJECT_DIR$/pannellum/pannellum.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="12107">
-          <caret line="555" column="28" selection-start-line="555" selection-start-column="24" selection-end-line="555" selection-end-column="28" />
+        <state relative-caret-position="156">
+          <caret line="1609" column="0" selection-start-line="1609" selection-start-column="0" selection-end-line="1609" selection-end-column="0" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
