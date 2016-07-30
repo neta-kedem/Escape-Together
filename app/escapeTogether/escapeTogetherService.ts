@@ -41,6 +41,7 @@ export class EscapeTogetherService{
 
 	artifactClicked(artifactId:string):void {
 		this.socket.emit('userClick', artifactId);
+		console.log('user click:', artifactId);
 	}
 
 	bagClicked(artifactId:string):void{

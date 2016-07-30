@@ -66,7 +66,7 @@ export class EscapeTogetherComponent implements OnInit {
 				  //{"hideHotSpot":"pikachu"} //when you collect an artifact usualy that's what you want
 				  
 				  //onclick to be deleted
-				  "onClick": "window.postMessage({artifactId : 'pikachu' }, '*'); console.log('clicked');"
+				  // "onClick": "window.postMessage({artifactId : 'pikachu' }, '*'); console.log('clicked');"
 				},
 				{
 				  "pitch": -6,
