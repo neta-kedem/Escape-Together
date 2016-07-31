@@ -66,9 +66,14 @@ let gameState = new GameState([[{
 					src : 'img/artifacts/semi-trans.png',
 					beingUsedBy : -1,
 					required : ["pikachu"],
-					actions : [{"collect":"pikachu"}]
+					actions : [{"showHotSpot":"raichu"}]
 				},{
-
+					id : 'raichu',
+					shown : false,
+					src : 'img/artifacts/Raichu.png',
+					beingUsedBy : -1,
+					required : ["pikachu"],
+					actions : [{"collect":"raichu"}]
 				}
 			]], emitState);
 gameIo.on('connection', function (socket) {

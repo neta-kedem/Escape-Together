@@ -97,6 +97,18 @@ export class EscapeTogetherComponent implements OnInit {
 				  "yaw": 33.2,
 				  "type": "info"
 				},
+			  	{
+				  "pitch": -5.5,
+				  "yaw": 45,
+				  "id":'raichu',
+				  "type": "info",
+				  "imgSrc":"img/artifacts/Raichu.png"
+			  	},
+			  	{
+				  "pitch": -14,
+				  "yaw": 33.2,
+				  "type": "info"
+			  	}
 
 			  ]
 			},

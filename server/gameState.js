@@ -86,6 +86,8 @@ var GameState = (function () {
         //return {bags:this.bags, scene:this.scenes[userScene]}
     };
     ;
+    GameState.prototype.unSelectItemInBag = function (userId, artifactId) {
+    };
     return GameState;
 }());
 exports.GameState = GameState;

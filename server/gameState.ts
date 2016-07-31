@@ -114,6 +114,10 @@ export class GameState {
         //return {bags:this.bags, scene:this.scenes[userScene]}
     };
 
+    unSelectItemInBag(userId, artifactId){
+        
+    }
+
 }
 
 module.exports = GameState;
