@@ -1525,8 +1525,8 @@ window.pannellum = (function(window, document, undefined) {
 								loadScene(hs.sceneId, hs.targetPitch, hs.targetYaw, hs.targetHfov);
 								return false;
 							};
-							div.style.cursor = 'pointer';
-							span.style.cursor = 'pointer';
+							// div.style.cursor = 'pointer';
+							// span.style.cursor = 'pointer';
 						}
 						renderContainer.appendChild(div);
 					}
@@ -1609,12 +1609,11 @@ window.pannellum = (function(window, document, undefined) {
 		function overlayCoordinates(){
 
 			let arr = config.hotSpots;
-			arr.forEach((hs, index)=>{
-				if(hs.imgSrc){
+			arr.forEach((hs, index) => {
+				if(hs.imgSrc && !config.isRendered){
 					hs.div.innerHTML = `<img id=${hs.id} width="64" height="64" src=${hs.imgSrc} onClick="window.postMessage(this.id,'*')"/>`;
-					hs.imgSrc='';
 				}
-				//if that hotspot is a picture- a colectable object
+				//if it's a hotspot, and not a point for correction
 				if(hs.div.childElementCount){
 					let object = hs.div.children[0];
 					let width = arr[index+1].x-arr[index].x;
@@ -1626,6 +1625,7 @@ window.pannellum = (function(window, document, undefined) {
 					object.attributes.height.value=height;
 				}
 			});
+            config.isRendered=true;
 		}
 
 		/**

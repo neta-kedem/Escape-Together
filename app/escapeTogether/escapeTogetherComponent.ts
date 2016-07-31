@@ -42,6 +42,7 @@ export class EscapeTogetherComponent implements OnInit {
 			  "yaw": 50,
 			  "northOffset": 289,
 			  "type": "multires",
+			  "isRendered" : false,
 			  // "type": "cubemap",
 			  // "cubeMap":[
 				// 	"/img/panoramas/classroom/fallback/f.jpg",
@@ -65,7 +66,8 @@ export class EscapeTogetherComponent implements OnInit {
 				  "yaw": 5,
 				  "type": "info",
 				  "id":'pikachu',
-				  "imgSrc": "img/artifacts/Pikachu_256px.png",
+				  "imgSrc": "img/artifacts/Pikachu_256px.png"
+
 				  //"required":[], //requires any one of the artifact from this list to activate (can be empty and then a click is enough)
 				  //"actions":[{"collect":"pikachu"},{"hideHotSpot":"pikachu"}],
 				  //other possible action: 
@@ -118,8 +120,8 @@ export class EscapeTogetherComponent implements OnInit {
 				  "imgSrc":"img/artifacts/semi-trans.png"
 			  	},
 			  	{
-				  "pitch": -14,
-				  "yaw": 33.2,
+				  "pitch": 0,
+				  "yaw": 50,
 				  "type": "info"
 			  	}				
 

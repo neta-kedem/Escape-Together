@@ -46,46 +46,53 @@ export class GameState {
 	
 	userClick(userId:number, artifactId:string){
         console.log('game state totally knows ' + artifactId + ' was clicked');
-		const userScene = this.players[userId].currScene;
-		console.log('userId:',userId,' currscene:',this.players[userId].currScene);
+        const userScene = this.players[userId].currScene;
         let clickedArtifact = this.scenes[userScene].filter((artifact)=>artifact.id===artifactId)[0];
-        //if the clicked artifact is shown (prevent bugs due to "clicking" an already hidden object due to communication lag)
-		console.log('still alive before if');
-		if(clickedArtifact.shown){
-			// if (clickedArtifact.required.length===0||
-             //   (this.players[userId].itemIdInHand.length >0 && clickedArtifact.required.indexOf(this.players[userId].itemIdInHand.id)>=0)){
-            console.log('$var:', clickedArtifact.required.indexOf(this.players[userId].itemIdInHand)>=0);
-            if (clickedArtifact.required.length === 0 || clickedArtifact.required.indexOf(this.players[userId].itemIdInHand)>=0){
-                //todo: check if iteminhand meets clickedArtifact.required
-                // console.log('clickedArtifact:',clickedArtifact);
-                //this is the place to handle clickedArtifact.actions
-                console.log('Checking reqs: item in hand:',this.players[userId].itemIdInHand,'requirements:',clickedArtifact.required,'clicked on:', clickedArtifact);
+        // console.log(userScene, artifactId, this.scenes[userScene].filter((artifact)=>artifact.id===artifactId))
+        // console.log('Checking reqs: item in hand:',this.players[userId].itemIdInHand,'requirements:',clickedArtifact.required,'clicked on:', clickedArtifact);
 
-            clickedArtifact.actions.forEach((action:any)=>{
-				switch (Object.keys(action)[0]){
-					case 'collect':
-					    //let idToCollact = action.collact;
-                        this.bags[userId].push(
-												this.scenes[userScene].filter(hs => hs.id === action.collect)[0]
-												);
-                        console.log('totally collecting!');
-                        break;
-					case 'loadScene':
-                        break;
-					case 'showHotSpot':
-                        this.scenes[userScene].filter(hs => hs.id === action.showHotSpot)[0].shown = true;
-						//this.flatten(this. scenes).filter(hs => hs.id === action.showHotSpot)[0].shown = true;
-                        break;
-                    case 'hideHotSpot':
-                        this.scenes[userScene].filter(hs => hs.id === action.hideHotSpot)[0].shown = false;						
-						//this.flatten(this. scenes).filter(hs => hs.id === action.hideHotSpot)[0].shown = false;
-                        break;
-					case 'changeScene':
-						//TODO: just update the user's scene. no need to call pannellum.
-						break
-				}
-			});
-        }
+        //if the clicked artifact is shown (prevent bugs due to "clicking" an already hidden object due to communication lag)
+		if(clickedArtifact.shown){
+            if(this.players[userId].itemIdInHand){
+                this.removeItemFromBag(this.players[userId].itemIdInHand);
+            }
+
+            // console.log('in if- the clicked art is shown:', clickedArtifact.required.indexOf(this.players[userId].itemIdInHand) >= 0);
+            if (clickedArtifact.required.length === 0 || clickedArtifact.required.indexOf(this.players[userId].itemIdInHand) >= 0){
+
+                //this is the place to handle clickedArtifact.actions
+                // console.log('Checking reqs: item in hand:',this.players[userId].itemIdInHand,'requirements:',clickedArtifact.required,'clicked on:', clickedArtifact);
+
+                clickedArtifact.actions.forEach((action:any)=>{
+                    switch (Object.keys(action)[0]){
+                        case 'collect':
+                            //let idToCollact = action.collact;
+                            console.log('');
+                            console.log('collect:', this.scenes[userScene].filter(hs => hs.id === action.collect)[0]);
+                            this.bags[userId].push(this.scenes[userScene].filter(hs => hs.id === action.collect)[0]);
+                            this.unSelectItemInBag(userId);
+                            console.log('totally collecting!');
+                            break;
+                        case 'loadScene':
+                            console.log('load scene???????');
+                            break;
+                        case 'showHotSpot':
+                            this.unSelectItemInBag(userId);
+                            this.scenes[userScene].filter(hs => hs.id === action.showHotSpot)[0].shown = true;
+                            //this.flatten(this. scenes).filter(hs => hs.id === action.showHotSpot)[0].shown = true;
+                            break;
+                        case 'hideHotSpot':
+                            this.unSelectItemInBag(userId);
+                            this.scenes[userScene].filter(hs => hs.id === action.hideHotSpot)[0].shown = false;
+                            //this.flatten(this. scenes).filter(hs => hs.id === action.hideHotSpot)[0].shown = false;
+                            break;
+                        case 'changeScene':
+                            this.players[userId].currScene = action.changeScene;
+                            //TODO: just update the user's scene. no need to call pannellum.
+                            break
+                    }
+                });
+            }
 		}
 		
         //here we shuld emmit to all the users about the new state
@@ -110,8 +117,8 @@ export class GameState {
             this.players[userId].itemIdInHand = clickedArtifact.id;
         }
         else if(this.players[userId].itemIdInHand === clickedArtifact.id){
-            clickedArtifact.beingUsedBy = -1;
-            this.players[userId].itemIdInHand = '';
+            this.unSelectItemInBag(userId);
+
         } else{
             console.log('someone else is playing with that '+clickedArtifact.id);
         }
@@ -120,8 +127,24 @@ export class GameState {
         //return {bags:this.bags, scene:this.scenes[userScene]}
     };
 
-    unSelectItemInBag(userId, artifactId){
-        
+    unSelectItemInBag(userId:number){
+        if(this.players[userId].itemIdInHand){
+            let clickedArtifact = this.scenes[this.players[userId].currScene].filter((artifact)=>artifact.id===this.players[userId].itemIdInHand)[0];
+            clickedArtifact.beingUsedBy=-1;
+            // console.log('');
+            // console.log('unSelectItemInBag:', clickedArtifact);
+            // console.log('');
+            this.players[userId].itemIdInHand = '';
+        }
+    }
+
+    removeItemFromBag(artifactId:string){
+        console.log('removing:', artifactId);
+        this.bags = this.bags.map(bag => {
+            return bag.filter(
+                artifact => {
+                    console.log('remrem', artifact);
+                    return artifact.id !== artifactId})});
     }
 
 }

@@ -44,7 +44,7 @@ resolve(db);
 //   credentials: false
 // };
 function emitState(state) {
-	console.log('emmitting: ', JSON.stringify(state));
+	// console.log('emmitting: ', JSON.stringify(state));
 	gameIo.emit('state update', state);
 }
 
@@ -73,7 +73,7 @@ let gameState = new GameState({classroom:[{
 					shown : false,
 					src : 'img/artifacts/Raichu.png',
 					beingUsedBy : -1,
-					required : ["pikachu"],
+					required : [],
 					actions : [{"collect":"raichu"},{"hideHotSpot":"raichu"}]
 				},{
 					id : 'dooooor',
@@ -83,9 +83,15 @@ let gameState = new GameState({classroom:[{
 					required : [],
 					actions : [{"changeScene":"bma-1"}]
 				}
-				
 			],
-			'bma-1':[]}, emitState);
+			'bma-1':[{
+				id : 'door-back',
+				shown : true,
+				//src : 'img/artifacts/Raichu.png',
+				beingUsedBy : -1,
+				required : [],
+				actions : [{"changeScene":"classroom"}]
+			}]}, emitState);
 gameIo.on('connection', function (socket) {
 	console.log('a user connected');
 
