@@ -53,16 +53,17 @@ export class GameState {
 
         // console.log('artifact:',clickedArtifact);
 		if(clickedArtifact.shown){
+			if (clickedArtifact.required.length===0||
+               (this.players[userId].itemIdInHand.length>0&&clickedArtifact.required.includes(this.players[userId].itemIdInHand))){
 			//todo: check if iteminhand meets clickedArtifact.required
 			// console.log('clickedArtifact:',clickedArtifact);
 			//this is the place to handle clickedArtifact.actions
-
+			console.log('Checking reqs: item in hand:',this.players[userId].itemIdInHand,'requirements:',clickedArtifact.required);
             clickedArtifact.actions.forEach((action:any)=>{
 				switch (Object.keys(action)[0]){
 					case 'collect':	
                         this.bags[userId].push(clickedArtifact);
                         console.log('totally collecting!');
-							
                         break;
 					case 'loadScene':
                         break;
@@ -70,12 +71,14 @@ export class GameState {
                         this.flatten(this. scenes).filter(hs => hs.id === action.showHotSpot)[0].shown = true;
                         break;
                     case 'hideHotSpot':
-                        console.log('hotspot to hide:', this.flatten(this. scenes).filter(hs => hs.id === action.hideHotSpot)[0]);
-                       this.flatten(this. scenes).filter(hs => hs.id === action.hideHotSpot)[0].shown = false;
+                        //console.log('hotspot to hide:', this.flatten(this. scenes).filter(hs => hs.id === action.hideHotSpot)[0]);
+						this.flatten(this. scenes).filter(hs => hs.id === action.hideHotSpot)[0].shown = false;
                         break;
 				}
 			});
         }
+		}
+		
         //here we shuld emmit to all the users about the new state
 		this.sendStateToUsers();
     }
@@ -90,11 +93,7 @@ export class GameState {
 
     //an item in the bag section was clicked. the user can use it if no one else is using this
     bagedArtifactClicked(userId, artifactId){
-        const clickedArtifact:IArtifact = this.flatten(this.bags.map((bag)=>{
-            return bag.filter((artifact:IArtifact)=>{
-                return artifact.id===artifactId
-            });
-        }))[0];
+		const clickedArtifact:IArtifact = this.flatten(this.bags).filter((artifact:IArtifact)=>artifact.id===artifactId)[0];
 
         //if the clicked artifact is shown (prevent bugs due to "clicking" an already hidden object due to communication lag)
         if(clickedArtifact.beingUsedBy=== -1) {

@@ -29,26 +29,30 @@ var GameState = (function () {
         //if the clicked artifact is shown (prevent bugs due to "clicking" an already hidden object due to communication lag)
         // console.log('artifact:',clickedArtifact);
         if (clickedArtifact.shown) {
-            //todo: check if iteminhand meets clickedArtifact.required
-            // console.log('clickedArtifact:',clickedArtifact);
-            //this is the place to handle clickedArtifact.actions
-            clickedArtifact.actions.forEach(function (action) {
-                switch (Object.keys(action)[0]) {
-                    case 'collect':
-                        _this.bags[userId].push(clickedArtifact);
-                        console.log('totally collecting!');
-                        break;
-                    case 'loadScene':
-                        break;
-                    case 'showHotSpot':
-                        _this.flatten(_this.scenes).filter(function (hs) { return hs.id === action.showHotSpot; })[0].shown = true;
-                        break;
-                    case 'hideHotSpot':
-                        console.log('hotspot to hide:', _this.flatten(_this.scenes).filter(function (hs) { return hs.id === action.hideHotSpot; })[0]);
-                        _this.flatten(_this.scenes).filter(function (hs) { return hs.id === action.hideHotSpot; })[0].shown = false;
-                        break;
-                }
-            });
+            if (clickedArtifact.required.length === 0 ||
+                (this.players[userId].itemIdInHand.length > 0 && clickedArtifact.required.includes(this.players[userId].itemIdInHand))) {
+                //todo: check if iteminhand meets clickedArtifact.required
+                // console.log('clickedArtifact:',clickedArtifact);
+                //this is the place to handle clickedArtifact.actions
+                console.log('Checking reqs: item in hand:', this.players[userId].itemIdInHand, 'requirements:', clickedArtifact.required);
+                clickedArtifact.actions.forEach(function (action) {
+                    switch (Object.keys(action)[0]) {
+                        case 'collect':
+                            _this.bags[userId].push(clickedArtifact);
+                            console.log('totally collecting!');
+                            break;
+                        case 'loadScene':
+                            break;
+                        case 'showHotSpot':
+                            _this.flatten(_this.scenes).filter(function (hs) { return hs.id === action.showHotSpot; })[0].shown = true;
+                            break;
+                        case 'hideHotSpot':
+                            //console.log('hotspot to hide:', this.flatten(this. scenes).filter(hs => hs.id === action.hideHotSpot)[0]);
+                            _this.flatten(_this.scenes).filter(function (hs) { return hs.id === action.hideHotSpot; })[0].shown = false;
+                            break;
+                    }
+                });
+            }
         }
         //here we shuld emmit to all the users about the new state
         this.sendStateToUsers();
@@ -62,11 +66,7 @@ var GameState = (function () {
     };
     //an item in the bag section was clicked. the user can use it if no one else is using this
     GameState.prototype.bagedArtifactClicked = function (userId, artifactId) {
-        var clickedArtifact = this.flatten(this.bags.map(function (bag) {
-            return bag.filter(function (artifact) {
-                return artifact.id === artifactId;
-            });
-        }))[0];
+        var clickedArtifact = this.flatten(this.bags).filter(function (artifact) { return artifact.id === artifactId; })[0];
         //if the clicked artifact is shown (prevent bugs due to "clicking" an already hidden object due to communication lag)
         if (clickedArtifact.beingUsedBy === -1) {
             clickedArtifact.beingUsedBy = userId;
