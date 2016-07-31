@@ -29,8 +29,8 @@ export class EscapeTogetherService{
 	}
 
 	usedByOthers(artifact:IArtifact, userId:number):boolean{
-		console.log('artifact:', artifact);
-		console.log('userId:', userId);
+		//console.log('artifact:', artifact);
+		//console.log('userId:', userId);
 		if((artifact.beingUsedBy !== -1) && (artifact.beingUsedBy !== userId) )	return true;
 		return false;
 	}
