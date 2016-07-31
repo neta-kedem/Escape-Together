@@ -53,9 +53,9 @@ export class GameState {
 
 		if(clickedArtifact.shown){
 			// if (clickedArtifact.required.length===0||
-             //   (this.players[userId].itemIdInHand.length >0 && clickedArtifact.required.includes(this.players[userId].itemIdInHand.id))){
-            console.log('$var:', clickedArtifact.required.includes(this.players[userId].itemIdInHand));
-            if (clickedArtifact.required.length === 0 || clickedArtifact.required.includes(this.players[userId].itemIdInHand)){
+             //   (this.players[userId].itemIdInHand.length >0 && clickedArtifact.required.indexOf(this.players[userId].itemIdInHand.id)>=0)){
+            console.log('$var:', clickedArtifact.required.indexOf(this.players[userId].itemIdInHand)>=0);
+            if (clickedArtifact.required.length === 0 || clickedArtifact.required.indexOf(this.players[userId].itemIdInHand)>=0){
                 //todo: check if iteminhand meets clickedArtifact.required
                 // console.log('clickedArtifact:',clickedArtifact);
                 //this is the place to handle clickedArtifact.actions
