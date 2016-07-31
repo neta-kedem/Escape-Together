@@ -67,6 +67,7 @@ let gameState = new GameState([[{
 					beingUsedBy : -1,
 					required : ["pikachu"],
 					actions : [{"collect":"pikachu"}]
+				},{
 
 				}
 			]], emitState);
