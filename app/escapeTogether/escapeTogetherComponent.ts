@@ -31,7 +31,7 @@ export class EscapeTogetherComponent implements OnInit {
 			"firstScene": "classroom",
 			// "author": "Escape",
 			"autoLoad": true,
-			"hotSpotDebug": false
+			"hotSpotDebug": true
 		  },
 
 		  "scenes": {
@@ -83,13 +83,18 @@ export class EscapeTogetherComponent implements OnInit {
 				  "type": "info"
 				},
 				{
-				  "pitch": -6,
-				  "yaw": 5,
-				  "type": "info"
+				  "pitch": 5,
+				  "yaw": 24.2,
+				  "id":'door',
+				  "type": "info",
+				  "imgSrc":"img/artifacts/semi-trans.png",
+				  "required":"pikachu",
+				  "actions":[{"collect":"pikachu"}],
+
 				},
 				{
-				  "pitch": 5,
-				  "yaw": 0,
+				  "pitch": -14,
+				  "yaw": 33.2,
 				  "type": "info"
 				},
 
