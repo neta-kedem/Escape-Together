@@ -42,6 +42,15 @@ export class EscapeTogetherComponent implements OnInit {
 			  "yaw": 50,
 			  "northOffset": 289,
 			  "type": "multires",
+			  // "type": "cubemap",
+			  // "cubeMap":[
+				// 	"/img/panoramas/classroom/fallback/f.jpg",
+				// 	"/img/panoramas/classroom/fallback/b.jpg",
+				// 	"/img/panoramas/classroom/fallback/u.jpg",
+				// 	"/img/panoramas/classroom/fallback/d.jpg",
+				// 	"/img/panoramas/classroom/fallback/l.jpg",
+				// 	"/img/panoramas/classroom/fallback/r.jpg"
+				// ],
 			  "multiRes": {
 				"path": "/img/panoramas/classroom/%l/%s%y_%x",
 				"fallbackPath": "/img/panoramas/classroom/fallback/%s",
