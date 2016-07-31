@@ -48,7 +48,7 @@ function emitState(state) {
 	gameIo.emit('state update', state);
 }
 
-let gameState = new GameState([[{
+let gameState = new GameState({classroom:[{
 					id : 'pikachu',
 					shown : true,
 					src : 'img/artifacts/Pikachu_64px.png',
@@ -60,6 +60,7 @@ let gameState = new GameState([[{
 					//{"loadScene":"library"}
 					//{"showHotSpot":"raichu"}
 					//{"hideHotSpot":"pikachu"} //when you collect an artifact usualy that's what you want
+					//{"changeScene":"bma-1"}
 				},{
 					id : 'door',
 					shown : true,
@@ -73,13 +74,22 @@ let gameState = new GameState([[{
 					src : 'img/artifacts/Raichu.png',
 					beingUsedBy : -1,
 					required : ["pikachu"],
-					actions : [{"collect":"raichu"}]
+					actions : [{"collect":"raichu"},{"hideHotSpot":"raichu"}]
+				},{
+					id : 'dooooor',
+					shown : true,
+					//src : 'img/artifacts/Raichu.png',
+					beingUsedBy : -1,
+					required : [],
+					actions : [{"changeScene":"bma-1"}]
 				}
-			]], emitState);
+				
+			],
+			'bma-1':[]}, emitState);
 gameIo.on('connection', function (socket) {
 	console.log('a user connected');
 
-	const stateWithUserId = gameState.addPlayer('gramsci', 'queer', 0);
+	const stateWithUserId = gameState.addPlayer('gramsci', 'queer', 'classroom');
 		const userId = stateWithUserId.userId;
 	console.log(stateWithUserId);
 	socket.emit('login', stateWithUserId);

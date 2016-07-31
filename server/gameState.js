@@ -5,7 +5,7 @@
 var GameState = (function () {
     function GameState(scenes, cb, playerName, playerGender, playerCurrScene) {
         var _this = this;
-        if (playerCurrScene === void 0) { playerCurrScene = 0; }
+        if (playerCurrScene === void 0) { playerCurrScene = 'classroom'; }
         this.bags = []; //decide later the exact item structure
         this.players = [];
         //to put in some utility file
@@ -27,6 +27,7 @@ var GameState = (function () {
         console.log('userId:', userId, ' currscene:', this.players[userId].currScene);
         var clickedArtifact = this.scenes[userScene].filter(function (artifact) { return artifact.id === artifactId; })[0];
         //if the clicked artifact is shown (prevent bugs due to "clicking" an already hidden object due to communication lag)
+        console.log('still alive before if');
         if (clickedArtifact.shown) {
             // if (clickedArtifact.required.length===0||
             //   (this.players[userId].itemIdInHand.length >0 && clickedArtifact.required.indexOf(this.players[userId].itemIdInHand.id)>=0)){
@@ -39,18 +40,22 @@ var GameState = (function () {
                 clickedArtifact.actions.forEach(function (action) {
                     switch (Object.keys(action)[0]) {
                         case 'collect':
-                            var idToCollact = action.collact;
-                            _this.bags[userId].push(_this.flatten(_this.scenes).filter(function (hs) { return hs.id === action.collect; })[0]);
+                            //let idToCollact = action.collact;
+                            _this.bags[userId].push(_this.scenes[userScene].filter(function (hs) { return hs.id === action.collect; })[0]);
                             console.log('totally collecting!');
                             break;
                         case 'loadScene':
                             break;
                         case 'showHotSpot':
-                            _this.flatten(_this.scenes).filter(function (hs) { return hs.id === action.showHotSpot; })[0].shown = true;
+                            _this.scenes[userScene].filter(function (hs) { return hs.id === action.showHotSpot; })[0].shown = true;
+                            //this.flatten(this. scenes).filter(hs => hs.id === action.showHotSpot)[0].shown = true;
                             break;
                         case 'hideHotSpot':
-                            //console.log('hotspot to hide:', this.flatten(this. scenes).filter(hs => hs.id === action.hideHotSpot)[0]);
-                            _this.flatten(_this.scenes).filter(function (hs) { return hs.id === action.hideHotSpot; })[0].shown = false;
+                            _this.scenes[userScene].filter(function (hs) { return hs.id === action.hideHotSpot; })[0].shown = false;
+                            //this.flatten(this. scenes).filter(hs => hs.id === action.hideHotSpot)[0].shown = false;
+                            break;
+                        case 'changeScene':
+                            //TODO: just update the user's scene. no need to call pannellum.
                             break;
                     }
                 });
@@ -61,7 +66,7 @@ var GameState = (function () {
     };
     //a happy new player joind the room
     GameState.prototype.addPlayer = function (name, gender, currScene) {
-        if (currScene === void 0) { currScene = 0; }
+        if (currScene === void 0) { currScene = 'classroom'; }
         this.players.push({ name: name, gender: gender, currScene: currScene, itemIdInHand: null });
         this.bags.push([]);
         return { bags: this.bags, players: this.players, scenes: this.scenes, userId: this.players.length - 1 };

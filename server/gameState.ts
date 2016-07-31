@@ -17,7 +17,7 @@
  }
 
  */
-export interface IPlayer{name:string, gender:string, currScene:number, itemIdInHand:string}
+export interface IPlayer{name:string, gender:string, currScene:string, itemIdInHand:string}
 export interface IArtifact{id:string,shown:boolean, src:string, beingUsedBy:number, required:IArtifact[], actions:{any}[]}
 
 export class GameState {
@@ -31,7 +31,7 @@ export class GameState {
     flatten = list => list.reduce(
         (acc, curr) => acc.concat(Array.isArray(curr) ? this.flatten(curr) : curr), []);
 
-    constructor(scenes:IArtifact[][], cb, playerName?:string, playerGender?:string, playerCurrScene:number = 0 ){
+    constructor(scenes:IArtifact[][], cb, playerName?:string, playerGender?:string, playerCurrScene:string = 'classroom' ){
         this.scenes=scenes;
 		this.cb=cb;
         if (playerGender){
@@ -50,7 +50,7 @@ export class GameState {
 		console.log('userId:',userId,' currscene:',this.players[userId].currScene);
         let clickedArtifact = this.scenes[userScene].filter((artifact)=>artifact.id===artifactId)[0];
         //if the clicked artifact is shown (prevent bugs due to "clicking" an already hidden object due to communication lag)
-
+		console.log('still alive before if');
 		if(clickedArtifact.shown){
 			// if (clickedArtifact.required.length===0||
              //   (this.players[userId].itemIdInHand.length >0 && clickedArtifact.required.indexOf(this.players[userId].itemIdInHand.id)>=0)){
@@ -64,19 +64,25 @@ export class GameState {
             clickedArtifact.actions.forEach((action:any)=>{
 				switch (Object.keys(action)[0]){
 					case 'collect':
-					    let idToCollact = action.collact;
-                        this.bags[userId].push(this.flatten(this. scenes).filter(hs => hs.id === action.collect)[0]);
+					    //let idToCollact = action.collact;
+                        this.bags[userId].push(
+												this.scenes[userScene].filter(hs => hs.id === action.collect)[0]
+												);
                         console.log('totally collecting!');
                         break;
 					case 'loadScene':
                         break;
 					case 'showHotSpot':
-                        this.flatten(this. scenes).filter(hs => hs.id === action.showHotSpot)[0].shown = true;
+                        this.scenes[userScene].filter(hs => hs.id === action.showHotSpot)[0].shown = true;
+						//this.flatten(this. scenes).filter(hs => hs.id === action.showHotSpot)[0].shown = true;
                         break;
                     case 'hideHotSpot':
-                        //console.log('hotspot to hide:', this.flatten(this. scenes).filter(hs => hs.id === action.hideHotSpot)[0]);
-						this.flatten(this. scenes).filter(hs => hs.id === action.hideHotSpot)[0].shown = false;
+                        this.scenes[userScene].filter(hs => hs.id === action.hideHotSpot)[0].shown = false;						
+						//this.flatten(this. scenes).filter(hs => hs.id === action.hideHotSpot)[0].shown = false;
                         break;
+					case 'changeScene':
+						//TODO: just update the user's scene. no need to call pannellum.
+						break
 				}
 			});
         }
@@ -87,7 +93,7 @@ export class GameState {
     }
 
     //a happy new player joind the room
-    addPlayer(name:string, gender:string, currScene:number = 0){
+    addPlayer(name:string, gender:string, currScene:string = 'classroom'){
         this.players.push({name:name, gender:gender, currScene:currScene, itemIdInHand:null});
         this.bags.push([]);
 		

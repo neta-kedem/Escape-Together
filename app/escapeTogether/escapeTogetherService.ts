@@ -24,6 +24,8 @@ export class EscapeTogetherService{
 			console.log('login:', msg);
 			this._userId = msg.userId;
 			this._bags = msg.bags;
+			console.log(msg.scenes[msg.players[this._userId].currScene]);
+			console.log(msg.scenes);
 			msg.scenes[msg.players[this._userId].currScene].forEach((artifact)=>{(<HTMLElement>document.querySelector('#'+artifact.id)).style.display = artifact.shown? 'block': 'none'});
 		});
 	}

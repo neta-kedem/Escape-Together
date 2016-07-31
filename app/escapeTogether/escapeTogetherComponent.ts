@@ -108,10 +108,48 @@ export class EscapeTogetherComponent implements OnInit {
 				  "pitch": -14,
 				  "yaw": 33.2,
 				  "type": "info"
-			  	}
+			  	},
+			  	{
+				  "pitch": 10,
+				  "yaw": 45,
+				  "id":'dooooor',
+				  "type": "scene",
+				  "sceneId": "bma-1",
+				  "imgSrc":"img/artifacts/semi-trans.png"
+			  	},
+			  	{
+				  "pitch": -14,
+				  "yaw": 33.2,
+				  "type": "info"
+			  	}				
 
 			  ]
 			},
+			 "bma-1": {    "type": "equirectangular",
+    "panorama": "/img/panoramas/examples/bma-1.jpg",
+    /*
+     * Uncomment the next line to print the coordinates of mouse clicks
+     * to the browser's developer console, which makes it much easier
+     * to figure out where to place hot spots. Always remove it when
+     * finished, though.
+     */
+    //"hotSpotDebug": true,
+    "hotSpots": [
+			  	{
+				  "pitch": 10,
+				  "yaw": 45,
+				  "id":'door-back',
+				  "type": "scene",
+				  "sceneId": "classroom",
+				  "imgSrc":"img/artifacts/semi-trans.png"
+			  	},
+			  	{
+				  "pitch": -14,
+				  "yaw": 33.2,
+				  "type": "info"
+			  	}	
+    ]},
+
 		  }
 		});
 	}
