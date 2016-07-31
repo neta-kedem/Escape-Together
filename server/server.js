@@ -54,12 +54,20 @@ let gameState = new GameState([[{
 					src : 'img/artifacts/Pikachu_64px.png',
 					beingUsedBy : -1,
 					required : [], //requires any one of the artifact from this list to activate (can be empty and then a click is enough)
-					actions : [{"collect":"pikachu"},{"hideHotSpot":"pikachu"}],
+					actions : [{"collect":"pikachu"},{"hideHotSpot":"pikachu"}]
 					//other possible action: 
 					//{"collect":"pikachu"} //collect an artifact. can be the same artifact back or anything else
 					//{"loadScene":"library"}
 					//{"showHotSpot":"raichu"}
 					//{"hideHotSpot":"pikachu"} //when you collect an artifact usualy that's what you want
+				},{
+					id : 'door',
+					shown : true,
+					src : 'img/artifacts/semi-trans.png',
+					beingUsedBy : -1,
+					required : ["pikachu"],
+					actions : [{"collect":"pikachu"}]
+
 				}
 			]], emitState);
 gameIo.on('connection', function (socket) {

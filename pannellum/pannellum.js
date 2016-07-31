@@ -1611,7 +1611,7 @@ window.pannellum = (function(window, document, undefined) {
 			let arr = config.hotSpots;
 			arr.forEach((hs, index)=>{
 				if(hs.imgSrc){
-					hs.div.innerHTML = `<img id=${hs.id} width="64" height="64" src=${hs.imgSrc} onClick="window.postMessage('pikachu','*')"/>`;
+					hs.div.innerHTML = `<img id=${hs.id} width="64" height="64" src=${hs.imgSrc} onClick="window.postMessage(this.id,'*')"/>`;
 					hs.imgSrc='';
 				}
 				//if that hotspot is a picture- a colectable object

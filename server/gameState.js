@@ -27,18 +27,20 @@ var GameState = (function () {
         console.log('userId:', userId, ' currscene:', this.players[userId].currScene);
         var clickedArtifact = this.scenes[userScene].filter(function (artifact) { return artifact.id === artifactId; })[0];
         //if the clicked artifact is shown (prevent bugs due to "clicking" an already hidden object due to communication lag)
-        // console.log('artifact:',clickedArtifact);
         if (clickedArtifact.shown) {
-            if (clickedArtifact.required.length === 0 ||
-                (this.players[userId].itemIdInHand.length > 0 && clickedArtifact.required.includes(this.players[userId].itemIdInHand))) {
+            // if (clickedArtifact.required.length===0||
+            //   (this.players[userId].itemIdInHand.length >0 && clickedArtifact.required.includes(this.players[userId].itemIdInHand.id))){
+            console.log('$var:', clickedArtifact.required.includes(this.players[userId].itemIdInHand));
+            if (clickedArtifact.required.length === 0 || clickedArtifact.required.includes(this.players[userId].itemIdInHand)) {
                 //todo: check if iteminhand meets clickedArtifact.required
                 // console.log('clickedArtifact:',clickedArtifact);
                 //this is the place to handle clickedArtifact.actions
-                console.log('Checking reqs: item in hand:', this.players[userId].itemIdInHand, 'requirements:', clickedArtifact.required);
+                console.log('Checking reqs: item in hand:', this.players[userId].itemIdInHand, 'requirements:', clickedArtifact.required, 'clicked on:', clickedArtifact);
                 clickedArtifact.actions.forEach(function (action) {
                     switch (Object.keys(action)[0]) {
                         case 'collect':
-                            _this.bags[userId].push(clickedArtifact);
+                            var idToCollact = action.collact;
+                            _this.bags[userId].push(_this.flatten(_this.scenes).filter(function (hs) { return hs.id === action.collect; })[0]);
                             console.log('totally collecting!');
                             break;
                         case 'loadScene':

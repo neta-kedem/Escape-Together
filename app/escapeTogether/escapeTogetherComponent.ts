@@ -88,7 +88,7 @@ export class EscapeTogetherComponent implements OnInit {
 				  "id":'door',
 				  "type": "info",
 				  "imgSrc":"img/artifacts/semi-trans.png",
-				  "required":"pikachu",
+				  "required":["pikachu"],
 				  "actions":[{"collect":"pikachu"}],
 
 				},
