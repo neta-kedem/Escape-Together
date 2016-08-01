@@ -18,12 +18,12 @@
 
  */
 export interface IPlayer{name:string, gender:string, currScene:string, itemIdInHand:string}
-export interface IArtifact{id:string,shown:boolean, src:string, beingUsedBy:number, required:IArtifact[], actions:{any}[]}
+export interface IArtifact{id:string,shown:boolean, src:string, beingUsedBy:number, required:{}[], actions:{any}[]}
 
 export class GameState {
     private bags:Object[][]=[];   //decide later the exact item structure
     private players:IPlayer[]=[];
-    private scenes:IArtifact[][];
+    private scenes:{};
 	private cb;
 
 
@@ -31,7 +31,7 @@ export class GameState {
     flatten = list => list.reduce(
         (acc, curr) => acc.concat(Array.isArray(curr) ? this.flatten(curr) : curr), []);
 
-    constructor(scenes:IArtifact[][], cb, playerName?:string, playerGender?:string, playerCurrScene:string = 'classroom' ){
+    constructor(scenes:{}, cb, playerName?:string, playerGender?:string, playerCurrScene:string = 'classroom' ){
         this.scenes=scenes;
 		this.cb=cb;
         if (playerGender){
@@ -47,7 +47,7 @@ export class GameState {
 	userClick(userId:number, artifactId:string){
         console.log('game state totally knows ' + artifactId + ' was clicked');
         const userScene = this.players[userId].currScene;
-        let clickedArtifact = this.scenes[userScene].filter((artifact)=>artifact.id===artifactId)[0];
+        let clickedArtifact:IArtifact = this.scenes[userScene].filter((artifact)=>artifact.id===artifactId)[0];
         // console.log(userScene, artifactId, this.scenes[userScene].filter((artifact)=>artifact.id===artifactId))
         // console.log('Checking reqs: item in hand:',this.players[userId].itemIdInHand,'requirements:',clickedArtifact.required,'clicked on:', clickedArtifact);
 
@@ -66,7 +66,6 @@ export class GameState {
                 clickedArtifact.actions.forEach((action:any)=>{
                     switch (Object.keys(action)[0]){
                         case 'collect':
-                            //let idToCollact = action.collact;
                             console.log('');
                             console.log('collect:', this.scenes[userScene].filter(hs => hs.id === action.collect)[0]);
                             this.bags[userId].push(this.scenes[userScene].filter(hs => hs.id === action.collect)[0]);
@@ -89,7 +88,11 @@ export class GameState {
                         case 'changeScene':
                             this.players[userId].currScene = action.changeScene;
                             //TODO: just update the user's scene. no need to call pannellum.
-                            break
+                            break;
+                        case 'objectMessage':
+                            console.log('objectMessage', action.objectMessage);
+                            this.objectMessage(userId, action.objectMessage)
+                            break;
                     }
                 });
             }
@@ -131,22 +134,21 @@ export class GameState {
         if(this.players[userId].itemIdInHand){
             let clickedArtifact = this.scenes[this.players[userId].currScene].filter((artifact)=>artifact.id===this.players[userId].itemIdInHand)[0];
             clickedArtifact.beingUsedBy=-1;
-            // console.log('');
-            // console.log('unSelectItemInBag:', clickedArtifact);
-            // console.log('');
             this.players[userId].itemIdInHand = '';
         }
     }
 
     removeItemFromBag(artifactId:string){
         console.log('removing:', artifactId);
-        this.bags = this.bags.map(bag => {
+        this.bags = this.bags.map((bag:IArtifact[]) => {
             return bag.filter(
                 artifact => {
                     console.log('remrem', artifact);
                     return artifact.id !== artifactId})});
     }
+    objectMessage(userId, message){
 
+    }
 }
 
 module.exports = GameState;

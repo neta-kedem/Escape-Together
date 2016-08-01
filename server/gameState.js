@@ -39,7 +39,6 @@ var GameState = (function () {
                 clickedArtifact.actions.forEach(function (action) {
                     switch (Object.keys(action)[0]) {
                         case 'collect':
-                            //let idToCollact = action.collact;
                             console.log('');
                             console.log('collect:', _this.scenes[userScene].filter(function (hs) { return hs.id === action.collect; })[0]);
                             _this.bags[userId].push(_this.scenes[userScene].filter(function (hs) { return hs.id === action.collect; })[0]);
@@ -62,6 +61,10 @@ var GameState = (function () {
                         case 'changeScene':
                             _this.players[userId].currScene = action.changeScene;
                             //TODO: just update the user's scene. no need to call pannellum.
+                            break;
+                        case 'objectMessage':
+                            console.log('objectMessage', action.objectMessage);
+                            _this.objectMessage(userId, action.objectMessage);
                             break;
                     }
                 });
@@ -101,9 +104,6 @@ var GameState = (function () {
         if (this.players[userId].itemIdInHand) {
             var clickedArtifact = this.scenes[this.players[userId].currScene].filter(function (artifact) { return artifact.id === _this.players[userId].itemIdInHand; })[0];
             clickedArtifact.beingUsedBy = -1;
-            // console.log('');
-            // console.log('unSelectItemInBag:', clickedArtifact);
-            // console.log('');
             this.players[userId].itemIdInHand = '';
         }
     };
@@ -115,6 +115,8 @@ var GameState = (function () {
                 return artifact.id !== artifactId;
             });
         });
+    };
+    GameState.prototype.objectMessage = function (userId, message) {
     };
     return GameState;
 }());

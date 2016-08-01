@@ -48,7 +48,7 @@ function emitState(state) {
 	gameIo.emit('state update', state);
 }
 
-let gameState = new GameState({classroom:[{
+var gameState = new GameState({classroom:[{
 					id : 'pikachu',
 					shown : true,
 					src : 'img/artifacts/Pikachu_64px.png',
@@ -67,7 +67,7 @@ let gameState = new GameState({classroom:[{
 					src : 'img/artifacts/semi-trans.png',
 					beingUsedBy : -1,
 					required : ["pikachu"],
-					actions : [{"showHotSpot":"raichu"}]
+					actions : [{"showHotSpot":"raichu"},{"objectMessage":"you can open me with pikachu"}]
 				},{
 					id : 'raichu',
 					shown : false,
@@ -76,7 +76,7 @@ let gameState = new GameState({classroom:[{
 					required : [],
 					actions : [{"collect":"raichu"},{"hideHotSpot":"raichu"}]
 				},{
-					id : 'dooooor',
+					id : 'small-window',
 					shown : true,
 					//src : 'img/artifacts/Raichu.png',
 					beingUsedBy : -1,
@@ -85,7 +85,7 @@ let gameState = new GameState({classroom:[{
 				}
 			],
 			'bma-1':[{
-				id : 'door-back',
+				id : 'doorBack',
 				shown : true,
 				//src : 'img/artifacts/Raichu.png',
 				beingUsedBy : -1,
@@ -112,13 +112,7 @@ gameIo.on('connection', function (socket) {
 		gameIo.emit('chat message', msg);
 	});
 	socket.on('userClick', function (msg) {
-		console.log('');
 		console.log('userClick:', (msg));
-//		console.log('');
-//		for (var key in msg) {
-//			console.log(key,':', msg[key]);
-		console.log('');
-
 		gameState.userClick(userId, msg);
 	});
 	socket.on('bagedArtifactClicked', function (msg) {
@@ -130,7 +124,7 @@ gameIo.on('connection', function (socket) {
 
 console.log('WebSocket is Ready');
 // Kickup our server
-const baseUrl = 'http://localhost:3003/data';
+const baseUrl = 'http://192.168.1.5:3003/data';
 // Note: app.listen will not work with cors and the socket
 // app.listen(3003, function () {
 http.listen(3003, function () {

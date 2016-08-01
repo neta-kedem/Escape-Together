@@ -114,7 +114,7 @@ export class EscapeTogetherComponent implements OnInit {
 			  	{
 				  "pitch": 10,
 				  "yaw": 45,
-				  "id":'dooooor',
+				  "id":'small-window',
 				  "type": "scene",
 				  "sceneId": "bma-1",
 				  "imgSrc":"img/artifacts/semi-trans.png"
@@ -140,7 +140,7 @@ export class EscapeTogetherComponent implements OnInit {
 			  	{
 				  "pitch": 10,
 				  "yaw": 45,
-				  "id":'door-back',
+				  "id":'doorBack',
 				  "type": "scene",
 				  "sceneId": "classroom",
 				  "imgSrc":"img/artifacts/semi-trans.png"
