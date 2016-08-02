@@ -10,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 }`],
     template: '<div class="staticScene"></div>'
 })
-export class ComponentNameComponent implements OnInit {
+export class StaticSceneComponent implements OnInit {
     constructor() { }
 
     ngOnInit() { }

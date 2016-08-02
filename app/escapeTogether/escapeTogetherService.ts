@@ -2,22 +2,29 @@ import { Injectable } from '@angular/core';
 import { GameState } from '../../server/gameState';
 import * as io from 'socket.io-client';
 import {IArtifact} from "../../server/gameState";
+import {Http} from '@angular/http';
+
+declare var pannellum: any;
 
 @Injectable()
 export class EscapeTogetherService{
 	
 	// private gameState = new GameState([[{id:'pikachu', shown:true, src:'img/artifacts/Pikachu_256px.png', beingUsedBy:-1}]], 'gramsci', 'queer', 0);
 	private _bags = [];
-	private socket = io('localhost:3003/game');
+	private socket;
 	private _userId:number;
     private _currScene:string;
-	public view:{};
+	public view:any;
 
-	constructor(){
+	constructor(private http:Http){
 		window.addEventListener('message' , (msg)=>{
 			console.log('on message', msg.data);
 			this.artifactClicked(msg.data);
 		});
+
+	}
+	start(){
+	 	this.socket = io('localhost:3003/game');
 		this.socket.on('state update', (msg)=>{
 			console.log('state updated:', msg);
 
@@ -28,33 +35,38 @@ export class EscapeTogetherService{
 
 			const scene = msg.players[this._userId].currScene;
 
-            if(this._currScene !== scene){
-            	this._currScene = scene;
+			if(this._currScene !== scene){
+				this._currScene = scene;
 				this.view = this.view.loadScene(scene, 0, 0, 100);
+				this.view.on('load', ()=>{
+					console.warn('load event fired to ',scene);
+					msg.scenes[scene].forEach((artifact:IArtifact)=>{
+						let hsHtml=(<HTMLElement>document.querySelector('#'+artifact.id));
+						if(hsHtml) hsHtml.style.display = artifact.shown? 'block': 'none';
+						else console.warn('#' + artifact.id+ ' not found in DOM in if');
+					});
+				});
 
 			}
 
-			msg.scenes[scene].forEach((artifact:IArtifact)=>{
-				let hsHtml=(<HTMLElement>document.querySelector('#'+artifact.id));
-				if(hsHtml)
-					hsHtml.style.display = artifact.shown? 'block': 'none'});
+				msg.scenes[scene].forEach((artifact:IArtifact)=>{
+					let hsHtml=(<HTMLElement>document.querySelector('#'+artifact.id));
+					if(hsHtml) hsHtml.style.display = artifact.shown? 'block': 'none';
+					else console.warn('#' + artifact.id+ ' not found in DOM');
+				});
 
 
 		});
+	}
 
-		// this.socket.on('login', (msg)=>{
-			// console.log('login:', msg);
-			// this._userId = msg.userId;
-			// this._bags = msg.bags;
-			// console.log(msg.scenes[msg.players[this._userId].currScene]);
-			// console.log(msg.scenes);
-
-			// msg.scenes[msg.players[this._userId].currScene].forEach((artifact)=>{
-			// 	console.log('artifact.id:',artifact.id);
-				// if(document.querySelector('#'+artifact.id))
-				// 	(<HTMLElement>document.querySelector('#'+artifact.id)).style.display = artifact.shown? 'block': 'none'
-				// });
-		// });
+	loadPannellum(elId){
+		return new Promise((resolve,reject) => {
+			this.http.get('/server/json/data.json').toPromise().then((res:any) => {
+				this.view = pannellum.viewer(elId, eval('(' + res._body + ')'));
+				resolve();
+				// this.view.on('load', resolve);
+			});
+		});
 	}
 
 	usedByOthers(artifact:IArtifact, userId:number):boolean{

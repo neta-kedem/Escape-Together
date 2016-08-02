@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { BagComponent } from './bagComponent';
 import { EscapeTogetherService } from './escapeTogetherService';
 
-declare var pannellum: any;
 
 
 @Component({
@@ -24,19 +23,11 @@ export class EscapeTogetherComponent implements OnInit {
 	constructor(public escapeTogetherService : EscapeTogetherService) { }
 
 	ngOnInit() {
-		var xhr = new XMLHttpRequest();
-		xhr.open('GET', '/server/json/data.json');
-		xhr.onload = () => {
-			if (xhr.status === 200) {
-				console.log('this.escapeTogetherService:', this.escapeTogetherService);
-				//alert('User\'s name is ' + xhr.responseText);
-				this.escapeTogetherService.view = pannellum.viewer('panorama', eval('('+xhr.responseText+')'));
-
-			}
-			else {
-				alert('Request failed.  Returned status of ' + xhr.status);
-			}
-		};
-		xhr.send();
+		let prmLoaded = this.escapeTogetherService.loadPannellum('panorama');
+		prmLoaded.then(()=>{
+			console.log('loading pannellum!');
+			this.escapeTogetherService.start();
+		});
 	}
+
 }

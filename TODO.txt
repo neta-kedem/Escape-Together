@@ -1,0 +1,5 @@
+TODO:
+Code Cleanup:
+*	external json file- move to real json
+*	escapeTogetherService- in start function- prevent double excecution of DOM display update
+	(including the faild excecutions)
