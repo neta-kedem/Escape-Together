@@ -1594,6 +1594,7 @@ window.pannellum = (function(window, document, undefined) {
 					hsPitchCos / z / 2 + canvasWidth / 2 - 13);
 					transform += hs.x + 'px, ';
 					hs.y = (-canvasWidth / hfovTan * (hsPitchSin *
+
 					configPitchCos - hsPitchCos * yawCos * configPitchSin) / z / 2 +
 					canvasHeight / 2 - 13);
 					transform += hs.y + 'px) translateZ(9999px)';

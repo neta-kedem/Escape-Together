@@ -24,7 +24,7 @@ import { EscapeTogetherService } from './escapeTogetherService';
                 /*padding-right: 10px;*/
                 color: #fff;
                 text-align: left;
-                z-index: 2;
+                z-index: 5;
                 /*display: none;*/
                 /* Fix Safari fullscreen bug */
                 /*-webkit-transform: translateZ(9999px);*/
