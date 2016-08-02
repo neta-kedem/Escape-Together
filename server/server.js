@@ -5,7 +5,8 @@
 const express = require('express'),
 bodyParser = require('body-parser'),
 cors = require('cors'),
-GameState = require('./gameState');
+GameState = require('./gameState'),
+fs = require('fs');
 //		mongodb = require('mongodb')
 
 //const multer  = require('multer')
@@ -48,55 +49,47 @@ function emitState(state) {
 	gameIo.emit('state update', state);
 }
 
-var gameState = new GameState({classroom:[{
-					id : 'pikachu',
-					shown : true,
-					src : 'img/artifacts/Pikachu_64px.png',
-					beingUsedBy : -1,
-					required : [], //requires any one of the artifact from this list to activate (can be empty and then a click is enough)
-					actions : [{"collect":"pikachu"},{"hideHotSpot":"pikachu"}]
-					//other possible action: 
-					//{"collect":"pikachu"} //collect an artifact. can be the same artifact back or anything else
-					//{"loadScene":"library"}
-					//{"showHotSpot":"raichu"}
-					//{"hideHotSpot":"pikachu"} //when you collect an artifact usualy that's what you want
-					//{"changeScene":"bma-1"}
-				},{
-					id : 'door',
-					shown : true,
-					src : 'img/artifacts/semi-trans.png',
-					beingUsedBy : -1,
-					required : ["pikachu"],
-					actions : [{"showHotSpot":"raichu"},{"objectMessage":"you can open me with pikachu"}]
-				},{
-					id : 'raichu',
-					shown : false,
-					src : 'img/artifacts/Raichu.png',
-					beingUsedBy : -1,
-					required : [],
-					actions : [{"collect":"raichu"},{"hideHotSpot":"raichu"}]
-				},{
-					id : 'small-window',
-					shown : true,
-					//src : 'img/artifacts/Raichu.png',
-					beingUsedBy : -1,
-					required : [],
-					actions : [{"changeScene":"bma-1"}]
-				}
-			],
-			'bma-1':[{
-				id : 'doorBack',
-				shown : true,
-				//src : 'img/artifacts/Raichu.png',
-				beingUsedBy : -1,
-				required : [],
-				actions : [{"changeScene":"classroom"}]
-			}]}, emitState);
+
+//from babel
+function objectWithoutProperties(obj, keys) {
+	var target = {};
+	for (var i in obj) {
+		if (keys.indexOf(i) >= 0)
+			continue;
+		if (!Object.prototype.hasOwnProperty.call(obj, i))
+			continue;
+		target[i] = obj[i];
+	}
+	return target;
+}
+
+function getGameStateFromJSON(sourceJSON) {
+	var sourceJSON = sourceJSON;
+	var res = {};
+	for (let scene in sourceJSON.scenes) {
+		res[scene] = sourceJSON.scenes[scene].hotSpots.reduce((result,hs)=>{
+			if (hs.hasOwnProperty('id')){
+				result.push(objectWithoutProperties(hs,['pitch','yaw']));
+			}
+			return result;
+		},[]);
+	}
+	return res;
+}
+
+let objStr = fs.readFileSync('json/data.json', 'utf8');
+//use eval to allow comments inside JSON file.
+//eval fails on JSON files starting with "{", using () is a workaround for that
+let clientsideJSON = eval('(' + objStr + ')');
+
+let initialGameState = getGameStateFromJSON(clientsideJSON);
+
+var gameState = new GameState(initialGameState, emitState);
 gameIo.on('connection', function (socket) {
 	console.log('a user connected');
 
 	const stateWithUserId = gameState.addPlayer('gramsci', 'queer', 'classroom');
-		const userId = stateWithUserId.userId;
+	const userId = stateWithUserId.userId;
 	console.log(stateWithUserId);
 	socket.emit('login', stateWithUserId);
 	socket.broadcast.emit('state update', {
@@ -141,4 +134,5 @@ http.listen(3003, function () {
 function cl(...params) {
 console.log.apply(console, params);
 }
-*/
+ */
+

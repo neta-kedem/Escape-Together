@@ -8,7 +8,7 @@ export class EscapeTogetherService{
 	
 	// private gameState = new GameState([[{id:'pikachu', shown:true, src:'img/artifacts/Pikachu_256px.png', beingUsedBy:-1}]], 'gramsci', 'queer', 0);
 	private _bags = [];
-	private socket = io('192.168.1.5:3003/game');
+	private socket = io('localhost:3003/game');
 	private _userId:number;
 	constructor(){
 		window.addEventListener('message' , (msg)=>{
@@ -31,7 +31,10 @@ export class EscapeTogetherService{
 			this._bags = msg.bags;
 			console.log(msg.scenes[msg.players[this._userId].currScene]);
 			console.log(msg.scenes);
-			msg.scenes[msg.players[this._userId].currScene].forEach((artifact)=>{(<HTMLElement>document.querySelector('#'+artifact.id)).style.display = artifact.shown? 'block': 'none'});
+			msg.scenes[msg.players[this._userId].currScene].forEach((artifact)=>{
+				console.log('artifact.id:',artifact.id);
+				(<HTMLElement>document.querySelector('#'+artifact.id)).style.display = artifact.shown? 'block': 'none'
+				});
 		});
 	}
 
