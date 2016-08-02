@@ -87,7 +87,6 @@ let initialGameState = getGameStateFromJSON(clientsideJSON);
 var gameState = new GameState(initialGameState, emitState);
 gameIo.on('connection', function (socket) {
 	console.log('a user connected');
-
 	const stateWithUserId = gameState.addPlayer('gramsci', 'queer', 'classroom');
 	const userId = stateWithUserId.userId;
 	console.log(stateWithUserId);
