@@ -24,8 +24,9 @@ import { EscapeTogetherService } from './escapeTogetherService';
                 right: 0;  
                 margin: auto;
             }`],
-    template: `<div class="staticScene" *ngIf="escapeTogetherService.sceneToShow()">
-                  <img class="staticImage" [src]="escapeTogetherService.sceneToShow()" alt="a room">
+    template: `<div class="staticScene" *ngIf="escapeTogetherService.showModal">
+                  <img class="staticImage" [src]="escapeTogetherService.modalSrc" alt="a modal">
+                  <img class="imageHotSpot" *ngFor="let hotSpot of escapeTogetherService.modalHotSpots" src="{{hotSpot.imgSrc}}">
                </div>`
 })
 export class StaticSceneComponent implements OnInit {
@@ -33,7 +34,7 @@ export class StaticSceneComponent implements OnInit {
     constructor(private escapeTogetherService:EscapeTogetherService) {}
 
     ngOnInit() {
-        this.escapeTogetherService.sceneToShow()
+        // this.escapeTogetherService.sceneToShow()
     }
 
 }

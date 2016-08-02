@@ -65,16 +65,23 @@ function objectWithoutProperties(obj, keys) {
 
 function getGameStateFromJSON(sourceJSON) {
 	var sourceJSON = sourceJSON;
-	var res = {};
+	var hotspots = {};
+	var modals = {};
 	for (let scene in sourceJSON.scenes) {
-		res[scene] = sourceJSON.scenes[scene].hotSpots.reduce((result,hs)=>{
+	    if (sourceJSON.scenes[scene].type  === 'staticScene'){
+	        modals[scene] = objectWithoutProperties(sourceJSON.scenes[scene],['type','hotSpots']);
+            // console.log('modals:', modals);
+
+        }
+        // console.log('scene:', scene);
+		hotspots[scene] = sourceJSON.scenes[scene].hotSpots.reduce((result,hs)=>{
 			if (hs.hasOwnProperty('id')){
 				result.push(objectWithoutProperties(hs,['pitch','yaw']));
 			}
 			return result;
 		},[]);
 	}
-	return res;
+	return {hotSpots:hotspots, modals:modals};
 }
 
 let objStr = fs.readFileSync('./json/data.json', 'utf8');

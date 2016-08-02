@@ -9,15 +9,16 @@ export class GameState {
     private bags:Object[][]=[];   //decide later the exact item structure
     private players:IPlayer[]=[];
     private scenes:{};
+    private modals:{};
 	private cb;
-
 
     //to put in some utility file
     flatten = list => list.reduce(
         (acc, curr) => acc.concat(Array.isArray(curr) ? this.flatten(curr) : curr), []);
 
-    constructor(scenes:{}, cb, playerName?:string, playerGender?:string, playerCurrScene:string = 'classroom' ){
-        this.scenes=scenes;
+    constructor(scenesData:any, cb, playerName?:string, playerGender?:string, playerCurrScene:string = 'classroom' ){
+        this.scenes = scenesData.hotSpots;
+        this.modals = scenesData.modals;
 		this.cb=cb;
         if (playerGender){
             this.addPlayer(playerName,playerGender,playerCurrScene);
@@ -26,7 +27,7 @@ export class GameState {
 
     //the mother of all the game logic
     sendStateToUsers(){
-		this.cb({bags:this.bags,players:this.players,scenes:this.scenes});
+		this.cb({bags:this.bags,players:this.players,scenes:this.scenes, modals:this.modals});
 	}
 	
 	userClick(userId:number, artifactId:string){
@@ -57,6 +58,10 @@ export class GameState {
                             console.log('load scene******');
                             this.players[userId].currScene = action.loadScene;
                             break;
+                        case 'loadModal':
+                            console.log('loading modal?', action.loadModal);
+                            this.players[userId].currScene = action.loadModal;
+                            break;
                         case 'showHotSpot':
                             this.unSelectItemInBag(userId);
                             this.scenes[userScene].filter(hs => hs.id === action.showHotSpot)[0].shown = true;
@@ -75,7 +80,7 @@ export class GameState {
                 });
             }
 		}
-		
+
         //here we shuld emmit to all the users about the new state
 		this.sendStateToUsers();
     }
@@ -85,7 +90,7 @@ export class GameState {
         this.players.push({name:name, gender:gender, currScene:currScene, itemIdInHand:null});
         this.bags.push([]);
 		
-        return {bags:this.bags,players:this.players,scenes:this.scenes,userId:this.players.length - 1};
+        return {bags:this.bags, players:this.players, scenes:this.scenes, modals:this.modals, userId:this.players.length - 1};
     }
 
     //an item in the bag section was clicked. the user can use it if no one else is using this

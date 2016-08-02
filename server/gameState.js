@@ -3,14 +3,15 @@
  */
 "use strict";
 var GameState = (function () {
-    function GameState(scenes, cb, playerName, playerGender, playerCurrScene) {
+    function GameState(scenesData, cb, playerName, playerGender, playerCurrScene) {
         var _this = this;
         if (playerCurrScene === void 0) { playerCurrScene = 'classroom'; }
         this.bags = []; //decide later the exact item structure
         this.players = [];
         //to put in some utility file
         this.flatten = function (list) { return list.reduce(function (acc, curr) { return acc.concat(Array.isArray(curr) ? _this.flatten(curr) : curr); }, []); };
-        this.scenes = scenes;
+        this.scenes = scenesData.hotSpots;
+        this.modals = scenesData.modals;
         this.cb = cb;
         if (playerGender) {
             this.addPlayer(playerName, playerGender, playerCurrScene);
@@ -18,7 +19,7 @@ var GameState = (function () {
     }
     //the mother of all the game logic
     GameState.prototype.sendStateToUsers = function () {
-        this.cb({ bags: this.bags, players: this.players, scenes: this.scenes });
+        this.cb({ bags: this.bags, players: this.players, scenes: this.scenes, modals: this.modals });
     };
     GameState.prototype.userClick = function (userId, artifactId) {
         var _this = this;
@@ -44,6 +45,10 @@ var GameState = (function () {
                         case 'loadScene':
                             console.log('load scene******');
                             _this.players[userId].currScene = action.loadScene;
+                            break;
+                        case 'loadModal':
+                            console.log('loading modal?', action.loadModal);
+                            _this.players[userId].currScene = action.loadModal;
                             break;
                         case 'showHotSpot':
                             _this.unSelectItemInBag(userId);
@@ -71,7 +76,7 @@ var GameState = (function () {
         if (currScene === void 0) { currScene = 'classroom'; }
         this.players.push({ name: name, gender: gender, currScene: currScene, itemIdInHand: null });
         this.bags.push([]);
-        return { bags: this.bags, players: this.players, scenes: this.scenes, userId: this.players.length - 1 };
+        return { bags: this.bags, players: this.players, scenes: this.scenes, modals: this.modals, userId: this.players.length - 1 };
     };
     //an item in the bag section was clicked. the user can use it if no one else is using this
     GameState.prototype.bagedArtifactClicked = function (userId, artifactId) {
