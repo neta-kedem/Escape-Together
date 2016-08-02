@@ -49,7 +49,7 @@
 					//{"loadScene":"library"} 
 					//{"showHotSpot":"raichu"}
 					//{"hideHotSpot":"pikachu"} //when you collect an artifact usualy that's what you want
-					//{"changeScene":"bma-1"}
+					//{"loadScene":"bma-1"}
 
 					//onclick to be deleted
 					// "onClick": "window.postMessage({artifactId : 'pikachu' }, '*'); console.log('clicked');"
@@ -120,7 +120,7 @@
 					"beingUsedBy" : -1,
 					"required" : [],
 					"actions" : [{
-							"changeScene" : "bma-1"
+							"loadScene" : "bma-1"
 						}
 					]
 				}, {
@@ -151,7 +151,7 @@
 					"beingUsedBy" : -1,
 					"required" : [],
 					"actions" : [{
-							"changeScene" : "classroom"
+							"loadScene" : "classroom"
 						}
 					]
 				}, {
@@ -159,6 +159,30 @@
 					"yaw" : 33.2,
 					"type" : "info"
 				}
+			]
+		},
+		"garbageKey" : {
+			"type" : "staticScene",
+			"panorama" : "/img/panoramas/examples/bma-1.jpg",
+			"hotSpots" : [{
+				"x":"20px",
+				"y":"20px",
+				"id" : "keyInGarbage",
+				"type" : "scene",
+				"sceneId" : "classroom",
+				"imgSrc" : "img/artifacts/semi-trans.png",
+				"shown" : true,
+				"beingUsedBy" : -1,
+				"required" : [],
+				"actions" : [{
+					"loadScene" : "classroom"
+				}
+				]
+			}, {
+				"x" : "40px",
+				"y" : "40px",
+				"type" : "info"
+			}
 			]
 		}
 	}

@@ -5,7 +5,6 @@ import { EscapeTogetherService } from './escapeTogetherService';
     moduleId: module.id,
     selector: 'fixedPhoto',
     styles:[`.staticScene{
-
                 width: 100%;
                 height: 100%;
                 position: absolute;
@@ -14,7 +13,6 @@ import { EscapeTogetherService } from './escapeTogetherService';
                 z-index: 2;
                 background-color: darkblue;
                 margin: auto;
-
             }
             .staticImage{
                 max-width: 100%;

@@ -21,8 +21,8 @@ export class EscapeTogetherService{
 			console.log('on message', msg.data);
 			this.artifactClicked(msg.data);
 		});
-
 	}
+
 	start(){
 	 	this.socket = io('localhost:3003/game');
 		this.socket.on('state update', (msg)=>{
@@ -37,6 +37,10 @@ export class EscapeTogetherService{
 
 			if(this._currScene !== scene){
 				this._currScene = scene;
+                if(msg.scenes[scene].type === "staticScene"){
+                    console.log('modal');
+                }
+
 				this.view = this.view.loadScene(scene, 0, 0, 100);
 				this.view.on('load', ()=>{
 					console.warn('load event fired to ',scene);
@@ -46,7 +50,6 @@ export class EscapeTogetherService{
 						else console.warn('#' + artifact.id+ ' not found in DOM in if');
 					});
 				});
-
 			}
 
 				msg.scenes[scene].forEach((artifact:IArtifact)=>{
@@ -54,8 +57,6 @@ export class EscapeTogetherService{
 					if(hsHtml) hsHtml.style.display = artifact.shown? 'block': 'none';
 					else console.warn('#' + artifact.id+ ' not found in DOM');
 				});
-
-
 		});
 	}
 
@@ -88,6 +89,6 @@ export class EscapeTogetherService{
 	}
 
 	sceneToShow(){
-		return 'img/scenes/garbage_key.jpg'
+		return 'img/scenes/garbage_key02.jpg'
 	}
 }
