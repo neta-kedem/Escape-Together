@@ -91,7 +91,7 @@ gameIo.on('connection', function (socket) {
 	const stateWithUserId = gameState.addPlayer('gramsci', 'queer', 'classroom');
 	const userId = stateWithUserId.userId;
 	console.log(stateWithUserId);
-	socket.emit('login', stateWithUserId);
+	socket.emit('state update', stateWithUserId);
 	socket.broadcast.emit('state update', {
 		bags : stateWithUserId.bags,
 		players : stateWithUserId.players,
