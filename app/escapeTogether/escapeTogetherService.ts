@@ -9,12 +9,14 @@ declare var pannellum: any;
 @Injectable()
 export class EscapeTogetherService{
 	
-	// private gameState = new GameState([[{id:'pikachu', shown:true, src:'img/artifacts/Pikachu_256px.png', beingUsedBy:-1}]], 'gramsci', 'queer', 0);
 	private _bags = [];
 	private socket;
 	private _userId:number;
     private _currScene:string;
 	public view:any;
+	public modalSrc:string;
+	public showModal:boolean = false;
+	public modalHotSpots:any[];
 
 	constructor(private http:Http){
 		window.addEventListener('message' , (msg)=>{
@@ -37,19 +39,27 @@ export class EscapeTogetherService{
 
 			if(this._currScene !== scene){
 				this._currScene = scene;
-                if(msg.scenes[scene].type === "staticScene"){
-                    console.log('modal');
+				console.log('msg', msg);
+				//we have a modal scene
+                if(msg.modals.hasOwnProperty(scene)){
+					this.modalSrc = msg.modals[scene].modalSrc;
+					this.showModal = true;
+					this.modalHotSpots = msg.scenes[scene];
+					console.log('this.modalHotSpots:', this.modalHotSpots);
                 }
-
-				this.view = this.view.loadScene(scene, 0, 0, 100);
-				this.view.on('load', ()=>{
-					console.warn('load event fired to ',scene);
-					msg.scenes[scene].forEach((artifact:IArtifact)=>{
-						let hsHtml=(<HTMLElement>document.querySelector('#'+artifact.id));
-						if(hsHtml) hsHtml.style.display = artifact.shown? 'block': 'none';
-						else console.warn('#' + artifact.id+ ' not found in DOM in if');
+                //in case of a normal scene
+                else{
+					this.showModal = false;
+                	this.view = this.view.loadScene(scene, 0, 0, 100);
+					this.view.on('load', ()=>{
+						console.warn('load event fired to ',scene);
+						msg.scenes[scene].forEach((artifact:IArtifact)=>{
+							let hsHtml=(<HTMLElement>document.querySelector('#'+artifact.id));
+							if(hsHtml) hsHtml.style.display = artifact.shown? 'block': 'none';
+							else console.warn('#' + artifact.id+ ' not found in DOM in if');
+						});
 					});
-				});
+                }
 			}
 
 				msg.scenes[scene].forEach((artifact:IArtifact)=>{
@@ -88,7 +98,4 @@ export class EscapeTogetherService{
 		this.socket.emit('bagedArtifactClicked', artifactId);
 	}
 
-	sceneToShow(){
-		return 'img/scenes/garbage_key02.jpg'
-	}
 }
