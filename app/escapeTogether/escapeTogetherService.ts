@@ -86,4 +86,8 @@ export class EscapeTogetherService{
 	bagClicked(artifactId:string):void{
 		this.socket.emit('bagedArtifactClicked', artifactId);
 	}
+
+	sceneToShow(){
+		return 'img/scenes/garbage_key.jpg'
+	}
 }

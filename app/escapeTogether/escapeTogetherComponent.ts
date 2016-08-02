@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BagComponent } from './bagComponent';
 import { EscapeTogetherService } from './escapeTogetherService';
-
+import { StaticSceneComponent } from './staticSceneComponent'
 
 
 @Component({
@@ -9,12 +9,13 @@ import { EscapeTogetherService } from './escapeTogetherService';
 	// selector: 'escape',
 	template: `
 		<div id="father" style="width:100%;height:300px;">
+			<fixedPhoto></fixedPhoto>
 			<bag></bag>
 			<div id="panorama" style="width:100%;"></div>
 		</div>
 		`,
 	styleUrls: ['escapeTogetherComponent.css'],
-	directives: [BagComponent],
+	directives: [BagComponent, StaticSceneComponent],
 	providers: [EscapeTogetherService]
 
 
