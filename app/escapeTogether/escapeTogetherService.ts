@@ -10,6 +10,9 @@ export class EscapeTogetherService{
 	private _bags = [];
 	private socket = io('localhost:3003/game');
 	private _userId:number;
+    private _currScene:string;
+	public view:{};
+
 	constructor(){
 		window.addEventListener('message' , (msg)=>{
 			console.log('on message', msg.data);
@@ -17,25 +20,41 @@ export class EscapeTogetherService{
 		});
 		this.socket.on('state update', (msg)=>{
 			console.log('state updated:', msg);
+
+			if(msg.hasOwnProperty('userId'))
+				this._userId = msg.userId;
+
 			this._bags = msg.bags;
 
-			msg.scenes[msg.players[this._userId].currScene].forEach((artifact:IArtifact)=>{
+			const scene = msg.players[this._userId].currScene;
+
+            if(this._currScene !== scene){
+            	this._currScene = scene;
+				this.view = this.view.loadScene(scene, 0, 0, 100);
+
+			}
+
+			msg.scenes[scene].forEach((artifact:IArtifact)=>{
 				let hsHtml=(<HTMLElement>document.querySelector('#'+artifact.id));
 				if(hsHtml)
 					hsHtml.style.display = artifact.shown? 'block': 'none'});
+
+
 		});
 
-		this.socket.on('login', (msg)=>{
-			console.log('login:', msg);
-			this._userId = msg.userId;
-			this._bags = msg.bags;
-			console.log(msg.scenes[msg.players[this._userId].currScene]);
-			console.log(msg.scenes);
-			msg.scenes[msg.players[this._userId].currScene].forEach((artifact)=>{
-				console.log('artifact.id:',artifact.id);
-				(<HTMLElement>document.querySelector('#'+artifact.id)).style.display = artifact.shown? 'block': 'none'
-				});
-		});
+		// this.socket.on('login', (msg)=>{
+			// console.log('login:', msg);
+			// this._userId = msg.userId;
+			// this._bags = msg.bags;
+			// console.log(msg.scenes[msg.players[this._userId].currScene]);
+			// console.log(msg.scenes);
+
+			// msg.scenes[msg.players[this._userId].currScene].forEach((artifact)=>{
+			// 	console.log('artifact.id:',artifact.id);
+				// if(document.querySelector('#'+artifact.id))
+				// 	(<HTMLElement>document.querySelector('#'+artifact.id)).style.display = artifact.shown? 'block': 'none'
+				// });
+		// });
 	}
 
 	usedByOthers(artifact:IArtifact, userId:number):boolean{

@@ -23,15 +23,14 @@ declare var pannellum: any;
 export class EscapeTogetherComponent implements OnInit {
 	constructor(public escapeTogetherService : EscapeTogetherService) { }
 
-	view:any ={};
-
 	ngOnInit() {
 		var xhr = new XMLHttpRequest();
 		xhr.open('GET', '/server/json/data.json');
-		xhr.onload = function() {
+		xhr.onload = () => {
 			if (xhr.status === 200) {
+				console.log('this.escapeTogetherService:', this.escapeTogetherService);
 				//alert('User\'s name is ' + xhr.responseText);
-				this.view = pannellum.viewer('panorama', eval('('+xhr.responseText+')'));
+				this.escapeTogetherService.view = pannellum.viewer('panorama', eval('('+xhr.responseText+')'));
 
 			}
 			else {

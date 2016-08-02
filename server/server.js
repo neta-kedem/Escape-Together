@@ -77,7 +77,7 @@ function getGameStateFromJSON(sourceJSON) {
 	return res;
 }
 
-let objStr = fs.readFileSync('json/data.json', 'utf8');
+let objStr = fs.readFileSync('./json/data.json', 'utf8');
 //use eval to allow comments inside JSON file.
 //eval fails on JSON files starting with "{", using () is a workaround for that
 let clientsideJSON = eval('(' + objStr + ')');

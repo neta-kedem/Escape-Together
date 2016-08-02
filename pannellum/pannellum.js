@@ -1618,15 +1618,15 @@ window.pannellum = (function(window, document, undefined) {
 				if(hs.div.childElementCount){
 					let object = hs.div.children[0];
 					let width = arr[index+1].x-arr[index].x;
-					object.style.position='absolute';
-					object.style.top='13px';
-					object.style.left='13px';
-					object.attributes.width.value=width;
+					object.style.position = 'absolute';
+					object.style.top = '13px';
+					object.style.left = '13px';
+					object.attributes.width.value = width;
 					let height = arr[index+1].y-arr[index].y;
-					object.attributes.height.value=height;
+					object.attributes.height.value = height;
 				}
 			});
-            config.isRendered=true;
+            config.isRendered = true;
 		}
 
 		/**
