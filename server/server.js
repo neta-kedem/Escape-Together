@@ -28,7 +28,7 @@ return new Promise((resolve, reject) => {
 var url = 'mongodb://localhost:27017/seed';
 // Use connect method to connect to the Server
 mongodb.MongoClient.connect(url, function (err, db) {
-if (err) {
+if (err) { 
 cl('Cannot connect to DB', err)
 reject(err);
 }
