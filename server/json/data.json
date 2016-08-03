@@ -34,14 +34,7 @@
 				"maxLevel" : 4,
 				"cubeResolution" : 2280
 			},
-			"hotSpots" : [{
-					"pitch" : 5,
-					"yaw" : 5,
-					"type" : "info",
-					"id" : "pikachu",
-					"imgSrc" : "img/artifacts/Pikachu_256px.png",
-					
-
+			"hotSpots" : [
 					//"required":[], //requires any one of the artifact from this list to activate (can be empty and then a click is enough)
 					//"actions":[{"collect":"pikachu"},{"hideHotSpot":"pikachu"}],
 					//other possible action:
@@ -53,31 +46,16 @@
 
 					//onclick to be deleted
 					// "onClick": "window.postMessage({artifactId : 'pikachu' }, '*'); console.log('clicked');"
-					
-					
-					"shown" : true,
-					"src" : "img/artifacts/Pikachu_64px.png",
-					"beingUsedBy" : -1,
-					"required" : [],
-					"actions" : [{
-							"collect" : "pikachu"
-						}, {
-							"hideHotSpot" : "pikachu"
-						}
-					]
-				}, {
-					"pitch" : -6,
-					"yaw" : 0,
-					"type" : "info"
-				}, {
+
+					{
 					"pitch" : 5,
 					"yaw" : 24.2,
 					"id" : "door",
 					"type" : "info",
 					"imgSrc" : "img/artifacts/semi-trans.png",
-					"required" : ["pikachu"],
+					"required" : ["classroomKey"],
 					"actions" : [{
-							"showHotSpot" : "raichu"
+							"showHotSpot" : "outOfClassroom"
 						}, {
 							"objectMessage" : "you can open me with pikachu"
 						}
@@ -90,6 +68,21 @@
 					"yaw" : 33.2,
 					"type" : "info"
 				}, {
+				"pitch" : 5,
+				"yaw" : 24.2,
+				"id" : "outOfClassroom",
+				"type" : "info",
+				"imgSrc" : "img/artifacts/arrow-back-128.png",
+				"required" : [],
+				"actions" : [],
+				"shown" : false,
+				"src" : "img/artifacts/arrow-back-128.png",
+				"beingUsedBy" : -1
+			}, {
+				"pitch" : -14,
+				"yaw" : 33.2,
+				"type" : "info"
+			}, {
 					"pitch" : -5.5,
 					"yaw" : 45,
 					"id" : "raichu",
@@ -108,24 +101,6 @@
 				}, {
 					"pitch" : -14,
 					"yaw" : 33.2,
-					"type" : "info"
-				}, {
-					"pitch" : 10,
-					"yaw" : 45,
-					"id" : "small-window",
-					"type" : "info",
-					"sceneId" : "bma-1",
-					"imgSrc" : "img/artifacts/semi-trans.png",
-					"shown" : true,
-					"beingUsedBy" : -1,
-					"required" : [],
-					"actions" : [{
-							"loadScene" : "bma-1"
-						}
-					]
-				}, {
-					"pitch" : 0,
-					"yaw" : 50,
 					"type" : "info"
 				}, {
 				"pitch" : -16,
@@ -182,8 +157,39 @@
 			"type" : "staticScene",
 			"modalSrc" : "img/scenes/garbage_key02.jpg",
 			"hotSpots" : [{
-                "style":"position:absolute;top:20%;left:20%;width:10%;height10%;",
-				"id" : "keyInGarbage",
+                "style":'{"position":"absolute","top":"40%","left":"50%","max-width":"11%","max-height":"10%","min-width":"11%","min-height":"10%"}',
+              	"id" : "keyInGarbage",
+				"type" : "info",
+				"imgSrc" : "img/artifacts/semi-trans.png",
+				"shown" : true,
+				"required" : [],
+				"actions" : [{
+					"collect": "classroomKey"
+				},
+					{
+						"loadModal": "garbageNoKey"
+					}
+				]
+			},
+				{
+				"id": "classroomKey",
+				"style":'{"position":"absolute","top":"40%","left":"50%","max-width":"0%","max-height":"0%","min-width":"0%","min-height":"0%"}',
+				"type": "info",
+				"imgSrc": "img/artifacts/key.png",
+				"src": "img/artifacts/key.png",
+				"shown": true,
+				"beingUsedBy": -1,
+				"required": [],
+				"actions": []
+			}
+			]
+		},
+		"garbageNoKey" : {
+			"type" : "staticScene",
+			"modalSrc" : "img/scenes/garbage02.jpg",
+			"hotSpots" : [{
+				"style":'{"position":"absolute","top":"40%","left":"50%","max-width":"11%","max-height":"10%","min-width":"11%","min-height":"10%"}',
+				"id" : "doorInGarbage",
 				"type" : "info",
 				"imgSrc" : "img/artifacts/semi-trans.png",
 				"shown" : true,
