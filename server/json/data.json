@@ -6,6 +6,12 @@
 		"firstScene" : "classroom",
 		// "author": "Escape",		
 		"autoLoad" : true,
+		/*
+			 * Uncomment the next line to print the coordinates of mouse clicks
+			 * to the browser's developer console, which makes it much easier
+			 * to figure out where to place hot spots. Always remove it when
+			 * finished, though.
+			 */
 		"hotSpotDebug" : true
 	},
 	"scenes" : {
@@ -25,7 +31,20 @@
 			// 	"/img/panoramas/classroom/fallback/d.jpg",
 			// 	"/img/panoramas/classroom/fallback/l.jpg",
 			// 	"/img/panoramas/classroom/fallback/r.jpg"
-			// ],			
+			// ],
+
+			//"required":[], //requires any one of the artifact from this list to activate (can be empty and then a click is enough)
+			//"actions":[{"collect":"pikachu"},{"hideHotSpot":"pikachu"}],
+			//other possible action:
+			//{"collect":"pikachu"} //collect an artifact. can be the same artifact back or anything else
+			//{"loadScene":"library"}
+			//{"showHotSpot":"raichu"}
+			//{"hideHotSpot":"pikachu"} //when you collect an artifact usualy that's what you want
+			//{"loadScene":"bma-1"}
+
+			//onclick to be deleted
+			// "onClick": "window.postMessage({artifactId : 'pikachu' }, '*'); console.log('clicked');"
+
 			"multiRes" : {
 				"path" : "/img/panoramas/classroom/%l/%s%y_%x",
 				"fallbackPath" : "/img/panoramas/classroom/fallback/%s",
@@ -35,17 +54,6 @@
 				"cubeResolution" : 2280
 			},
 			"hotSpots" : [
-					//"required":[], //requires any one of the artifact from this list to activate (can be empty and then a click is enough)
-					//"actions":[{"collect":"pikachu"},{"hideHotSpot":"pikachu"}],
-					//other possible action:
-					//{"collect":"pikachu"} //collect an artifact. can be the same artifact back or anything else
-					//{"loadScene":"library"} 
-					//{"showHotSpot":"raichu"}
-					//{"hideHotSpot":"pikachu"} //when you collect an artifact usualy that's what you want
-					//{"loadScene":"bma-1"}
-
-					//onclick to be deleted
-					// "onClick": "window.postMessage({artifactId : 'pikachu' }, '*'); console.log('clicked');"
 
 					{
 					"pitch" : 5,
@@ -125,13 +133,6 @@
 		"bma-1" : {
 			"type" : "equirectangular",
 			"panorama" : "/img/panoramas/examples/bma-1.jpg",
-			/*
-			 * Uncomment the next line to print the coordinates of mouse clicks
-			 * to the browser's developer console, which makes it much easier
-			 * to figure out where to place hot spots. Always remove it when
-			 * finished, though.
-			 */
-			//"hotSpotDebug": true,			
 			"hotSpots" : [{
 					"pitch" : 10,
 					"yaw" : 45,
@@ -158,7 +159,12 @@
 			"modalSrc" : "img/scenes/garbage_key02.jpg",
 			"hotSpots" : [{
                 "style":'{"position":"absolute","top":"40%","left":"50%","max-width":"11%","max-height":"10%","min-width":"11%","min-height":"10%"}',
-              	"id" : "keyInGarbage",
+				"top":"40%",
+				"left":"50%",
+				"width":"11%",
+				"height":"10%",
+
+				"id" : "keyInGarbage",
 				"type" : "info",
 				"imgSrc" : "img/artifacts/semi-trans.png",
 				"shown" : true,
@@ -166,9 +172,8 @@
 				"actions" : [{
 					"collect": "classroomKey"
 				},
-					{
-						"loadModal": "garbageNoKey"
-					}
+					{"loadModal": "garbageNoKey"},
+					{"hideHotSpot": "garbageKey"}
 				]
 			},
 				{

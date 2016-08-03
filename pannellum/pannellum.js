@@ -1610,7 +1610,6 @@ window.pannellum = (function(window, document, undefined) {
 		function overlayCoordinates(){
 
 			let arr = config.hotSpots;
-			console.log('arr:', arr);
 			arr.forEach((hs, index) => {
 				let display = "display:" + (hs.shown ? 'block': 'none');
 
