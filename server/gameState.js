@@ -25,14 +25,23 @@ var GameState = (function () {
         var _this = this;
         console.log('game state totally knows ' + artifactId + ' was clicked');
         var userScene = this.players[userId].currScene;
-        var clickedArtifact = this.scenes[userScene].filter(function (artifact) { return artifact.id === artifactId; })[0];
+        var clickedArtifact;
+        for (var scene in this.scenes) {
+            var foundItems = this.scenes[scene].filter(function (artifact) { return artifact.id === artifactId; });
+            if (foundItems.length) {
+                clickedArtifact = foundItems[0];
+                break;
+            }
+        }
+        // let clickedArtifact:IArtifact = this.scenes[userScene].filter((artifact)=>artifact.id===artifactId)[0];
+        console.log('***clicked***', clickedArtifact);
         //if the clicked artifact is shown (prevent bugs due to "clicking" an already hidden object due to communication lag)
         if (clickedArtifact.shown) {
-            if (this.players[userId].itemIdInHand) {
-                this.removeItemFromBag(this.players[userId].itemIdInHand);
-            }
-            if (clickedArtifact.required.length === 0 || clickedArtifact.required.indexOf(this.players[userId].itemIdInHand) >= 0) {
+            if ((!clickedArtifact.required.length && !this.players[userId].itemIdInHand) || clickedArtifact.required.indexOf(this.players[userId].itemIdInHand) >= 0) {
                 //this is the place to handle clickedArtifact.actions
+                if (this.players[userId].itemIdInHand) {
+                    this.removeItemFromBag(this.players[userId].itemIdInHand);
+                }
                 clickedArtifact.actions.forEach(function (action) {
                     switch (Object.keys(action)[0]) {
                         case 'collect':
@@ -43,7 +52,6 @@ var GameState = (function () {
                             console.log('totally collecting!');
                             break;
                         case 'loadScene':
-                            console.log('load scene******');
                             _this.players[userId].currScene = action.loadScene;
                             break;
                         case 'loadModal':
@@ -99,8 +107,13 @@ var GameState = (function () {
     GameState.prototype.unSelectItemInBag = function (userId) {
         var _this = this;
         if (this.players[userId].itemIdInHand) {
-            var clickedArtifact = this.scenes[this.players[userId].currScene].filter(function (artifact) { return artifact.id === _this.players[userId].itemIdInHand; })[0];
-            clickedArtifact.beingUsedBy = -1;
+            this.bags.forEach(function (bag) {
+                bag.forEach(function (artifact) {
+                    if (artifact.id === _this.players[userId].itemIdInHand)
+                        artifact.beingUsedBy = -1;
+                    console.log('artifact.id:', artifact.id);
+                });
+            });
             this.players[userId].itemIdInHand = '';
         }
     };

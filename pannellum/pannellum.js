@@ -1610,9 +1610,12 @@ window.pannellum = (function(window, document, undefined) {
 		function overlayCoordinates(){
 
 			let arr = config.hotSpots;
+			console.log('arr:', arr);
 			arr.forEach((hs, index) => {
+				let display = "display:" + (hs.shown ? 'block': 'none');
+
 				if(hs.imgSrc && !config.isRendered){
-					hs.div.innerHTML = `<img id=${hs.id} width="64" height="64" src=${hs.imgSrc} onClick="window.postMessage(this.id,'*')"/>`;
+					hs.div.innerHTML = `<img id=${hs.id} width="64" height="64" src=${hs.imgSrc} onClick="window.postMessage(this.id,'*')" style=display/>`;
 				}
 				//if it's a hotspot, and not a point for correction
 				if(hs.div.childElementCount){

@@ -36,7 +36,6 @@ export class StaticSceneComponent implements OnInit {
     constructor(private escapeTogetherService:EscapeTogetherService) {}
 
     parseJSON(json) {
-        console.log(json)
         return JSON.parse(json);
     }
 
