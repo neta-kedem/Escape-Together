@@ -29,7 +29,20 @@ export class GameState {
     sendStateToUsers(){
 		this.cb({bags:this.bags,players:this.players,scenes:this.scenes, modals:this.modals});
 	}
-	
+
+	findArtifactById(artifactId:string){
+        let theArtifact:IArtifact;
+        for (var scene in this.scenes) {
+            let foundItems = this.scenes[scene].filter((artifact)=>artifact.id===artifactId);
+            if(foundItems.length){
+                theArtifact = foundItems[0];
+                break;
+            }
+        }
+        return theArtifact;
+
+    }
+
 	userClick(userId:number, artifactId:string){
         console.log('game state totally knows ' + artifactId + ' was clicked');
         const userScene = this.players[userId].currScene;
@@ -57,9 +70,7 @@ export class GameState {
                 clickedArtifact.actions.forEach((action:any)=>{
                     switch (Object.keys(action)[0]){
                         case 'collect':
-                            console.log('');
-                            console.log('collect:', this.scenes[userScene].filter(hs => hs.id === action.collect)[0]);
-                            this.bags[userId].push(this.scenes[userScene].filter(hs => hs.id === action.collect)[0]);
+                            this.bags[userId].push(this.findArtifactById(action.collect));
                             this.unSelectItemInBag(userId);
                             console.log('totally collecting!');
                             break;
@@ -67,18 +78,16 @@ export class GameState {
                             this.players[userId].currScene = action.loadScene;
                             break;
                         case 'loadModal':
-                            console.log('loading modal?', action.loadModal);
+                            console.log('loading modal', action.loadModal);
                             this.players[userId].currScene = action.loadModal;
                             break;
                         case 'showHotSpot':
                             this.unSelectItemInBag(userId);
-                            this.scenes[userScene].filter(hs => hs.id === action.showHotSpot)[0].shown = true;
-                            //this.flatten(this. scenes).filter(hs => hs.id === action.showHotSpot)[0].shown = true;
+                            this.findArtifactById(action.showHotSpot).shown = true;
                             break;
                         case 'hideHotSpot':
                             this.unSelectItemInBag(userId);
-                            this.scenes[userScene].filter(hs => hs.id === action.hideHotSpot)[0].shown = false;
-                            //this.flatten(this. scenes).filter(hs => hs.id === action.hideHotSpot)[0].shown = false;
+                            this.findArtifactById(action.showHotSpot).shown = false;
                             break;
                         case 'objectMessage':
                             console.log('objectMessage', action.objectMessage);
