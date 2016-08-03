@@ -124,7 +124,7 @@ gameIo.on('connection', function (socket) {
 
 console.log('WebSocket is Ready');
 // Kickup our server
-const baseUrl = 'http://192.168.1.5/data';
+const baseUrl = 'http://10.0.0.1/data';
 // Note: app.listen will not work with cors and the socket
 // app.listen(3003, function () {
 http.listen(3003, function () {

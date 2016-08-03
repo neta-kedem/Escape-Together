@@ -26,7 +26,7 @@ export class EscapeTogetherService{
 	}
 
 	start(){
-	 	this.socket = io('localhost:3003/game');
+	 	this.socket = io('10.0.0.1:3003/game');
 		this.socket.on('state update', (msg)=>{
 			console.log('state updated:', msg);
 
