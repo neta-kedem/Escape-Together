@@ -1619,12 +1619,12 @@ window.pannellum = (function(window, document, undefined) {
 				//if it's a hotspot, and not a point for correction
 				if(hs.div.childElementCount){
 					let object = hs.div.children[0];
-					let width = Math.abs(arr[index+1].x-arr[index].x);
+					let width = Math.max(arr[index+1].x-arr[index].x,1);
 					object.style.position = 'absolute';
 					object.style.top = '13px';
 					object.style.left = '13px';
 					object.attributes.width.value = width;
-					let height = Math.abs(arr[index+1].y-arr[index].y);
+					let height = Math.max(arr[index+1].y-arr[index].y,1);
 					object.attributes.height.value = height;
 				}
 			});

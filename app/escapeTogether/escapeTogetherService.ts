@@ -47,13 +47,18 @@ export class EscapeTogetherService{
 	start(){
 	 	this.socket = io(SERVER_URL,{query:{userId:localStorage.escapeTogetherUserId}});
 		this.socket.on('message',(msg)=>{
-			if (msg.userId===this._userId){
+			if (msg.userId === this._userId){
 				let b = <HTMLElement>document.querySelector('.pnlm-title-box');
-				if (!(b.childElementCount&&b.children[b.childElementCount-1].textContent === msg.message)){
+				if (!(b.childElementCount && b.children[b.childElementCount-1].textContent === msg.message)){
 					let now=Date.now();
 					b.innerHTML += '<div id="msg'+now +'">' + msg.message + '</div>';
 					setTimeout(()=> {document.querySelector('#msg'+now).remove()},2000);
 				}
+			}
+		});
+		this.socket.on('sound',(msg)=>{
+			if (msg.userId === this._userId) {
+				console.log('soundy sound:');
 			}
 		});
 		this.socket.on('state update', (msg)=>{
