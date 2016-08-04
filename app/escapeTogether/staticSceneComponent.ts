@@ -27,7 +27,7 @@ import { EscapeTogetherService } from './escapeTogetherService';
     template: `<div class="staticScene" *ngIf="escapeTogetherService.showModal">
                   <div style="overflow:hidden;position:relative;">
                     <img class="staticImage" [src]="escapeTogetherService.modalSrc" alt="a modal">
-                    <img *ngFor="let hotSpot of escapeTogetherService.modalHotSpots" class="imageHotSpot" [ngStyle]="parseJSON(hotSpot.style)" src="{{hotSpot.imgSrc}}" id="{{hotSpot.id}}" onClick="window.postMessage(this.id,'*')" [hidden]="!hotSpot.shown">
+                    <img *ngFor="let hotSpot of escapeTogetherService.modalHotSpots" class="imageHotSpot" [ngStyle]="makeStyle(hotSpot)" src="{{hotSpot.imgSrc}}" id="{{hotSpot.id}}" onClick="window.postMessage(this.id,'*')" [hidden]="!hotSpot.shown">
                 </div>
                </div>`
 })
@@ -35,8 +35,8 @@ export class StaticSceneComponent implements OnInit {
 
     constructor(private escapeTogetherService:EscapeTogetherService) {}
 
-    parseJSON(json) {
-        return JSON.parse(json);
+    makeStyle(hotSpot){
+        return{"position":"absolute","top":hotSpot.top,"left":hotSpot.left,"max-width":hotSpot.width,"max-height":hotSpot.height,"min-width":hotSpot.width,"min-height":hotSpot.height};
     }
 
     ngOnInit() {

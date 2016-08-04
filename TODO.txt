@@ -8,3 +8,8 @@ modal stuff:
 *   make the modal image background
 *   good modal hotspots
 *   in the service make the binding cleaner, not many public attr
+
+bags:
+*   scroll in the modal if the screen is too short
+*   make the modal- photo non draggable
+*   make the bag items non draggable
