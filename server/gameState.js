@@ -78,12 +78,18 @@ var GameState = (function () {
                             _this.findArtifactById(action.hideHotSpot).shown = false;
                             //	console.log('result of looking for ',action.hideHotSpot,':',this.findArtifactById(action.hideHotSpot));
                             break;
-                        case 'objectMessage':
-                            console.log('objectMessage', action.objectMessage);
-                            _this.objectMessage(userId, action.objectMessage);
+                        case 'message':
+                            //	console.log('message', action.message);
+                            _this.sendMessage(userId, action.message);
                             break;
                     }
                 });
+            }
+            else {
+                //requirements don't match
+                if (clickedArtifact.message) {
+                    this.sendMessage(userId, clickedArtifact.message);
+                }
             }
         }
         //here we shuld emmit to all the users about the new state
@@ -136,7 +142,7 @@ var GameState = (function () {
             });
         });
     };
-    GameState.prototype.objectMessage = function (userId, message) {
+    GameState.prototype.sendMessage = function (userId, message) {
         this.cb({ message: message, userId: userId });
     };
     return GameState;

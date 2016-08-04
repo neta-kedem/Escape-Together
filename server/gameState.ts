@@ -3,7 +3,7 @@
  */
 
 export interface IPlayer{name:string, gender:string, currScene:string, itemIdInHand:string}
-export interface IArtifact{id:string,shown:boolean, src:string, beingUsedBy:number, required:{}[], actions:{any}[]}
+export interface IArtifact{id:string,shown:boolean, src:string, beingUsedBy:number, required:{}[], actions:{any}[], message:string}
 
 export class GameState {
     private bags:Object[][]=[];   //decide later the exact item structure
@@ -92,13 +92,18 @@ export class GameState {
                             this.findArtifactById(action.hideHotSpot).shown = false;
 						//	console.log('result of looking for ',action.hideHotSpot,':',this.findArtifactById(action.hideHotSpot));
                             break;
-                        case 'objectMessage':
-                            console.log('objectMessage', action.objectMessage);
-                            this.objectMessage(userId, action.objectMessage);
+                        case 'message':
+                        //	console.log('message', action.message);
+                            this.sendMessage(userId, action.message);
                             break;
                     }
                 });
-            }
+            }else{
+				//requirements don't match
+				if (clickedArtifact.message){
+					this.sendMessage(userId,clickedArtifact.message);
+				}
+			}
 		}
 
         //here we shuld emmit to all the users about the new state
@@ -153,7 +158,7 @@ export class GameState {
                     console.log('remrem', artifact);
                     return artifact.id !== artifactId})});
     }
-    objectMessage(userId, message){
+    sendMessage(userId, message){
 		this.cb({message:message,userId:userId});
     }
 }

@@ -65,7 +65,7 @@
 					"actions" : [{
 							"showHotSpot" : "outOfClassroom"
 //						}, {
-//							"objectMessage" : "you can open me with pikachu"
+//							"message" : "you can open me with pikachu"
 						}
 					],
 					"shown" : true,
