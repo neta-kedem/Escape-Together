@@ -31,11 +31,8 @@ export class GameState {
 	}
 
 	findArtifactById(artifactId:string){
-		console.log('looking for',artifactId);
-//		console.log('looking in :',scene,':',this.scenes[scene]);
         let theArtifact:IArtifact;
         for (var scene in this.scenes) {
-			console.log('looking in :',scene,':',this.scenes[scene]);
 			let foundItems = this.scenes[scene].filter((artifact)=>artifact.id===artifactId);
             if(foundItems.length){
                 theArtifact = foundItems[0];
@@ -57,7 +54,6 @@ export class GameState {
                 break;
             }
         }
-        // let clickedArtifact:IArtifact = this.scenes[userScene].filter((artifact)=>artifact.id===artifactId)[0];
         console.log('***clicked***', clickedArtifact);
         //if the clicked artifact is shown (prevent bugs due to "clicking" an already hidden object due to communication lag)
 		if(clickedArtifact.shown){
@@ -88,13 +84,14 @@ export class GameState {
                             this.findArtifactById(action.showHotSpot).shown = true;
                             break;
                         case 'hideHotSpot':
-						//	console.log('about to hide:',action.hideHotSpot)
                             this.findArtifactById(action.hideHotSpot).shown = false;
-						//	console.log('result of looking for ',action.hideHotSpot,':',this.findArtifactById(action.hideHotSpot));
                             break;
                         case 'message':
-                        //	console.log('message', action.message);
                             this.sendMessage(userId, action.message);
+                            break;
+                        case 'playSound':
+                            this.soundEffect(userId, action.sound)
+                            //todo: add sound effects
                             break;
                     }
                 });
@@ -106,7 +103,6 @@ export class GameState {
 			}
 		}
 
-        //here we shuld emmit to all the users about the new state
 		this.sendStateToUsers();
     }
 
@@ -130,10 +126,10 @@ export class GameState {
         else if(this.players[userId].itemIdInHand === clickedArtifact.id){
             this.unSelectItemInBag(userId);
 
-        } else{
+        } else {
             console.log('someone else is playing with that '+clickedArtifact.id);
         }
-        //here we should emmit to all the users about the new state
+
 		this.sendStateToUsers();
     };
 
@@ -151,15 +147,17 @@ export class GameState {
     }
 
     removeItemFromBag(artifactId:string){
-        console.log('removing:', artifactId);
         this.bags = this.bags.map((bag:IArtifact[]) => {
             return bag.filter(
                 artifact => {
-                    console.log('remrem', artifact);
                     return artifact.id !== artifactId})});
     }
+
     sendMessage(userId, message){
-		this.cb({message:message,userId:userId});
+		this.cb({message:message, userId:userId});
+    }
+    soundEffect(userId, soundPath){
+        this.cb({sound:soundPath, userId:userId});
     }
 }
 

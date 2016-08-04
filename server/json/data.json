@@ -80,7 +80,7 @@
 					"imgSrc" : "img/artifacts/arrow-back-128.png",
 					"required" : [],
 					"actions" : [
-						{"loadScene" : "bma-1"}
+						{"loadScene" : "lobby"}
 					],
 					"shown" : false,
 					"src" : "img/artifacts/arrow-back-128.png",
@@ -140,12 +140,19 @@
 				}
 			]
 		},
-		"bma-1" : {
-			"type" : "equirectangular",
-			"panorama" : "/img/panoramas/examples/bma-1.jpg",
+		"lobby": {
+			"type": "multires",
+			"multiRes": {
+				"path": "/img/panoramas/lobby/%l/%s%y_%x",
+				"fallbackPath": "/img/panoramas/lobby/fallback/%s",
+				"extension": "jpg",
+				"tileResolution": 512,
+				"maxLevel": 4,
+				"cubeResolution": 2280
+			},
 			"hotSpots" : [{
-				"pitch" : 10,
-				"yaw" : 45,
+				"pitch" : 27.5,
+				"yaw" : -181,
 				"id" : "doorBack",
 				"type" : "info",
 				"sceneId" : "classroom",
@@ -157,12 +164,34 @@
 					{"loadScene" : "classroom"}
 				]
 			}, {
-				"pitch" : -14,
-				"yaw" : 33.2,
+				"pitch" : -40,
+				"yaw" : -152,
 				"type" : "info"
-			}
-			]
+			}]
 		},
+//		"bma-1" : {
+//			"type" : "equirectangular",
+//			"panorama" : "/img/panoramas/examples/bma-1.jpg",
+//			"hotSpots" : [{
+//				"pitch" : 10,
+//				"yaw" : 45,
+//				"id" : "doorBack",
+//				"type" : "info",
+//				"sceneId" : "classroom",
+//				"imgSrc" : "img/artifacts/semi-trans.png",
+//				"shown" : true,
+//				"beingUsedBy" : -1,
+//				"required" : [],
+//				"actions" : [
+//					{"loadScene" : "classroom"}
+//				]
+//			}, {
+//				"pitch" : -14,
+//				"yaw" : 33.2,
+//				"type" : "info"
+//			}
+//			]
+//		},
 		"garbageKey" : {
 			"type" : "staticScene",
 			"modalSrc" : "img/scenes/garbage_key02.jpg",
@@ -178,6 +207,7 @@
 				"required" : [],
 				"actions" : [
 					{"collect" : "classroomKey"},
+					{"hideHotSpot" : "classroomKey"},
 					{"loadModal" : "garbageNoKey"},
 					{"hideHotSpot" : "garbageKey"},
 					{"showHotSpot" : "garbageNoKey"}

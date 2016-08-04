@@ -10,4 +10,4 @@ Bags:
 
 Future Features:
 *   Clock
-*   take an updated version of dev-pannellum
+*   take an updated version of pannellum
