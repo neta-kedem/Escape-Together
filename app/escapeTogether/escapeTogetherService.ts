@@ -16,10 +16,12 @@ export class EscapeTogetherService{
 	private _userId:number;
     private _currScene:string;
 	private modals;
+	private _scenes;
 	public view:any;
 	public modalSrc:string;
 	public showModal:boolean = false;
 	public modalHotSpots:any[];
+	private isPannellumOnLoadActive = false;
 
 	constructor(private http:Http){
 		window.addEventListener('message' , (msg)=>{
@@ -27,7 +29,21 @@ export class EscapeTogetherService{
 			this.artifactClicked(msg.data);
 		});
 	}
-
+	
+	activatePannellumOnLoad(){
+		if (!this.isPannellumOnLoadActive){
+			this.isPannellumOnLoadActive = true;
+				this.view.on('load', ()=>{
+						console.warn('load event fired to ',this._currScene);
+						this._scenes[this._currScene].forEach((artifact:IArtifact)=>{
+							let hsHtml=(<HTMLElement>document.querySelector('#'+artifact.id));
+							if(hsHtml) hsHtml.style.display = artifact.shown? 'block': 'none';
+							else console.warn('#' + artifact.id+ ' not found in DOM in if');
+						});
+					});
+		}
+	};
+	
 	start(){
 	 	this.socket = io(SERVER_URL);
 		this.socket.on('message',(msg)=>{
@@ -48,7 +64,7 @@ export class EscapeTogetherService{
 			this._bags = msg.bags;
 
 			const scene = msg.players[this._userId].currScene;
-
+			this._scenes = msg.scenes;
 			if(this._currScene !== scene){
 				this._currScene = scene;
 				console.log('msg', msg);
@@ -63,14 +79,7 @@ export class EscapeTogetherService{
                 else{
 					this.showModal = false;
                 	this.view = this.view.loadScene(scene, 0, 0, 100);
-					this.view.on('load', ()=>{
-						console.warn('load event fired to ',scene);
-						msg.scenes[scene].forEach((artifact:IArtifact)=>{
-							let hsHtml=(<HTMLElement>document.querySelector('#'+artifact.id));
-							if(hsHtml) hsHtml.style.display = artifact.shown? 'block': 'none';
-							else console.warn('#' + artifact.id+ ' not found in DOM in if');
-						});
-					});
+					this.activatePannellumOnLoad();
                 }
 			}
 
