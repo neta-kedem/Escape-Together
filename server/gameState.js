@@ -80,10 +80,16 @@ var GameState = (function () {
                             break;
                         case 'objectMessage':
                             console.log('objectMessage', action.objectMessage);
-                            _this.objectMessage(userId, action.objectMessage);
+                            _this.sendMessage(userId, action.objectMessage);
                             break;
                     }
                 });
+            }
+            else {
+                //requirements don't match
+                if (clickedArtifact.message) {
+                    this.sendMessage(userId, clickedArtifact.message);
+                }
             }
         }
         //here we shuld emmit to all the users about the new state
@@ -136,7 +142,7 @@ var GameState = (function () {
             });
         });
     };
-    GameState.prototype.objectMessage = function (userId, message) {
+    GameState.prototype.sendMessage = function (userId, message) {
         this.cb({ message: message, userId: userId });
     };
     return GameState;

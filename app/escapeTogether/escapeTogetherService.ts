@@ -48,10 +48,12 @@ export class EscapeTogetherService{
 	 	this.socket = io(SERVER_URL);
 		this.socket.on('message',(msg)=>{
 			if (msg.userId===this._userId){
-				console.log('message:',msg)
-				let b = <HTMLElement>document.querySelector('.pnlm-panorama-info');
-				b.innerText += msg.message+'\n';
-				setTimeout(()=> {b.innerText = 'Escape Together\n';},2000);
+				let b = <HTMLElement>document.querySelector('.pnlm-title-box');
+				if (!(b.childElementCount&&b.children[b.childElementCount-1].textContent === msg.message)){
+					let now=Date.now();
+					b.innerHTML += '<div id="msg'+now +'">' + msg.message + '</div>';
+					setTimeout(()=> {document.querySelector('#msg'+now).remove()},2000);
+				}
 			}
 		});
 		this.socket.on('state update', (msg)=>{
