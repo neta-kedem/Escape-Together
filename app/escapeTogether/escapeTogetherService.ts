@@ -1,3 +1,5 @@
+const SERVER_URL=window.location.hostname+':3003/game';
+
 import { Injectable } from '@angular/core';
 import { GameState } from '../../server/gameState';
 import * as io from 'socket.io-client';
@@ -26,7 +28,7 @@ export class EscapeTogetherService{
 	}
 
 	start(){
-	 	this.socket = io('10.0.0.1:3003/game');
+	 	this.socket = io(SERVER_URL);
 		this.socket.on('state update', (msg)=>{
 			console.log('state updated:', msg);
 
