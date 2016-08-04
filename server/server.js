@@ -94,11 +94,21 @@ let objStr = fs.readFileSync('./json/data.json', 'utf8');
 let clientsideJSON = eval('(' + objStr + ')');
 
 let initialGameState = getGameStateFromJSON(clientsideJSON);
-
+let inactiveUsers=[];
 var gameState = new GameState(initialGameState, emitState);
 gameIo.on('connection', function (socket) {
+	var wantedUserId = +socket.handshake.query.userId;
+	//console.log(socket.handshake.query.userId,typeof  +socket.handshake.query.userId);
+	//console.log(typeof )
 	console.log('a user connected');
-	const stateWithUserId = gameState.addPlayer('gramsci', 'queer', 'classroom');
+	let stateWithUserId;
+	if (inactiveUsers[wantedUserId]){
+		console.log("it's a known inactive user!");
+		inactiveUsers[wantedUserId] = false;
+		stateWithUserId = gameState.reconnectPlayer(wantedUserId);
+	}else{
+		stateWithUserId = gameState.addPlayer('gramsci', 'queer', 'classroom');
+	}
 	const userId = stateWithUserId.userId;
 	console.log(stateWithUserId);
 	socket.emit('state update', stateWithUserId);
@@ -108,7 +118,8 @@ gameIo.on('connection', function (socket) {
 		scenes : stateWithUserId.scenes
 	});
 	socket.on('disconnect', function () {
-		console.log('user disconnected');
+		console.log('user',userId,'disconnected');
+		inactiveUsers[userId] = true;
 	});
 	socket.on('chat message', function (msg) {
 		// console.log('message: ' + msg);

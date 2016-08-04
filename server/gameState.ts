@@ -118,6 +118,11 @@ export class GameState {
         return {bags:this.bags, players:this.players, scenes:this.scenes, modals:this.modals, userId:this.players.length - 1};
     }
 
+    //a happy new player reconnected the game
+    reconnectPlayer(userId){
+        return {bags:this.bags, players:this.players, scenes:this.scenes, modals:this.modals, userId:userId};
+    }
+
     //an item in the bag section was clicked. the user can use it if no one else is using this
     bagedArtifactClicked(userId, artifactId){
 		const clickedArtifact:IArtifact = this.flatten(this.bags).filter((artifact:IArtifact)=>artifact.id===artifactId)[0];

@@ -11,3 +11,6 @@ Bags:
 Future Features:
 *   Clock
 *   take an updated version of dev-pannellum
+
+!important
+session handling (not edible!!!) (done?)
