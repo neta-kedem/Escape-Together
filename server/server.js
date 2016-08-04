@@ -44,9 +44,13 @@ resolve(db);
 //   origins: 'http://localhost:8080',
 //   credentials: false
 // };
-function emitState(state) {
-	// console.log('emmitting: ', JSON.stringify(state));
-	gameIo.emit('state update', state);
+function emitState(msg) {
+	if(msg.hasOwnProperty('message')){
+		gameIo.emit('message', msg);
+		}
+	else{
+		gameIo.emit('state update', msg);
+		}
 }
 
 

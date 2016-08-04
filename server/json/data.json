@@ -4,14 +4,14 @@
 {
 	"default" : {
 		"firstScene" : "classroom",
-		// "author": "Escape",		
+		// "author": "Escape",
 		"autoLoad" : true,
 		/*
-			 * Uncomment the next line to print the coordinates of mouse clicks
-			 * to the browser's developer console, which makes it much easier
-			 * to figure out where to place hot spots. Always remove it when
-			 * finished, though.
-			 */
+		 * Uncomment the next line to print the coordinates of mouse clicks
+		 * to the browser's developer console, which makes it much easier
+		 * to figure out where to place hot spots. Always remove it when
+		 * finished, though.
+		 */
 		"hotSpotDebug" : true
 	},
 	"scenes" : {
@@ -54,8 +54,7 @@
 				"cubeResolution" : 2280
 			},
 			"hotSpots" : [
-
-					{
+				{
 					"pitch" : 5,
 					"yaw" : 24.2,
 					"id" : "door",
@@ -64,8 +63,8 @@
 					"required" : ["classroomKey"],
 					"actions" : [{
 							"showHotSpot" : "outOfClassroom"
-						}, {
-							"objectMessage" : "you can open me with pikachu"
+//						}, {
+//							"objectMessage" : "you can open me with pikachu"
 						}
 					],
 					"shown" : true,
@@ -76,21 +75,23 @@
 					"yaw" : 33.2,
 					"type" : "info"
 				}, {
-				"pitch" : 5,
-				"yaw" : 24.2,
-				"id" : "outOfClassroom",
-				"type" : "info",
-				"imgSrc" : "img/artifacts/arrow-back-128.png",
-				"required" : [],
-				"actions" : [],
-				"shown" : false,
-				"src" : "img/artifacts/arrow-back-128.png",
-				"beingUsedBy" : -1
-			}, {
-				"pitch" : -14,
-				"yaw" : 33.2,
-				"type" : "info"
-			}, {
+					"pitch" : 5,
+					"yaw" : 24.2,
+					"id" : "outOfClassroom",
+					"type" : "info",
+					"imgSrc" : "img/artifacts/arrow-back-128.png",
+					"required" : [],
+					"actions" : [{
+							"loadScene" : "bma-1"
+						}],
+					"shown" : false,
+					"src" : "img/artifacts/arrow-back-128.png",
+					"beingUsedBy" : -1
+				}, {
+					"pitch" : -14,
+					"yaw" : 33.2,
+					"type" : "info"
+				}, {
 					"pitch" : -5.5,
 					"yaw" : 45,
 					"id" : "raichu",
@@ -111,23 +112,40 @@
 					"yaw" : 33.2,
 					"type" : "info"
 				}, {
-				"pitch" : -16,
-				"yaw" : 13,
-				"id" : "garbage",
-				"type" : "info",
-				"imgSrc" : "img/artifacts/semi-trans.png",
-				"shown" : true,
-				"beingUsedBy" : -1,
-				"required" : [],
-				"actions" : [{
-					"loadModal" : "garbageKey"
+					"pitch" : -16,
+					"yaw" : 13,
+					"id" : "garbageKey",
+					"type" : "info",
+					"imgSrc" : "img/artifacts/semi-trans.png",
+					"shown" : true,
+					"beingUsedBy" : -1,
+					"required" : [],
+					"actions" : [{
+							"loadModal" : "garbageKey"
+						}
+					]
+				}, {
+					"pitch" : -21,
+					"yaw" : 17,
+					"type" : "info"
+				}, {
+					"pitch" : -16,
+					"yaw" : 13,
+					"id" : "garbageNoKey",
+					"type" : "info",
+					"imgSrc" : "img/artifacts/semi-trans.png",
+					"shown" : false,
+					"beingUsedBy" : -1,
+					"required" : [],
+					"actions" : [{
+							"loadModal" : "garbageNoKey"
+						}
+					]
+				}, {
+					"pitch" : -21,
+					"yaw" : 17,
+					"type" : "info"
 				}
-				]
-			}, {
-				"pitch" : -21,
-				"yaw" : 17,
-				"type" : "info"
-			}
 			]
 		},
 		"bma-1" : {
@@ -158,59 +176,62 @@
 			"type" : "staticScene",
 			"modalSrc" : "img/scenes/garbage_key02.jpg",
 			"hotSpots" : [{
-                "style":'{"position":"absolute","top":"40%","left":"50%","max-width":"11%","max-height":"10%","min-width":"11%","min-height":"10%"}',
-				"top":"40%",
-				"left":"50%",
-				"width":"11%",
-				"height":"10%",
-				"id" : "keyInGarbage",
-				"type" : "info",
-				"imgSrc" : "img/artifacts/semi-trans.png",
-				"shown" : true,
-				"required" : [],
-				"actions" : [{
-					"collect": "classroomKey"
-				},
-					{"loadModal": "garbageNoKey"},
-					{"hideHotSpot": "garbageKey"}
-				]
-			},
-				{
-				"id": "classroomKey",
-				"style":'{"position":"absolute","top":"40%","left":"50%","max-width":"0%","max-height":"0%","min-width":"0%","min-height":"0%"}',
-				"top":"40%",
-				"left":"50%",
-				"width":"0%",
-				"height":"0%",
-				"type": "info",
-				"imgSrc": "img/artifacts/key.png",
-				"src": "img/artifacts/key.png",
-				"shown": true,
-				"beingUsedBy": -1,
-				"required": [],
-				"actions": []
-			}
+					"style" : '{"position":"absolute","top":"40%","left":"50%","max-width":"11%","max-height":"10%","min-width":"11%","min-height":"10%"}',
+					"top" : "40%",
+					"left" : "50%",
+					"width" : "11%",
+					"height" : "10%",
+					"id" : "keyInGarbage",
+					"type" : "info",
+					"imgSrc" : "img/artifacts/semi-trans.png",
+					"shown" : true,
+					"required" : [],
+					"actions" : [{
+							"collect" : "classroomKey"
+						}, {
+							"loadModal" : "garbageNoKey"
+						}, {
+							"hideHotSpot" : "garbageKey"
+						}, {
+							"showHotSpot" : "garbageNoKey"
+						}
+					]
+				}, {
+					"id" : "classroomKey",
+					"style" : '{"position":"absolute","top":"40%","left":"50%","max-width":"0%","max-height":"0%","min-width":"0%","min-height":"0%"}',
+					"top" : "40%",
+					"left" : "50%",
+					"width" : "0%",
+					"height" : "0%",
+					"type" : "info",
+					"imgSrc" : "img/artifacts/key.png",
+					"src" : "img/artifacts/key.png",
+					"shown" : true,
+					"beingUsedBy" : -1,
+					"required" : [],
+					"actions" : []
+				}
 			]
 		},
 		"garbageNoKey" : {
 			"type" : "staticScene",
 			"modalSrc" : "img/scenes/garbage02.jpg",
 			"hotSpots" : [{
-				"style":'{"position":"absolute","top":"40%","left":"50%","max-width":"11%","max-height":"10%","min-width":"11%","min-height":"10%"}',
-				"top":"40%",
-				"left":"50%",
-				"width":"11%",
-				"height":"10%",
-				"id" : "doorInGarbage",
-				"type" : "info",
-				"imgSrc" : "img/artifacts/semi-trans.png",
-				"shown" : true,
-				"required" : [],
-				"actions" : [{
-					"loadScene" : "classroom"
+					"style" : '{"position":"absolute","top":"40%","left":"50%","max-width":"11%","max-height":"10%","min-width":"11%","min-height":"10%"}',
+					"top" : "40%",
+					"left" : "50%",
+					"width" : "11%",
+					"height" : "10%",
+					"id" : "doorInGarbage",
+					"type" : "info",
+					"imgSrc" : "img/artifacts/arrow-back-128.png",
+					"shown" : true,
+					"required" : [],
+					"actions" : [{
+							"loadScene" : "classroom"
+						}
+					]
 				}
-				]
-			}
 			]
 		}
 	}

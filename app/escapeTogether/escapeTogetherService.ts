@@ -15,6 +15,7 @@ export class EscapeTogetherService{
 	private socket;
 	private _userId:number;
     private _currScene:string;
+	private modals;
 	public view:any;
 	public modalSrc:string;
 	public showModal:boolean = false;
@@ -29,12 +30,21 @@ export class EscapeTogetherService{
 
 	start(){
 	 	this.socket = io(SERVER_URL);
+		this.socket.on('message',(msg)=>{
+			if (msg.userId===this._userId){
+				console.log('message:',msg)
+				let b = <HTMLElement>document.querySelector('.pnlm-panorama-info');
+				b.innerText += msg.message+'\n';
+				setTimeout(()=> {b.innerText = 'Escape Together\n';},2000);
+			}
+		});
 		this.socket.on('state update', (msg)=>{
 			console.log('state updated:', msg);
 
-			if(msg.hasOwnProperty('userId'))
+			if(msg.hasOwnProperty('userId')){
 				this._userId = msg.userId;
-
+				this.modals = msg.modals;
+			}
 			this._bags = msg.bags;
 
 			const scene = msg.players[this._userId].currScene;
@@ -43,8 +53,8 @@ export class EscapeTogetherService{
 				this._currScene = scene;
 				console.log('msg', msg);
 				//we have a modal scene
-                if(msg.modals.hasOwnProperty(scene)){
-					this.modalSrc = msg.modals[scene].modalSrc;
+                if(this.modals.hasOwnProperty(scene)){
+					this.modalSrc = this.modals[scene].modalSrc;
 					this.showModal = true;
 					this.modalHotSpots = msg.scenes[scene];
 					console.log('this.modalHotSpots:', this.modalHotSpots);
