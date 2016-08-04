@@ -168,9 +168,7 @@
 				"imgSrc" : "img/artifacts/semi-trans.png",
 				"shown" : true,
 				"required" : [],
-				"actions" : [{
-					"collect": "classroomKey"
-				},
+				"actions" : [{"collect": "classroomKey"},
 					{"loadModal": "garbageNoKey"},
 					{"hideHotSpot": "garbageKey"}
 				]
@@ -211,7 +209,6 @@
 				}
 				]
 			}
-			]
 		}
 	}
 }
