@@ -19,11 +19,14 @@ var GameState = (function () {
     }
     //the mother of all the game logic
     GameState.prototype.sendStateToUsers = function () {
-        this.cb({ bags: this.bags, players: this.players, scenes: this.scenes, modals: this.modals });
+        this.cb({ bags: this.bags, players: this.players, scenes: this.scenes });
     };
     GameState.prototype.findArtifactById = function (artifactId) {
+        console.log('looking for', artifactId);
+        //		console.log('looking in :',scene,':',this.scenes[scene]);
         var theArtifact;
         for (var scene in this.scenes) {
+            console.log('looking in :', scene, ':', this.scenes[scene]);
             var foundItems = this.scenes[scene].filter(function (artifact) { return artifact.id === artifactId; });
             if (foundItems.length) {
                 theArtifact = foundItems[0];
@@ -52,12 +55,12 @@ var GameState = (function () {
                 //this is the place to handle clickedArtifact.actions
                 if (this.players[userId].itemIdInHand) {
                     this.removeItemFromBag(this.players[userId].itemIdInHand);
+                    this.unSelectItemInBag(userId);
                 }
                 clickedArtifact.actions.forEach(function (action) {
                     switch (Object.keys(action)[0]) {
                         case 'collect':
                             _this.bags[userId].push(_this.findArtifactById(action.collect));
-                            _this.unSelectItemInBag(userId);
                             console.log('totally collecting!');
                             break;
                         case 'loadScene':
@@ -68,12 +71,12 @@ var GameState = (function () {
                             _this.players[userId].currScene = action.loadModal;
                             break;
                         case 'showHotSpot':
-                            _this.unSelectItemInBag(userId);
                             _this.findArtifactById(action.showHotSpot).shown = true;
                             break;
                         case 'hideHotSpot':
-                            _this.unSelectItemInBag(userId);
-                            _this.findArtifactById(action.showHotSpot).shown = false;
+                            //	console.log('about to hide:',action.hideHotSpot)
+                            _this.findArtifactById(action.hideHotSpot).shown = false;
+                            //	console.log('result of looking for ',action.hideHotSpot,':',this.findArtifactById(action.hideHotSpot));
                             break;
                         case 'objectMessage':
                             console.log('objectMessage', action.objectMessage);
@@ -134,6 +137,7 @@ var GameState = (function () {
         });
     };
     GameState.prototype.objectMessage = function (userId, message) {
+        this.cb({ message: message, userId: userId });
     };
     return GameState;
 }());

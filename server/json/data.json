@@ -1,214 +1,61 @@
-// since the file contains comments it should be parsed with eval('('+data+')') instead of JSON.parse (relaxed json format)
-// a plain eval command can't handle a JSON file starting with {}
-// in the final version the comments should be cleaned by doing JSON.stringify(eval('('+data+')'))
 {
-	"default" : {
-		"firstScene" : "classroom",
-		// "author": "Escape",		
-		"autoLoad" : true,
-		/*
-			 * Uncomment the next line to print the coordinates of mouse clicks
-			 * to the browser's developer console, which makes it much easier
-			 * to figure out where to place hot spots. Always remove it when
-			 * finished, though.
-			 */
-		"hotSpotDebug" : true
+	"name": "angular2-quickstart",
+	"version": "1.0.0",
+	"description": "QuickStart package.json from the documentation, (excluding testing support to make it lighter)",
+	"scripts": {
+		"start": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
+		"docker-build": "docker build -t ng2-quickstart .",
+		"docker": "npm run docker-build && docker run -it --rm -p 3000:3000 -p 3001:3001 ng2-quickstart",
+		"pree2e": "npm run webdriver:update",
+		"e2e": "tsc && concurrently \"http-server -s\" \"protractor protractor.config.js\" --kill-others --success first",
+		"lint": "tslint ./app/**/*.ts -t verbose",
+		"lite": "lite-server",
+		"postinstall": "typings install",
+		"test": "tsc && concurrently \"tsc -w\" \"karma start karma.conf.js\"",
+		"test-once": "tsc && karma start karma.conf.js --single-run",
+		"tsc": "tsc",
+		"tsc:w": "tsc -w",
+		"typings": "typings",
+		"webdriver:update": "webdriver-manager update",
+		"build-css": "node-sass scss/main.scss public/css/styles.css",
+		"watch-css": "nodemon -e scss -x \"npm run build-css\""
 	},
-	"scenes" : {
-		"classroom" : {
-			"title" : "Escape Together",
-			"hfov" : 100,
-			"pitch" : 10,
-			"yaw" : 50,
-			"northOffset" : 289,
-			"type" : "multires",
-			"isRendered" : false,
-			// "type": "cubemap",
-			// "cubeMap":[
-			// 	"/img/panoramas/classroom/fallback/f.jpg",
-			// 	"/img/panoramas/classroom/fallback/b.jpg",
-			// 	"/img/panoramas/classroom/fallback/u.jpg",
-			// 	"/img/panoramas/classroom/fallback/d.jpg",
-			// 	"/img/panoramas/classroom/fallback/l.jpg",
-			// 	"/img/panoramas/classroom/fallback/r.jpg"
-			// ],
-
-			//"required":[], //requires any one of the artifact from this list to activate (can be empty and then a click is enough)
-			//"actions":[{"collect":"pikachu"},{"hideHotSpot":"pikachu"}],
-			//other possible action:
-			//{"collect":"pikachu"} //collect an artifact. can be the same artifact back or anything else
-			//{"loadScene":"library"}
-			//{"showHotSpot":"raichu"}
-			//{"hideHotSpot":"pikachu"} //when you collect an artifact usualy that's what you want
-			//{"loadScene":"bma-1"}
-
-			//onclick to be deleted
-			// "onClick": "window.postMessage({artifactId : 'pikachu' }, '*'); console.log('clicked');"
-
-			"multiRes" : {
-				"path" : "/img/panoramas/classroom/%l/%s%y_%x",
-				"fallbackPath" : "/img/panoramas/classroom/fallback/%s",
-				"extension" : "jpg",
-				"tileResolution" : 512,
-				"maxLevel" : 4,
-				"cubeResolution" : 2280
-			},
-			"hotSpots" : [
-
-					{
-					"pitch" : 5,
-					"yaw" : 24.2,
-					"id" : "door",
-					"type" : "info",
-					"imgSrc" : "img/artifacts/semi-trans.png",
-					"required" : ["classroomKey"],
-					"actions" : [{
-							"showHotSpot" : "outOfClassroom"
-						}, {
-							"objectMessage" : "you can open me with pikachu"
-						}
-					],
-					"shown" : true,
-					"src" : "img/artifacts/semi-trans.png",
-					"beingUsedBy" : -1
-				}, {
-					"pitch" : -14,
-					"yaw" : 33.2,
-					"type" : "info"
-				}, {
-				"pitch" : 5,
-				"yaw" : 24.2,
-				"id" : "outOfClassroom",
-				"type" : "info",
-				"imgSrc" : "img/artifacts/arrow-back-128.png",
-				"required" : [],
-				"actions" : [],
-				"shown" : false,
-				"src" : "img/artifacts/arrow-back-128.png",
-				"beingUsedBy" : -1
-			}, {
-				"pitch" : -14,
-				"yaw" : 33.2,
-				"type" : "info"
-			}, {
-					"pitch" : -5.5,
-					"yaw" : 45,
-					"id" : "raichu",
-					"type" : "info",
-					"imgSrc" : "img/artifacts/Raichu.png",
-					"shown" : false,
-					"src" : "img/artifacts/Raichu.png",
-					"beingUsedBy" : -1,
-					"required" : [],
-					"actions" : [{
-							"collect" : "raichu"
-						}, {
-							"hideHotSpot" : "raichu"
-						}
-					]
-				}, {
-					"pitch" : -14,
-					"yaw" : 33.2,
-					"type" : "info"
-				}, {
-				"pitch" : -16,
-				"yaw" : 13,
-				"id" : "garbage",
-				"type" : "info",
-				"imgSrc" : "img/artifacts/semi-trans.png",
-				"shown" : true,
-				"beingUsedBy" : -1,
-				"required" : [],
-				"actions" : [{
-					"loadModal" : "garbageKey"
-				}
-				]
-			}, {
-				"pitch" : -21,
-				"yaw" : 17,
-				"type" : "info"
-			}
-			]
-		},
-		"bma-1" : {
-			"type" : "equirectangular",
-			"panorama" : "/img/panoramas/examples/bma-1.jpg",
-			"hotSpots" : [{
-					"pitch" : 10,
-					"yaw" : 45,
-					"id" : "doorBack",
-					"type" : "info",
-					"sceneId" : "classroom",
-					"imgSrc" : "img/artifacts/semi-trans.png",
-					"shown" : true,
-					"beingUsedBy" : -1,
-					"required" : [],
-					"actions" : [{
-							"loadScene" : "classroom"
-						}
-					]
-				}, {
-					"pitch" : -14,
-					"yaw" : 33.2,
-					"type" : "info"
-				}
-			]
-		},
-		"garbageKey" : {
-			"type" : "staticScene",
-			"modalSrc" : "img/scenes/garbage_key02.jpg",
-			"hotSpots" : [{
-                "style":'{"position":"absolute","top":"40%","left":"50%","max-width":"11%","max-height":"10%","min-width":"11%","min-height":"10%"}',
-				"top":"40%",
-				"left":"50%",
-				"width":"11%",
-				"height":"10%",
-				"id" : "keyInGarbage",
-				"type" : "info",
-				"imgSrc" : "img/artifacts/semi-trans.png",
-				"shown" : true,
-				"required" : [],
-				"actions" : [{"collect": "classroomKey"},
-					{"loadModal": "garbageNoKey"},
-					{"hideHotSpot": "garbageKey"}
-				]
-			},
-				{
-				"id": "classroomKey",
-				"style":'{"position":"absolute","top":"40%","left":"50%","max-width":"0%","max-height":"0%","min-width":"0%","min-height":"0%"}',
-				"top":"40%",
-				"left":"50%",
-				"width":"0%",
-				"height":"0%",
-				"type": "info",
-				"imgSrc": "img/artifacts/key.png",
-				"src": "img/artifacts/key.png",
-				"shown": true,
-				"beingUsedBy": -1,
-				"required": [],
-				"actions": []
-			}
-			]
-		},
-		"garbageNoKey" : {
-			"type" : "staticScene",
-			"modalSrc" : "img/scenes/garbage02.jpg",
-			"hotSpots" : [{
-				"style":'{"position":"absolute","top":"40%","left":"50%","max-width":"11%","max-height":"10%","min-width":"11%","min-height":"10%"}',
-				"top":"40%",
-				"left":"50%",
-				"width":"11%",
-				"height":"10%",
-				"id" : "doorInGarbage",
-				"type" : "info",
-				"imgSrc" : "img/artifacts/semi-trans.png",
-				"shown" : true,
-				"required" : [],
-				"actions" : [{
-					"loadScene" : "classroom"
-				}
-				]
-			}
-		}
-	}
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"@angular/common": "2.0.0-rc.4",
+		"@angular/compiler": "2.0.0-rc.4",
+		"@angular/core": "2.0.0-rc.4",
+		"@angular/forms": "0.2.0",
+		"@angular/http": "2.0.0-rc.4",
+		"@angular/platform-browser": "2.0.0-rc.4",
+		"@angular/platform-browser-dynamic": "2.0.0-rc.4",
+		"@angular/router": "3.0.0-beta.2",
+		"@angular/router-deprecated": "2.0.0-rc.2",
+		"@angular/upgrade": "2.0.0-rc.4",
+		"bootstrap": "^3.3.6",
+		"core-js": "^2.4.0",
+		"ng2-file-upload": "^1.0.3",
+		"ng2-toastr": "^0.3.0",
+		"reflect-metadata": "^0.1.3",
+		"rxjs": "5.0.0-beta.6",
+		"socket.io": "^1.4.8",
+		"systemjs": "0.19.27",
+		"zone.js": "^0.6.12"
+	},
+	"devDependencies": {
+		"canonical-path": "0.0.2",
+		"concurrently": "^2.2.0",
+		"http-server": "^0.9.0",
+		"lite-server": "^2.2.0",
+		"lodash": "^4.11.1",
+		"node-sass": "^3.8.0",
+		"nodemon": "^1.9.2",
+		"rimraf": "^2.5.2",
+		"tslint": "^3.7.4",
+		"typescript": "^1.8.10",
+		"typings": "^1.0.4"
+	},
+	"repository": {}
 }
