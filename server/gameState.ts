@@ -92,9 +92,9 @@ export class GameState {
                             this.findArtifactById(action.hideHotSpot).shown = false;
 						//	console.log('result of looking for ',action.hideHotSpot,':',this.findArtifactById(action.hideHotSpot));
                             break;
-                        case 'objectMessage':
-                            console.log('objectMessage', action.objectMessage);
-                            this.sendMessage(userId, action.objectMessage);
+                        case 'message':
+                        //	console.log('message', action.message);
+                            this.sendMessage(userId, action.message);
                             break;
                     }
                 });

@@ -63,10 +63,10 @@
 					"required" : ["classroomKey"],
 					"message" : "you need the key",
 					"actions" : [{
-						"showHotSpot" : "outOfClassroom"
-						//						}, {
-						//							"objectMessage" : "you can open me with pikachu"
-					}
+					"showHotSpot" : "outOfClassroom"
+//						}, {
+//							"message" : "you can open me with pikachu"
+						}
 					],
 					"shown" : true,
 					"src" : "img/artifacts/semi-trans.png",

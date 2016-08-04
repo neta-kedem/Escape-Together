@@ -7,3 +7,5 @@ bower_components
 tmp
 desktop.ini
 .idea
+server/gameState.js
+server/gameState.js.map

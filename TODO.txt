@@ -1,15 +1,13 @@
 TODO:
 Code Cleanup:
-*	external json file- move to real json
 *	escapeTogetherService- in start function- prevent double excecution of DOM display update
 	(including the faild excecutions)
 
-modal stuff:
-*   make the modal image background
-*   good modal hotspots
-*   in the service make the binding cleaner, not many public attr
-
-bags:
+Bags:
 *   scroll in the modal if the screen is too short
 *   make the modal- photo non draggable
 *   make the bag items non draggable
+
+Future Features:
+*   Clock
+*   take an updated version of dev-pannellum
