@@ -45,7 +45,7 @@ export class EscapeTogetherService{
 	};
 	
 	start(){
-	 	this.socket = io(SERVER_URL,{query:{userId:localStorage.escapeTogetherUserId}});
+	 	this.socket = io(SERVER_URL,{query:{userId:localStorage.getItem('escapeTogetherUserId')}});
 		this.socket.on('message',(msg)=>{
 			if (msg.userId === this._userId){
 				let b = <HTMLElement>document.querySelector('.pnlm-title-box');
@@ -67,7 +67,7 @@ export class EscapeTogetherService{
 			if(msg.hasOwnProperty('userId')){
 				this._userId = msg.userId;
 				this.modals = msg.modals;
-				localStorage.escapeTogetherUserId = msg.userId;
+				localStorage.setItem('escapeTogetherUserId', msg.userId);
 			}
 			this._bags = msg.bags;
 
