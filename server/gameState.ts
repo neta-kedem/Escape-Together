@@ -76,10 +76,19 @@ export class GameState {
                         case 'loadScene':
                             this.players[userId].currScene = action.loadScene;
                             break;
-                        case 'loadModal':
+                        //remind me why we have both loadModal and loadScene?
+						case 'loadModal':
                             console.log('loading modal', action.loadModal);
                             this.players[userId].currScene = action.loadModal;
                             break;
+						case 'changeSceneEveryone':
+							Object.keys(action.changeSceneEveryone).forEach((sceneToChange:string)=>{
+								this.players.forEach((player)=>{
+									if (player.currScene===sceneToChange)
+										player.currScene = action.changeSceneEveryone[sceneToChange];
+								});
+							});
+							break;
                         case 'showHotSpot':
                             this.findArtifactById(action.showHotSpot).shown = true;
                             break;

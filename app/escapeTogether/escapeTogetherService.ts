@@ -1,4 +1,5 @@
 const SERVER_URL=window.location.hostname+':3003/game';
+const JSON_URL = '/server/data.json';
 
 import { Injectable } from '@angular/core';
 import { GameState } from '../../server/gameState';
@@ -86,7 +87,16 @@ export class EscapeTogetherService{
                 //in case of a normal scene
                 else{
 					this.showModal = false;
-                	this.view = this.view.loadScene(scene, 0, 0, 100);
+                	//this.view = this.view.loadScene(scene, 0, 0, 100);
+                	// 'same' means scene default pitch/yaw/hfow from config.json
+					//if (!localStorage.xxx)this.view = 
+					this.view.loadScene(scene, 'same', 'same', 'same');
+					//another method (preserving current pitch/yaw/hfow)
+					//else {console.log(scene, this.view.getPitch(), this.view.getYaw(), this.view.getHfov());
+					//	this.view = this.view.loadScene(scene, this.view.getPitch(), this.view.getYaw(), this.view.getHfov());
+					//}
+					//console.log(this.view);
+
 					this.activatePannellumOnLoad();
                 }
 			}
@@ -101,7 +111,7 @@ export class EscapeTogetherService{
 
 	loadPannellum(elId){
 		return new Promise((resolve,reject) => {
-			this.http.get('/server/json/data.json').toPromise().then((res:any) => {
+			this.http.get(JSON_URL).toPromise().then((res:any) => {
 				this.view = pannellum.viewer(elId, eval('(' + res._body + ')'));
 				resolve();
 				// this.view.on('load', resolve);

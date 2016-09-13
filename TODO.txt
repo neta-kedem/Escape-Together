@@ -1,9 +1,16 @@
+legend:
+----------------
+*	todo
+X	done
+(*)	optional
+
 TODO:
 Code Cleanup:
 *	escapeTogetherService- in start function- prevent double excecution of DOM display update
 	(including the faild excecutions)
+* is loadModal command nesessary? it's identical to loadScene!
 
-Bags:
+Bugs:
 *   scroll in the modal if the screen is too short
 *   make the modal- photo non draggable
 *   make the bag items non draggable
@@ -13,4 +20,12 @@ Future Features:
 *   take an updated version of dev-pannellum
 
 !important
-session handling (not edible!!!) (done?)
+X session handling (not edible!!!) (done)
+
+date.json:
+* create a toggle artifact (on-off-on-off...) that shows/hides something in another room
+
+functionality:
+X kick of a secific scene to another specific scene functionality (server side) (done)
+X fix some errors in json for the modal (done)
+(*) optional(it's a mess - not going to happen!!!): option to keep direction(hfow,pitch,yaw) (client side + flag from server)

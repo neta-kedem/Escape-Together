@@ -1,16 +1,10 @@
-// Minimal Simple REST API Handler (With MongoDB and Socket.io)
-// Author: Yaron Biton misterBIT.co.il
-
 "use strict";
+const JSON_URL = './data.json';
 const express = require('express'),
 bodyParser = require('body-parser'),
 cors = require('cors'),
 GameState = require('./gameState'),
 fs = require('fs');
-//		mongodb = require('mongodb')
-
-//const multer  = require('multer')
-//const upload = multer({ dest: 'uploads/' })
 
 const app = express();
 app.use(cors());
@@ -20,30 +14,6 @@ const http = require('http').Server(app);
 const io = require('socket.io')(http);
 const gameIo = io.of('/game');
 
-/*
-function dbConnect() {
-
-return new Promise((resolve, reject) => {
-// Connection URL
-var url = 'mongodb://localhost:27017/seed';
-// Use connect method to connect to the Server
-mongodb.MongoClient.connect(url, function (err, db) {
-if (err) { 
-cl('Cannot connect to DB', err)
-reject(err);
-}
-else {
-//cl("Connected to DB");
-resolve(db);
-}
-});
-});
-}
- */
-// var corsOptions = {
-//   origins: 'http://localhost:8080',
-//   credentials: false
-// };
 function emitState(msg) {
 	if(msg.hasOwnProperty('message')){
 		gameIo.emit('message', msg);
@@ -52,7 +22,6 @@ function emitState(msg) {
 		gameIo.emit('state update', msg);
 		}
 }
-
 
 //from babel
 function objectWithoutProperties(obj, keys) {
@@ -74,10 +43,7 @@ function getGameStateFromJSON(sourceJSON) {
 	for (let scene in sourceJSON.scenes) {
 	    if (sourceJSON.scenes[scene].type  === 'staticScene'){
 	        modals[scene] = objectWithoutProperties(sourceJSON.scenes[scene],['type','hotSpots']);
-            // console.log('modals:', modals);
-
         }
-        // console.log('scene:', scene);
 		hotspots[scene] = sourceJSON.scenes[scene].hotSpots.reduce((result,hs)=>{
 			if (hs.hasOwnProperty('id')){
 				result.push(objectWithoutProperties(hs,['pitch','yaw']));
@@ -88,7 +54,7 @@ function getGameStateFromJSON(sourceJSON) {
 	return {hotSpots:hotspots, modals:modals};
 }
 
-let objStr = fs.readFileSync('./json/data.json', 'utf8');
+let objStr = fs.readFileSync(JSON_URL, 'utf8');
 //use eval to allow comments inside JSON file.
 //eval fails on JSON files starting with "{", using () is a workaround for that
 let clientsideJSON = eval('(' + objStr + ')');
@@ -98,8 +64,6 @@ let inactiveUsers=[];
 var gameState = new GameState(initialGameState, emitState);
 gameIo.on('connection', function (socket) {
 	var wantedUserId = +socket.handshake.query.userId;
-	//console.log(socket.handshake.query.userId,typeof  +socket.handshake.query.userId);
-	//console.log(typeof )
 	console.log('a user connected');
 	let stateWithUserId;
 	if (inactiveUsers[wantedUserId]){
@@ -122,7 +86,6 @@ gameIo.on('connection', function (socket) {
 		inactiveUsers[userId] = true;
 	});
 	socket.on('chat message', function (msg) {
-		// console.log('message: ' + msg);
 		gameIo.emit('chat message', msg);
 	});
 	socket.on('userClick', function (msg) {
@@ -136,24 +99,7 @@ gameIo.on('connection', function (socket) {
 
 });
 
-console.log('WebSocket is Ready');
-// Kickup our server
-const baseUrl = 'http://10.0.0.1/data';
-// Note: app.listen will not work with cors and the socket
-// app.listen(3003, function () {
 http.listen(3003, function () {
-	/*	console.log(`misterREST server is ready at ${baseUrl}`);
-	console.log(`GET (list): \t\t ${baseUrl}/{entity}`);
-	console.log(`GET (single): \t\t ${baseUrl}/{entity}/{id}`);
-	console.log(`DELETE: \t\t ${baseUrl}/{entity}/{id}`);
-	console.log(`PUT (update): \t\t ${baseUrl}/{entity}/{id}`);
-	console.log(`POST (add): \t\t ${baseUrl}/{entity}`);
-	 */
+console.log('WebSocket is Ready');
 });
-/*
-// Some small time utility functions
-function cl(...params) {
-console.log.apply(console, params);
-}
- */
 

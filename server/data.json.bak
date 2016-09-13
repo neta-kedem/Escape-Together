@@ -20,7 +20,7 @@
 			"hfov" : 100,
 			"pitch" : 10,
 			"yaw" : 50,
-			"northOffset" : 289,
+			//"northOffset" : 289,
 			"type" : "multires",
 			"isRendered" : false,
 			// "type": "cubemap",

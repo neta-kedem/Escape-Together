@@ -1,0 +1,274 @@
+// since the file contains comments it should be parsed with eval('('+data+')') instead of JSON.parse (relaxed json format)
+// a plain eval command can't handle a JSON file starting with {}
+// in the final version the comments should be cleaned by doing JSON.stringify(eval('('+data+')'))
+{
+	"default" : {
+		"firstScene" : "classroom",
+		// "author": "Escape",
+		"autoLoad" : true,
+		/*
+		 * Uncomment the next line to print the coordinates of mouse clicks
+		 * to the browser's developer console, which makes it much easier
+		 * to figure out where to place hot spots. Always remove it when
+		 * finished, though.
+		 */
+		"hotSpotDebug" : true
+	},
+	"scenes" : {
+		"classroom" : {
+			"title" : "Escape Together",
+			"hfov" : 100,
+			"pitch" : 10,
+			"yaw" : 50,
+			//"northOffset" : 289,
+			"type" : "multires",
+			"isRendered" : false,
+			// "type": "cubemap",
+			// "cubeMap":[
+			// 	"/img/panoramas/classroom/fallback/f.jpg",
+			// 	"/img/panoramas/classroom/fallback/b.jpg",
+			// 	"/img/panoramas/classroom/fallback/u.jpg",
+			// 	"/img/panoramas/classroom/fallback/d.jpg",
+			// 	"/img/panoramas/classroom/fallback/l.jpg",
+			// 	"/img/panoramas/classroom/fallback/r.jpg"
+			// ],
+
+			//"required":[], //requires any one of the artifact from this list to activate (can be empty and then a click is enough)
+			//"actions":[{"collect":"pikachu"},{"hideHotSpot":"pikachu"}],
+			//other possible action:
+			//{"collect":"pikachu"} //collect an artifact. can be the same artifact back or anything else
+			//{"loadScene":"library"}
+			//{"showHotSpot":"raichu"}
+			//{"hideHotSpot":"pikachu"} //when you collect an artifact usualy that's what you want
+			//{"loadScene":"bma-1"}
+
+			//onclick to be deleted
+			// "onClick": "window.postMessage({artifactId : 'pikachu' }, '*'); console.log('clicked');"
+
+			"multiRes" : {
+				"path" : "/img/panoramas/classroom/%l/%s%y_%x",
+				"fallbackPath" : "/img/panoramas/classroom/fallback/%s",
+				"extension" : "jpg",
+				"tileResolution" : 512,
+				"maxLevel" : 4,
+				"cubeResolution" : 2280
+			},
+			"hotSpots" : [
+				{
+					"pitch" : 5,
+					"yaw" : 24.2,
+					"id" : "door",
+					"type" : "info",
+					"imgSrc" : "img/artifacts/semi-trans.png",
+					"required" : ["classroomKey"],
+					"message" : "you need the key",
+					"actions" : [
+						{"showHotSpot" : "outOfClassroom"}
+					],
+					"shown" : true,
+					"src" : "img/artifacts/semi-trans.png",
+					"beingUsedBy" : -1
+				}, {
+					"pitch" : -14,
+					"yaw" : 33.2,
+					"type" : "info"
+				}, {
+					"pitch" : 5,
+					"yaw" : 24.2,
+					"id" : "outOfClassroom",
+					"type" : "info",
+					"imgSrc" : "img/artifacts/arrow-back-128.png",
+					"required" : [],
+					"actions" : [
+						{"loadScene" : "lobby"}
+					],
+					"shown" : false,
+					"src" : "img/artifacts/arrow-back-128.png",
+					"beingUsedBy" : -1
+				}, {
+					"pitch" : -14,
+					"yaw" : 33.2,
+					"type" : "info"
+				}, {
+					"pitch" : -16,
+					"yaw" : 13,
+					"id" : "garbageKey",
+					"type" : "info",
+					"imgSrc" : "img/artifacts/semi-trans.png",
+					"shown" : true,
+					"beingUsedBy" : -1,
+					"required" : [],
+					"actions" : [
+						{"loadModal" : "garbageKey"}
+					]
+				}, {
+					"pitch" : -21,
+					"yaw" : 17,
+					"type" : "info"
+				}, {
+					"pitch" : -16,
+					"yaw" : 13,
+					"id" : "garbageNoKey",
+					"type" : "info",
+					"imgSrc" : "img/artifacts/semi-trans.png",
+					"shown" : false,
+					"beingUsedBy" : -1,
+					"required" : [],
+					"actions" : [
+						{"loadModal" : "garbageNoKey"}
+					]
+				}, {
+					"pitch" : -21,
+					"yaw" : 17,
+					"type" : "info"
+				}, {
+					"pitch" : 12,
+					"yaw" : 161,
+					"id" : "classroom_clock",
+					"type" : "info",
+					"imgSrc" : "img/artifacts/semi-trans.png",
+					"shown" : true,
+					"beingUsedBy" : -1,
+					"required" : [],
+					"actions" : [
+						{"message" : "time for a bath"}
+					]
+				}, {
+					"pitch" : 5,
+					"yaw" : 169,
+					"type" : "info"
+				}
+			]
+		},
+		"lobby": {
+			"type": "multires",
+			"multiRes": {
+				"path": "/img/panoramas/lobby/%l/%s%y_%x",
+				"fallbackPath": "/img/panoramas/lobby/fallback/%s",
+				"extension": "jpg",
+				"tileResolution": 512,
+				"maxLevel": 4,
+				"cubeResolution": 2280
+			},
+			"hotSpots" : [{
+				"pitch" : 27.5,
+				"yaw" : -181,
+				"id" : "doorBack",
+				"type" : "info",
+				"sceneId" : "classroom",
+				"imgSrc" : "img/artifacts/semi-trans.png",
+				"shown" : true,
+				"beingUsedBy" : -1,
+				"required" : [],
+				"actions" : [
+					{"loadScene" : "classroom"}
+				]
+			}, {
+				"pitch" : -40,
+				"yaw" : -152,
+				"type" : "info"
+			}]
+		},
+//		"bma-1" : {
+//			"type" : "equirectangular",
+//			"panorama" : "/img/panoramas/examples/bma-1.jpg",
+//			"hotSpots" : [{
+//				"pitch" : 10,
+//				"yaw" : 45,
+//				"id" : "doorBack",
+//				"type" : "info",
+//				"sceneId" : "classroom",
+//				"imgSrc" : "img/artifacts/semi-trans.png",
+//				"shown" : true,
+//				"beingUsedBy" : -1,
+//				"required" : [],
+//				"actions" : [
+//					{"loadScene" : "classroom"}
+//				]
+//			}, {
+//				"pitch" : -14,
+//				"yaw" : 33.2,
+//				"type" : "info"
+//			}
+//			]
+//		},
+		"garbageKey" : {
+			"type" : "staticScene",
+			"modalSrc" : "img/scenes/garbage_key02.jpg",
+			"hotSpots" : [{
+				"top" : "40%",
+				"left" : "50%",
+				"width" : "11%",
+				"height" : "10%",
+				"id" : "classroomKey",
+				"type" : "info",
+				"imgSrc" : "img/artifacts/semi-trans.png",
+				"src" : "img/artifacts/key02.png",
+				"shown" : true,
+				"beingUsedBy" : -1,				
+				"required" : [],
+				"actions" : [
+					{"collect" : "classroomKey"},
+					//{"collect" : "keyInGarbage"},
+					
+					{"hideHotSpot" : "classroomKey"},
+					//{"loadModal" : "garbageNoKey"}, //remind me, why loadModal is a separate function?
+					//{"loadScene" : "garbageNoKey"},
+					{"hideHotSpot" : "garbageKey"},
+					{"showHotSpot" : "garbageNoKey"},
+					{"changeSceneEveryone":{"garbageKey" : "garbageNoKey"
+											//,"someOtherScene_NOT_EXISTING_this_is_just_an_example" : "classroom"
+											}}
+				]
+			},
+			/*{
+				"id" : "classroomKey",
+//				"top" : "40%",
+//				"left" : "50%",
+//				"width" : "0%",
+//				"height" : "0%",
+				"type" : "info",
+				"imgSrc" : "img/artifacts/key02.png",
+				"src" : "img/artifacts/key02.png",
+				"shown" : false,
+				"beingUsedBy" : -1,
+				"required" : [],
+				"actions" : []
+			}, */{
+				"top": "100px",
+				"left": "0%",
+				"width": "33px",
+				"height": "33px",
+				"id": "doorInGarbage",
+				"type": "info",
+				"imgSrc": "img/artifacts/arrow-back-128.png",
+				"shown": true,
+				"required": [],
+				"actions": [
+					{"loadScene": "classroom"}
+				]
+			}
+			
+			]
+		},
+		"garbageNoKey" : {
+			"type" : "staticScene",
+			"modalSrc" : "img/scenes/garbage02.jpg",
+			"hotSpots" : [{
+				"top" : "100px",
+				"left" : "0%",
+				"width" : "33px",
+				"height" : "33px",
+				"id" : "doorInGarbage",
+				"type" : "info",
+				"imgSrc" : "img/artifacts/arrow-back-128.png",
+				"shown" : true,
+				"required" : [],
+				"actions" : [
+					{"loadScene" : "classroom"}
+				]
+			}
+			]
+		}
+	}
+}
