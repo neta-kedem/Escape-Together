@@ -76,11 +76,12 @@ export class GameState {
                         case 'loadScene':
                             this.players[userId].currScene = action.loadScene;
                             break;
-                        //remind me why we have both loadModal and loadScene?
+/*                        //remind me why we have both loadModal and loadScene?
 						case 'loadModal':
                             console.log('loading modal', action.loadModal);
                             this.players[userId].currScene = action.loadModal;
                             break;
+*/
 						case 'changeSceneEveryone':
 							Object.keys(action.changeSceneEveryone).forEach((sceneToChange:string)=>{
 								this.players.forEach((player)=>{

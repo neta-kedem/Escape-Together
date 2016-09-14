@@ -1,3 +1,4 @@
-body {
-  /*background-color: #bada55; */
-}
+img{
+  -webkit-user-drag: none;
+  /* no similar WORKING solution for other browsers */
+	}

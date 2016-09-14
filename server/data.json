@@ -99,7 +99,7 @@
 					"beingUsedBy" : -1,
 					"required" : [],
 					"actions" : [
-						{"loadModal" : "garbageKey"}
+						{"loadScene" : "garbageKey"}
 					]
 				}, {
 					"pitch" : -21,
@@ -115,7 +115,7 @@
 					"beingUsedBy" : -1,
 					"required" : [],
 					"actions" : [
-						{"loadModal" : "garbageNoKey"}
+						{"loadScene" : "garbageNoKey"}
 					]
 				}, {
 					"pitch" : -21,
